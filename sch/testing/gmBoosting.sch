@@ -15,6 +15,9 @@ T {0.35} -475 1125 0 0 0.3 0.3 {}
 T {174.62uA} 250 805 0 0 0.3 0.3 {}
 T {323.66uA} -165 820 0 0 0.3 0.3 {}
 T {0.72V} -95 1000 0 0 0.3 0.3 {}
+T {0.62} -735 1035 0 0 0.3 0.3 {}
+T {0.61} -1015 855 0 0 0.3 0.3 {}
+T {0.95} -1055 905 0 0 0.3 0.3 {}
 N 90 1180 90 1230 {lab=GND}
 N 90 840 90 890 {lab=VDD}
 N -70 1020 -70 1070 {lab=#net1}
@@ -66,56 +69,81 @@ N -340 1140 -340 1180 {lab=Vb3}
 N -380 1140 -340 1140 {lab=Vb3}
 N -380 1000 -380 1140 {lab=Vb3}
 N -580 1055 -580 1060 {lab=#net7}
-N -580 840 -580 970 {lab=VDD}
 N -580 840 -380 840 {lab=VDD}
 N -580 1170 -580 1230 {lab=GND}
 N -580 1120 -580 1140 {lab=Vb0}
 N -620 1055 -580 1055 {lab=#net7}
-N -580 1030 -580 1055 {lab=#net7}
+N -580 990 -580 1055 {lab=#net7}
 N -580 1140 -510 1140 {lab=Vb0}
 N -380 1230 90 1230 {lab=GND}
 N -230 840 -140 840 {lab=VDD}
 N -70 1120 90 1120 {lab=#net4}
 N 90 1100 90 1120 {lab=#net4}
 N 260 1130 260 1150 {lab=#net8}
-N 260 990 260 1040 {lab=Vo2}
-N 90 990 90 1040 {lab=Vo1}
-N 260 1230 340 1230 {lab=GND}
 N -340 970 -190 970 {lab=Vb0}
 N -340 1180 50 1180 {lab=Vb3}
 N -230 1130 260 1130 {lab=#net8}
 N -230 1100 -230 1130 {lab=#net8}
 N 260 1100 260 1130 {lab=#net8}
-N -740 840 -740 930 {lab=VDD}
-N -740 1080 -740 1090 {lab=Vb1}
-N -740 1120 -740 1230 {lab=GND}
-N -740 1230 -580 1230 {lab=GND}
-N -780 1080 -780 1120 {lab=Vb1}
-N -780 1080 -740 1080 {lab=Vb1}
-N -930 1230 -740 1230 {lab=GND}
-N -1060 1120 -1060 1230 {lab=GND}
-N -1020 1080 -1020 1120 {lab=#net9}
-N -1060 1080 -1020 1080 {lab=#net9}
-N -1060 1080 -1060 1090 {lab=#net9}
-N -1060 960 -1060 1080 {lab=#net9}
-N -1060 840 -1060 900 {lab=VDD}
-N -740 840 -580 840 {lab=VDD}
-N -930 840 -740 840 {lab=VDD}
-N -1020 1120 -970 1120 {lab=#net9}
-N -930 1120 -930 1230 {lab=GND}
-N -1060 1230 -930 1230 {lab=GND}
-N -930 970 -930 1090 {lab=#net10}
-N -930 840 -930 930 {lab=VDD}
-N -1060 840 -930 840 {lab=VDD}
-N -890 930 -780 930 {lab=#net10}
-N -890 930 -890 970 {lab=#net10}
-N -930 970 -890 970 {lab=#net10}
-N -930 960 -930 970 {lab=#net10}
-N -740 960 -740 1080 {lab=Vb1}
+N -820 1110 -820 1140 {lab=#net9}
+N -780 1170 -760 1170 {lab=#net10}
+N -760 1030 -760 1170 {lab=#net10}
+N -820 1030 -760 1030 {lab=#net10}
+N -820 1030 -820 1050 {lab=#net10}
+N -780 950 -780 1080 {lab=Vb1}
+N -820 950 -780 950 {lab=Vb1}
+N -820 950 -820 970 {lab=Vb1}
+N -820 1170 -820 1230 {lab=GND}
+N -820 940 -820 950 {lab=Vb1}
+N -820 840 -820 910 {lab=VDD}
+N -830 1080 -820 1080 {lab=GND}
+N -830 1080 -830 1230 {lab=GND}
+N -820 1230 -580 1230 {lab=GND}
+N -830 1230 -820 1230 {lab=GND}
+N -780 1080 -710 1080 {lab=Vb1}
+N -1110 990 -1110 1010 {lab=Vb4}
+N -1120 950 -1110 950 {lab=VDD}
+N -1120 840 -1120 950 {lab=VDD}
+N -820 840 -580 840 {lab=VDD}
+N -1110 840 -820 840 {lab=VDD}
+N -1110 910 -1110 920 {lab=#net11}
+N -1110 840 -1110 880 {lab=VDD}
+N -1120 840 -1110 840 {lab=VDD}
+N -1110 990 -1050 990 {lab=Vb4}
+N -1110 970 -1110 990 {lab=Vb4}
+N -1070 880 -1050 880 {lab=Vb4}
+N -1050 880 -1050 990 {lab=Vb4}
+N -1070 950 -1070 1080 {lab=Vb2}
+N -1110 1080 -1070 1080 {lab=Vb2}
+N -1110 1070 -1110 1080 {lab=Vb2}
+N -1110 1230 -830 1230 {lab=GND}
+N -1540 840 -1540 900 {lab=VDD}
+N -1350 840 -1120 840 {lab=VDD}
+N -1540 940 -1540 1160 {lab=Vbb}
+N -1540 1220 -1540 1230 {lab=GND}
+N -1350 1230 -1110 1230 {lab=GND}
+N -1500 900 -1500 940 {lab=Vbb}
+N -1540 940 -1500 940 {lab=Vbb}
+N -1540 930 -1540 940 {lab=Vbb}
+N -580 840 -580 960 {lab=VDD}
+N -1500 900 -1390 900 {lab=Vbb}
+N -1350 840 -1350 900 {lab=VDD}
+N -1540 840 -1350 840 {lab=VDD}
+N -1350 1120 -1350 1130 {lab=#net12}
+N -1310 1120 -1310 1160 {lab=#net12}
+N -1350 1120 -1310 1120 {lab=#net12}
+N -1350 930 -1350 1120 {lab=#net12}
+N -1350 1160 -1350 1230 {lab=GND}
+N -1540 1230 -1350 1230 {lab=GND}
+N -1110 1080 -1110 1130 {lab=Vb2}
+N -1110 1160 -1110 1230 {lab=GND}
+N -1310 1160 -1150 1160 {lab=#net12}
+N 260 990 260 1040 {lab=Vo2}
+N 90 990 90 1040 {lab=Vo1}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 890 0 0 {name=M7
 l=0.7u
 w=25u
-ng=12
+ng=13
 m=2
 model=sg13_lv_pmos
 spiceprefix=X
@@ -156,7 +184,7 @@ C {gnd.sym} -520 1230 0 0 {name=l3 lab=GND}
 C {lab_wire.sym} -520 840 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 50 1070 0 0 {name=p9 sig_type=std_logic lab=Vb1}
 C {lab_wire.sym} 300 1070 0 1 {name=p10 sig_type=std_logic lab=Vb1}
-C {launcher.sym} -1345 1145 0 0 {name=h4
+C {launcher.sym} 215 715 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
 # Setup the default simulation commands if not already set up
@@ -180,7 +208,7 @@ write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get curr
 xschem netlist
 simulate
 "}
-C {devices/launcher.sym} -1335 1195 0 0 {name=h2
+C {devices/launcher.sym} 225 765 0 0 {name=h2
 descr="OP annotate" 
 tclcommand="xschem annotate_op"
 }
@@ -191,7 +219,7 @@ C {lab_wire.sym} -470 1615 0 0 {name=p27 sig_type=std_logic lab=Vb0_}
 C {vsource.sym} -390 1645 0 0 {name=V3 value=0.62 savecurrent=false}
 C {lab_wire.sym} -390 1615 0 0 {name=p29 sig_type=std_logic lab=Vb1_}
 C {vsource.sym} -320 1645 0 0 {name=V4 value=0.33 savecurrent=false}
-C {lab_wire.sym} -320 1615 0 0 {name=p31 sig_type=std_logic lab=Vb2}
+C {lab_wire.sym} -320 1615 0 0 {name=p31 sig_type=std_logic lab=Vb2_}
 C {vsource.sym} -260 1645 0 0 {name=V5 value=0.49 savecurrent=false}
 C {lab_wire.sym} -260 1615 0 0 {name=p33 sig_type=std_logic lab=Vb3_}
 C {gnd.sym} -560 1675 0 0 {name=l5 lab=GND}
@@ -204,11 +232,10 @@ C {gnd.sym} -260 1555 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -270 1070 0 0 {name=p15 sig_type=std_logic lab=Vi+}
 C {lab_wire.sym} -30 1070 0 1 {name=p16 sig_type=std_logic lab=Vi-}
 C {sg13g2_pr/annotate_fet_params.sym} -280 1245 0 0 {name=annot1 ref=M1}
-C {sg13g2_pr/annotate_fet_params.sym} 420 780 0 0 {name=annot2 ref=M7}
-C {sg13g2_pr/annotate_fet_params.sym} 420 1040 0 0 {name=annot3 ref=M3}
+C {sg13g2_pr/annotate_fet_params.sym} 400 1020 0 0 {name=annot3 ref=M3}
 C {sg13g2_pr/annotate_fet_params.sym} 420 1160 0 0 {name=annot4 ref=M5}
 C {sg13g2_pr/annotate_fet_params.sym} -85 705 0 0 {name=annot5 ref=M0}
-C {simulator_commands_shown.sym} -960 640 0 0 {
+C {simulator_commands_shown.sym} -1420 460 0 0 {
 name=Libs_Ngspice
 simulator=ngspice
 only_toplevel=false
@@ -258,7 +285,7 @@ footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 170 1385 0 0 {name=l10 lab=GND}
 C {gnd.sym} 270 1385 0 0 {name=l11 lab=GND}
-C {simulator_commands_shown.sym} -1545 620 0 0 {
+C {simulator_commands_shown.sym} -2195 430 0 0 {
 name=Libs_Ngspice2
 simulator=ngspice
 only_toplevel=false
@@ -293,7 +320,7 @@ C {lab_wire.sym} -260 1495 0 0 {name=p6 sig_type=std_logic lab=Vi-}
 C {lab_wire.sym} -260 1425 0 0 {name=p12 sig_type=std_logic lab=Vi+}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 960 0 0 {name=M9
 l=0.3u
-w=33u
+w=30u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -301,18 +328,18 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 960 0 1 {name=M10
 l=0.3u
-w=33u
+w=30u
 ng=10
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {ngspice_probe.sym} -145 1020 0 0 {name=r2}
-C {sg13g2_pr/annotate_fet_params.sym} 420 910 0 0 {name=annot6 ref=M9}
+C {sg13g2_pr/annotate_fet_params.sym} 340 860 0 0 {name=annot6 ref=M9}
 C {lab_wire.sym} 50 960 0 0 {name=p2 sig_type=std_logic lab=Vb2}
 C {lab_wire.sym} 300 960 0 1 {name=p3 sig_type=std_logic lab=Vb2}
 C {vsource.sym} -250 1765 0 0 {name=V9 value=0.61 savecurrent=false}
-C {lab_wire.sym} -250 1735 0 0 {name=p5 sig_type=std_logic lab=Vb4}
+C {lab_wire.sym} -250 1735 0 0 {name=p5 sig_type=std_logic lab=Vb4_}
 C {gnd.sym} -250 1795 0 0 {name=l12 lab=GND}
 C {lab_wire.sym} 50 890 0 0 {name=p14 sig_type=std_logic lab=Vb4}
 C {lab_wire.sym} 300 890 0 1 {name=p18 sig_type=std_logic lab=Vb4}
@@ -320,7 +347,7 @@ C {ngspice_probe.sym} 260 930 0 0 {name=r3}
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 890 0 1 {name=M8
 l=0.7u
 w=25u
-ng=12
+ng=13
 m=2
 model=sg13_lv_pmos
 spiceprefix=X
@@ -350,7 +377,7 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/annotate_fet_params.sym} -535 875 0 0 {name=annot8 ref=M13}
+C {sg13g2_pr/annotate_fet_params.sym} -575 695 0 0 {name=annot8 ref=M13}
 C {sg13g2_pr/sg13_lv_pmos.sym} -400 890 0 0 {name=M14
 l=0.13u
 w=20u
@@ -382,7 +409,6 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {ngspice_probe.sym} -345 1140 0 0 {name=r6}
-C {isource.sym} -580 1000 0 0 {name=I0 value=50u}
 C {ngspice_probe.sym} -580 1140 0 1 {name=r7}
 C {sg13g2_pr/rppd.sym} -580 1090 0 0 {name=R8
 w=0.8e-6
@@ -418,7 +444,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 70 1070 0 0 {name=M3
 l=0.7u
-w=38u
+w=37.5u
 ng=5
 m=1
 model=sg13_lv_nmos
@@ -426,59 +452,126 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 280 1070 0 1 {name=M4
 l=0.7u
-w=38u
+w=37.5u
 ng=5
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} -760 1120 0 0 {name=M17
-l=0.15u
-w=1.47u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/annotate_fet_params.sym} -700 905 0 0 {name=annot17 ref=M15}
-C {lab_wire.sym} -780 1080 0 0 {name=p30 sig_type=std_logic lab=Vb1}
-C {isource.sym} -1060 930 0 0 {name=I2 value=50u}
-C {sg13g2_pr/sg13_lv_nmos.sym} -1040 1120 0 1 {name=M18
-l=0.2u
-w=1.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} -950 1120 0 0 {name=M19
-l=0.2u
-w=1.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} -910 930 0 1 {name=M20
-l=0.2u
-w=4.5u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} -760 930 0 0 {name=M21
-l=0.2u
-w=4.5u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {ngspice_probe.sym} -740 1050 0 1 {name=r9}
-C {ngspice_probe.sym} -930 1050 0 0 {name=r10}
-C {sg13g2_pr/annotate_fet_params.sym} -940 1245 0 0 {name=annot12 ref=M19}
-C {sg13g2_pr/annotate_fet_params.sym} -1210 885 0 0 {name=annot13 ref=M21}
-C {sg13g2_pr/annotate_fet_params.sym} -1320 885 0 0 {name=annot14 ref=M20}
-C {ngspice_probe.sym} -1060 1050 0 0 {name=r11}
+C {sg13g2_pr/annotate_fet_params.sym} -2030 1045 0 0 {name=annot13 ref=M18}
+C {sg13g2_pr/annotate_fet_params.sym} -2030 1205 0 0 {name=annot14 ref=M17}
 C {ngspice_probe.sym} -580 1050 0 1 {name=r12}
+C {lab_wire.sym} -710 1080 0 1 {name=p30 sig_type=std_logic lab=Vb1}
+C {ngspice_probe.sym} -820 1130 0 0 {name=r11}
+C {sg13g2_pr/rhigh.sym} -820 1000 0 1 {name=R9
+w=0.5e-6
+l=2.31e-6
+model=rhigh
+body=sub!
+spiceprefix=X
+b=0
+m=1
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} -800 1080 0 1 {name=M17
+l=0.7u
+w=25u
+ng=3
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} -800 1170 0 1 {name=M18
+l=0.7u
+w=40u
+ng=4
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} -1090 880 0 1 {name=M19
+l=0.7u
+w=15u
+ng=5
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} -1090 950 0 1 {name=M20
+l=0.3u
+w=7u
+ng=7
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/rhigh.sym} -1110 1040 0 1 {name=R10
+w=0.5e-6
+l=1.8e-6
+model=rhigh
+body=sub!
+spiceprefix=X
+b=0
+m=1
+}
+C {ngspice_probe.sym} -1110 920 0 0 {name=r13}
+C {ngspice_probe.sym} -1070 880 0 0 {name=r14}
+C {ngspice_probe.sym} -1070 1020 0 0 {name=r15}
+C {lab_wire.sym} -1050 880 0 1 {name=p32 sig_type=std_logic lab=Vb4}
+C {lab_wire.sym} -1070 1080 0 1 {name=p34 sig_type=std_logic lab=Vb2}
+C {isource.sym} -1540 1190 0 0 {name=I3 value=50u}
+C {sg13g2_pr/sg13_lv_pmos.sym} -1520 900 0 1 {name=M21
+l=1u
+w=18u
+ng=18
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {ngspice_probe.sym} -1500 900 0 0 {name=r16}
+C {sg13g2_pr/annotate_fet_params.sym} -1730 865 0 0 {name=annot12 ref=M21}
+C {sg13g2_pr/sg13_lv_pmos.sym} -840 910 0 0 {name=M22
+l=1u
+w=18u
+ng=18
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {lab_wire.sym} -1500 940 0 1 {name=p35 sig_type=std_logic lab=Vbb}
+C {lab_wire.sym} -860 910 0 0 {name=p36 sig_type=std_logic lab=Vbb}
+C {sg13g2_pr/annotate_fet_params.sym} -870 705 0 0 {name=annot15 ref=M22}
+C {sg13g2_pr/sg13_lv_pmos.sym} -600 960 0 0 {name=M23
+l=1u
+w=18u
+ng=18
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {lab_wire.sym} -620 960 0 0 {name=p37 sig_type=std_logic lab=Vbb}
+C {sg13g2_pr/sg13_lv_pmos.sym} -1370 900 0 0 {name=M24
+l=1u
+w=18u
+ng=18
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} -1330 1160 0 1 {name=M25
+l=1u
+w=15u
+ng=2
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} -1130 1160 0 0 {name=M26
+l=1u
+w=15u
+ng=2
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/annotate_fet_params.sym} -1140 1245 0 0 {name=annot16 ref=M26}
+C {sg13g2_pr/annotate_fet_params.sym} 470 860 0 0 {name=annot2 ref=M7}
