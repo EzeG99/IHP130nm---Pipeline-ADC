@@ -50,7 +50,6 @@ N 100 1070 100 1230 {lab=GND}
 N 90 1230 100 1230 {lab=GND}
 N 250 1070 260 1070 {lab=GND}
 N 250 1070 250 1230 {lab=GND}
-N 100 1230 250 1230 {lab=GND}
 N -150 970 -140 970 {lab=VDD}
 N -140 840 -140 970 {lab=VDD}
 N -70 840 -70 890 {lab=VDD}
@@ -155,11 +154,12 @@ N 260 1100 260 1110 {lab=#net8}
 N -230 1140 90 1140 {lab=#net7}
 N -230 1100 -230 1140 {lab=#net7}
 N 90 1100 90 1140 {lab=#net7}
+N 100 1230 250 1230 {lab=GND}
 N 90 990 90 1040 {lab=Vo1}
 N 260 990 260 1040 {lab=Vo2}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 890 0 0 {name=M7
 l=0.7u
-w=20u
+w=19.8u
 ng=20
 m=2
 model=sg13_lv_pmos
@@ -285,7 +285,7 @@ C {lab_wire.sym} -260 1495 0 0 {name=p6 sig_type=std_logic lab=Vi-}
 C {lab_wire.sym} -260 1425 0 0 {name=p12 sig_type=std_logic lab=Vi+}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 960 0 0 {name=M9
 l=0.3u
-w=23u
+w=23.2u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -293,7 +293,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 960 0 1 {name=M10
 l=0.3u
-w=23u
+w=23.2u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -308,7 +308,7 @@ C {lab_wire.sym} 300 890 0 1 {name=p18 sig_type=std_logic lab=Vb4}
 C {ngspice_probe.sym} 260 930 0 0 {name=r3}
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 890 0 1 {name=M8
 l=0.7u
-w=20u
+w=19.8u
 ng=20
 m=2
 model=sg13_lv_pmos
@@ -383,8 +383,8 @@ C {lab_wire.sym} 300 1180 0 1 {name=p7 sig_type=std_logic lab=Vb3}
 C {lab_wire.sym} -510 1140 0 1 {name=p28 sig_type=std_logic lab=Vb0}
 C {sg13g2_pr/sg13_lv_pmos.sym} -360 970 0 1 {name=M13
 l=0.3u
-w=16u
-ng=20
+w=12u
+ng=12
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
@@ -546,16 +546,16 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 70 1180 0 0 {name=M5
 l=0.7u
-w=17.5u
-ng=7
+w=20.2u
+ng=5
 m=2
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 280 1180 0 1 {name=M6
 l=0.7u
-w=17.5u
-ng=7
+w=20.2u
+ng=5
 m=2
 model=sg13_lv_nmos
 spiceprefix=X
