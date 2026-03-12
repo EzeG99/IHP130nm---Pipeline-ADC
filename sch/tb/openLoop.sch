@@ -15,6 +15,7 @@ N 200 1190 260 1190 {lab=#net1}
 N 260 1170 260 1190 {lab=#net1}
 N 660 1130 660 1190 {lab=Vo1}
 N 710 1170 710 1190 {lab=Vo2}
+N 300 1230 340 1230 {lab=V5}
 C {launcher.sym} 70 1380 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
@@ -46,11 +47,15 @@ tclcommand="xschem annotate_op"
 C {code_shown.sym} -510 700 0 0 {name=s1 only_toplevel=false value="
 .include openLoop.save
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 
-.temp 65
+.temp 0
 .control
 save all
 op
 write openLoop.raw
+dc V5 0.3 0.6 0.0001
+plot Vo1
+meas dc V5_at_Vo1 FIND V(V5) WHEN V(Vo1)=0.6
+
 
 ac dec 1k 1 100G
 let Vout_diff = v(Vo2)-v(Vo1)
@@ -118,14 +123,15 @@ name=Libs_Ngspice1
 simulator=ngspice
 only_toplevel=false
 value="
-.lib cornerMOSlv.lib mos_tt
+.lib cornerMOSlv.lib mos_ff
 .lib cornerMOShv.lib mos_tt
 .lib cornerHBT.lib hbt_typ
 .lib cornerRES.lib res_typ
 .lib cornerCAP.lib cap_typ
 "
       }
-C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4 savecurrent=false}
+C {vsource.sym} 340 1260 0 0 {name=V5 value=0.3712337 savecurrent=false}
 C {gnd.sym} 340 1290 0 0 {name=l5 lab=GND}
 C {isource.sym} 340 1040 0 0 {name=I0 value=50u}
 C {lab_wire.sym} 340 1010 0 1 {name=p2 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 300 1230 0 0 {name=p4 sig_type=std_logic lab=V5}

@@ -79,15 +79,12 @@ lab=Vx}
 N 100 80 790 80 {lab=Vy}
 N 790 30 790 80 {
 lab=Vy}
-N 790 200 1080 200 {lab=0}
-N 590 -130 590 -30 {lab=#net4}
-N 790 -130 790 -30 {lab=#net5}
 N -630 -320 -630 -120 {lab=VDD}
 N -630 10 -630 140 {lab=Vb0}
 N -640 -30 -630 -30 {lab=VDD}
 N -640 -320 -640 -30 {lab=VDD}
 N -400 -320 -160 -320 {lab=VDD}
-N -630 -90 -630 -60 {lab=#net6}
+N -630 -90 -630 -60 {lab=#net4}
 N -590 -120 -590 10 {lab=Vb0}
 N -630 10 -590 10 {lab=Vb0}
 N -630 0 -630 10 {lab=Vb0}
@@ -95,11 +92,11 @@ N -400 -320 -400 -120 {lab=VDD}
 N -400 10 -400 140 {lab=Vb2}
 N -410 -30 -400 -30 {lab=VDD}
 N -410 -320 -410 -30 {lab=VDD}
-N -400 -90 -400 -60 {lab=#net7}
+N -400 -90 -400 -60 {lab=#net5}
 N -360 -120 -360 10 {lab=Vb2}
 N -400 10 -360 10 {lab=Vb2}
 N -400 0 -400 10 {lab=Vb2}
-N -160 -180 -160 -150 {lab=#net8}
+N -160 -180 -160 -150 {lab=#net6}
 N -160 -320 -160 -210 {lab=VDD}
 N -160 -120 -120 -120 {lab=VDD}
 N -120 -210 -80 -210 {lab=Vb3}
@@ -113,6 +110,9 @@ N -640 -320 -630 -320 {lab=VDD}
 N -410 -320 -400 -320 {lab=VDD}
 N -630 -320 -410 -320 {lab=VDD}
 N -630 200 590 200 {lab=0}
+N 790 200 1080 200 {lab=0}
+N 590 -130 590 -30 {lab=#net7}
+N 790 -130 790 -30 {lab=#net8}
 C {vsource.sym} -850 -510 0 0 {name=V1 value=1.2 savecurrent=false}
 C {lab_wire.sym} -850 -540 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 60 -80 0 0 {name=p5 sig_type=std_logic lab=VinCM}
@@ -123,7 +123,7 @@ C {lab_wire.sym} 830 130 0 1 {name=p16 sig_type=std_logic lab=Vb4}
 C {sg13g2_pr/sg13_lv_nmos.sym} 570 130 0 0 {name=M5
 l=0.8u
 w=24.2u
-ng=64
+ng=62
 m=6
 model=sg13_lv_nmos
 spiceprefix=X
@@ -131,15 +131,15 @@ spiceprefix=X
 C {sg13g2_pr/sg13_lv_nmos.sym} 810 130 0 1 {name=M6
 l=0.8u
 w=24.2u
-ng=64
+ng=62
 m=6
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 570 -250 0 0 {name=M9
 l=0.8u
-w=62.4u
-ng=120
+w=62.2u
+ng=118
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
@@ -219,8 +219,8 @@ C {gnd.sym} 740 380 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} 740 320 0 1 {name=p27 sig_type=std_logic lab=VDD}
 C {sg13g2_pr/sg13_lv_pmos.sym} 570 -160 0 0 {name=M7
 l=0.4u
-w=48u
-ng=120
+w=47u
+ng=94
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
@@ -256,16 +256,16 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 810 -250 0 1 {name=M4
 l=0.8u
-w=62.4u
-ng=120
+w=62.2u
+ng=118
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 810 -160 0 1 {name=M10
 l=0.4u
-w=48u
-ng=120
+w=47u
+ng=94
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
