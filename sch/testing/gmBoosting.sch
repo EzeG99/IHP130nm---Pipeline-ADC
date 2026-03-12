@@ -23,6 +23,7 @@ T {0.62
 } -1160 1020 0 0 0.2 0.2 {}
 T {2.9mS} -170 1255 0 0 0.3 0.3 {}
 T {0.23} -1160 1050 0 0 0.2 0.2 {}
+T {197.78uS} 515 1195 0 0 0.3 0.3 {}
 N 90 1180 90 1230 {lab=GND}
 N 90 840 90 890 {lab=VDD}
 N -70 1020 -70 1070 {lab=#net1}
@@ -188,14 +189,6 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 280 1180 0 1 {name=M6
-l=0.7u
-w=17.5u
-ng=7
-m=2
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {gnd.sym} -520 1230 0 0 {name=l3 lab=GND}
 C {lab_wire.sym} -520 840 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 50 1070 0 0 {name=p9 sig_type=std_logic lab=Vb1}
@@ -277,7 +270,7 @@ meas ac UGBW WHEN Av=0
 let phase_vec = 180/pi*cph(v(Vo1)-v(Vo2))
 
 meas ac phase FIND phase_vec WHEN frequency=UGBW 
-let PM = phase+180
+let PM = phase
 print PM
 
 plot Av
@@ -292,7 +285,7 @@ C {lab_wire.sym} -260 1495 0 0 {name=p6 sig_type=std_logic lab=Vi-}
 C {lab_wire.sym} -260 1425 0 0 {name=p12 sig_type=std_logic lab=Vi+}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 960 0 0 {name=M9
 l=0.3u
-w=24u
+w=23u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -300,7 +293,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 960 0 1 {name=M10
 l=0.3u
-w=24u
+w=23u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -394,14 +387,6 @@ w=16u
 ng=20
 m=1
 model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 70 1180 0 0 {name=M5
-l=0.7u
-w=17.5u
-ng=7
-m=2
-model=sg13_lv_nmos
 spiceprefix=X
 }
 C {ngspice_probe.sym} -580 1050 0 1 {name=r12}
@@ -543,10 +528,9 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {lab_wire.sym} -1025 1165 0 0 {name=p42 sig_type=std_logic lab=VbbN}
-C {sg13g2_pr/annotate_fet_params.sym} 165 1445 0 0 {name=annot12 ref=M19}
 C {sg13g2_pr/sg13_lv_nmos.sym} 70 1070 0 0 {name=M3
 l=0.6u
-w=38u
+w=38.7u
 ng=5
 m=1
 model=sg13_lv_nmos
@@ -554,9 +538,25 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 280 1070 0 1 {name=M4
 l=0.6u
-w=38u
+w=38.7u
 ng=5
 m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 70 1180 0 0 {name=M5
+l=0.7u
+w=17.5u
+ng=7
+m=2
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 280 1180 0 1 {name=M6
+l=0.7u
+w=17.5u
+ng=7
+m=2
 model=sg13_lv_nmos
 spiceprefix=X
 }
