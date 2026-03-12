@@ -10,10 +10,9 @@ T {0.209} -35 1025 0 0 0.3 0.3 {}
 T {0.55} 295 1005 0 0 0.3 0.3 {}
 T {0.2319} 5 1095 0 0 0.3 0.3 {}
 T {0.95} 15 905 0 0 0.3 0.3 {}
-T {0.22154} -180 1530 0 0 0.3 0.3 {}
 T {0.35} -475 1125 0 0 0.3 0.3 {}
-T {174.62uA} 250 805 0 0 0.3 0.3 {}
-T {334.6uA} -165 820 0 0 0.3 0.3 {}
+T {140uA} 250 805 0 0 0.3 0.3 {}
+T {270uA} -165 820 0 0 0.3 0.3 {}
 T {0.61
 } -715 925 0 0 0.2 0.2 {}
 T {0.95
@@ -100,8 +99,6 @@ N -1600 1120 -1560 1120 {lab=VbbN}
 N -1600 930 -1600 1120 {lab=VbbN}
 N -1600 1160 -1600 1230 {lab=GND}
 N -1790 1230 -1600 1230 {lab=GND}
-N 260 990 260 1040 {lab=Vo2}
-N 90 990 90 1040 {lab=Vo1}
 N -1415 1160 -1415 1230 {lab=GND}
 N -1415 1060 -1415 1130 {lab=Va}
 N -1415 840 -1415 1020 {lab=VDD}
@@ -157,10 +154,12 @@ N 260 1100 260 1110 {lab=#net8}
 N -230 1140 90 1140 {lab=#net7}
 N -230 1100 -230 1140 {lab=#net7}
 N 90 1100 90 1140 {lab=#net7}
+N 90 990 90 1040 {lab=Vo1}
+N 260 990 260 1040 {lab=Vo2}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 890 0 0 {name=M7
 l=0.7u
-w=25u
-ng=14
+w=20u
+ng=20
 m=2
 model=sg13_lv_pmos
 spiceprefix=X
@@ -168,7 +167,7 @@ spiceprefix=X
 C {sg13g2_pr/sg13_lv_pmos.sym} -250 1070 0 0 {name=M1
 l=0.15u
 w=35u
-ng=80
+ng=70
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
@@ -176,22 +175,22 @@ spiceprefix=X
 C {sg13g2_pr/sg13_lv_pmos.sym} -50 1070 0 1 {name=M2
 l=0.15u
 w=35u
-ng=80
+ng=70
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -170 970 0 0 {name=M0
 l=0.3u
-w=14u
-ng=14
+w=12u
+ng=12
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 280 1180 0 1 {name=M6
 l=0.7u
-w=20u
+w=17.5u
 ng=7
 m=2
 model=sg13_lv_nmos
@@ -201,7 +200,7 @@ C {gnd.sym} -520 1230 0 0 {name=l3 lab=GND}
 C {lab_wire.sym} -520 840 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 50 1070 0 0 {name=p9 sig_type=std_logic lab=Vb1}
 C {lab_wire.sym} 300 1070 0 1 {name=p10 sig_type=std_logic lab=Vb1}
-C {launcher.sym} -1245 765 0 0 {name=h4
+C {launcher.sym} 100 1255 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
 # Setup the default simulation commands if not already set up
@@ -225,7 +224,7 @@ write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get curr
 xschem netlist
 simulate
 "}
-C {devices/launcher.sym} -1215 815 0 0 {name=h2
+C {devices/launcher.sym} 100 1285 0 0 {name=h2
 descr="OP annotate" 
 tclcommand="xschem annotate_op"
 }
@@ -237,7 +236,7 @@ C {gnd.sym} -260 1555 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -270 1070 0 0 {name=p15 sig_type=std_logic lab=Vi+}
 C {lab_wire.sym} -30 1070 0 1 {name=p16 sig_type=std_logic lab=Vi-}
 C {sg13g2_pr/annotate_fet_params.sym} -280 1245 0 0 {name=annot1 ref=M1}
-C {sg13g2_pr/annotate_fet_params.sym} 390 1030 0 0 {name=annot3 ref=M3}
+C {sg13g2_pr/annotate_fet_params.sym} 410 1025 0 0 {name=annot3 ref=M3}
 C {sg13g2_pr/annotate_fet_params.sym} 390 1170 0 0 {name=annot4 ref=M5}
 C {sg13g2_pr/annotate_fet_params.sym} -85 705 0 0 {name=annot5 ref=M0}
 C {lab_wire.sym} -190 970 0 0 {name=p17 sig_type=std_logic lab=Vb0}
@@ -293,7 +292,7 @@ C {lab_wire.sym} -260 1495 0 0 {name=p6 sig_type=std_logic lab=Vi-}
 C {lab_wire.sym} -260 1425 0 0 {name=p12 sig_type=std_logic lab=Vi+}
 C {sg13g2_pr/sg13_lv_pmos.sym} 70 960 0 0 {name=M9
 l=0.3u
-w=30u
+w=24u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -301,7 +300,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 960 0 1 {name=M10
 l=0.3u
-w=30u
+w=24u
 ng=10
 m=1
 model=sg13_lv_pmos
@@ -316,8 +315,8 @@ C {lab_wire.sym} 300 890 0 1 {name=p18 sig_type=std_logic lab=Vb4}
 C {ngspice_probe.sym} 260 930 0 0 {name=r3}
 C {sg13g2_pr/sg13_lv_pmos.sym} 280 890 0 1 {name=M8
 l=0.7u
-w=25u
-ng=14
+w=20u
+ng=20
 m=2
 model=sg13_lv_pmos
 spiceprefix=X
@@ -399,7 +398,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 70 1180 0 0 {name=M5
 l=0.7u
-w=20u
+w=17.5u
 ng=7
 m=2
 model=sg13_lv_nmos
@@ -464,7 +463,7 @@ C {lab_wire.sym} -1375 1030 0 1 {name=p40 sig_type=std_logic lab=Va}
 C {lab_wire.sym} -420 890 0 0 {name=p41 sig_type=std_logic lab=Va}
 C {sg13g2_pr/sg13_lv_nmos.sym} -1190 1030 0 1 {name=M29
 l=0.7u
-w=11.5u
+w=13u
 ng=2
 m=1
 model=sg13_lv_nmos
@@ -472,7 +471,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -1190 1105 0 1 {name=M30
 l=0.7u
-w=2.3u
+w=2.4u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -544,37 +543,10 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {lab_wire.sym} -1025 1165 0 0 {name=p42 sig_type=std_logic lab=VbbN}
-C {launcher.sym} -15 1495 0 0 {name=h1
-descr=SimulateNGSPICE
-tclcommand="
-# Setup the default simulation commands if not already set up
-# for example by already launched simulations.
-set_sim_defaults
-puts $sim(spice,1,cmd) 
-
-# Change the Xyce command. In the spice category there are currently
-# 5 commands (0, 1, 2, 3, 4). Command 3 is the Xyce batch
-# you can get the number by querying $sim(spice,n)
-set sim(spice,1,cmd) \{ngspice  \\"$N\\" -a\}
-
-# change the simulator to be used (Xyce)
-set sim(spice,default) 0
-
-# Create FET and BIP .save file
-mkdir -p $netlist_dir
-write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get current_name]]].save
-
-# run netlist and simulation
-xschem netlist
-simulate
-"}
-C {devices/launcher.sym} 15 1545 0 0 {name=h3
-descr="OP annotate" 
-tclcommand="xschem annotate_op"
-}
+C {sg13g2_pr/annotate_fet_params.sym} 165 1445 0 0 {name=annot12 ref=M19}
 C {sg13g2_pr/sg13_lv_nmos.sym} 70 1070 0 0 {name=M3
 l=0.6u
-w=39.4u
+w=38u
 ng=5
 m=1
 model=sg13_lv_nmos
@@ -582,7 +554,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 280 1070 0 1 {name=M4
 l=0.6u
-w=39.4u
+w=38u
 ng=5
 m=1
 model=sg13_lv_nmos
