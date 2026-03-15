@@ -63,32 +63,23 @@ N -295 350 -245 350 {lab=VDD}
 N -245 220 -95 220 {lab=VDD}
 N -245 300 -245 320 {lab=#net6}
 N -245 220 -245 270 {lab=VDD}
-N -485 435 -485 550 {lab=#net7}
 N -245 520 -245 530 {lab=Vb3}
 N -245 560 -245 610 {lab=VSS}
 N -205 520 -205 560 {lab=Vb3}
 N -245 520 -205 520 {lab=Vb3}
 N -245 380 -245 520 {lab=Vb3}
-N -445 435 -445 440 {lab=#net7}
-N -445 220 -445 325 {lab=VDD}
-N -445 220 -245 220 {lab=VDD}
-N -445 550 -445 610 {lab=VSS}
-N -445 500 -445 520 {lab=Vb0}
-N -485 435 -445 435 {lab=#net7}
-N -445 355 -445 435 {lab=#net7}
-N -445 520 -375 520 {lab=Vb0}
 N -245 610 225 610 {lab=VSS}
 N -95 220 -5 220 {lab=VDD}
 N 65 500 225 500 {lab=#net4}
 N 225 480 225 500 {lab=#net4}
-N 395 510 395 530 {lab=#net8}
+N 395 510 395 530 {lab=#net7}
 N 395 370 395 420 {lab=Vo2}
 N 225 370 225 420 {lab=Vo1}
 N -205 350 -55 350 {lab=Vb0}
 N -205 560 185 560 {lab=Vb3}
-N -95 510 395 510 {lab=#net8}
-N -95 480 -95 510 {lab=#net8}
-N 395 480 395 510 {lab=#net8}
+N -95 510 395 510 {lab=#net7}
+N -95 480 -95 510 {lab=#net7}
+N 395 480 395 510 {lab=#net7}
 N -1595 220 -1595 280 {lab=VDD}
 N -1595 320 -1595 540 {lab=VbbP}
 N -1595 600 -1595 610 {lab=VSS}
@@ -116,7 +107,7 @@ N -1015 380 -975 380 {lab=Vb1}
 N -975 380 -975 485 {lab=Vb1}
 N -1015 305 -1015 380 {lab=Vb1}
 N -1015 220 -1015 275 {lab=VDD}
-N -625 330 -625 370 {lab=#net9}
+N -625 330 -625 370 {lab=#net8}
 N -625 220 -625 300 {lab=VDD}
 N -585 300 -535 300 {lab=Vb4}
 N -625 450 -535 450 {lab=Vb4}
@@ -125,7 +116,7 @@ N -1365 540 -1260 540 {lab=VbbN}
 N -1405 610 -1220 610 {lab=VSS}
 N -1405 220 -1220 220 {lab=VDD}
 N -975 380 -930 380 {lab=Vb1}
-N -1015 440 -1015 455 {lab=#net10}
+N -1015 440 -1015 455 {lab=#net9}
 N -625 450 -625 515 {lab=Vb4}
 N -535 300 -525 300 {lab=Vb4}
 N -625 400 -575 400 {lab=VDD}
@@ -150,11 +141,23 @@ N -1220 220 -1015 220 {lab=VDD}
 N -1595 220 -1405 220 {lab=VDD}
 N -1610 220 -1595 220 {lab=VDD}
 N -1610 610 -1595 610 {lab=VSS}
-N -445 610 -245 610 {lab=VSS}
-N -625 610 -445 610 {lab=VSS}
+N -410 610 -245 610 {lab=VSS}
 N -535 300 -535 450 {lab=Vb4}
-N -625 220 -445 220 {lab=VDD}
+N -410 220 -245 220 {lab=VDD}
 N -790 220 -625 220 {lab=VDD}
+N -410 540 -410 610 {lab=VSS}
+N -370 310 -370 450 {lab=Vb0}
+N -410 450 -370 450 {lab=Vb0}
+N -410 430 -410 450 {lab=Vb0}
+N -410 450 -410 520 {lab=Vb0}
+N -410 220 -410 310 {lab=VDD}
+N -420 400 -410 400 {lab=VDD}
+N -420 220 -420 400 {lab=VDD}
+N -410 340 -410 370 {lab=#net10}
+N -370 310 -330 310 {lab=Vb0}
+N -625 610 -410 610 {lab=VSS}
+N -420 220 -410 220 {lab=VDD}
+N -625 220 -420 220 {lab=VDD}
 C {iopin.sym} -1610 610 0 1 {name=p1 lab=VSS}
 C {sg13g2_pr/sg13_lv_pmos.sym} 205 270 0 0 {name=M7
 l=0.7u
@@ -252,14 +255,6 @@ spiceprefix=X
 C {lab_wire.sym} -295 350 0 0 {name=p34 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -285 270 0 0 {name=p40 sig_type=std_logic lab=Va}
 C {ngspice_probe.sym} -180 350 0 0 {name=r5}
-C {sg13g2_pr/sg13_lv_nmos.sym} -465 550 0 0 {name=M28
-l=0.2u
-w=10u
-ng=2
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {sg13g2_pr/sg13_lv_nmos.sym} -225 560 0 1 {name=M29
 l=0.7u
 w=32u
@@ -270,18 +265,8 @@ spiceprefix=X
 }
 C {ngspice_probe.sym} -210 520 0 0 {name=r14}
 C {ngspice_probe.sym} -445 520 0 1 {name=r15}
-C {sg13g2_pr/rppd.sym} -445 470 0 0 {name=R16
-w=0.8e-6
-l=2.5e-6
-model=rppd
-body=sub!
-spiceprefix=X
-b=0
-m=1
-}
 C {lab_wire.sym} 125 560 0 1 {name=p41 sig_type=std_logic lab=Vb3}
 C {lab_wire.sym} 435 560 0 1 {name=p42 sig_type=std_logic lab=Vb3}
-C {lab_wire.sym} -375 520 0 1 {name=p43 sig_type=std_logic lab=Vb0}
 C {sg13g2_pr/sg13_lv_pmos.sym} -225 350 0 1 {name=M30
 l=0.3u
 w=12u
@@ -310,15 +295,6 @@ C {opin.sym} 225 395 0 1 {name=p2 lab=Vo1}
 C {opin.sym} 395 395 0 0 {name=p5 lab=Vo2}
 C {ipin.sym} -135 450 0 0 {name=p3 lab=Vi+}
 C {ipin.sym} 105 450 0 1 {name=p15 lab=Vi-}
-C {sg13g2_pr/sg13_lv_pmos.sym} -465 325 0 0 {name=M23
-l=1u
-w=18u
-ng=18
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {lab_wire.sym} -485 325 0 0 {name=p37 sig_type=std_logic lab=VbbP}
 C {iopin.sym} -1610 220 0 1 {name=p14 lab=VDD}
 C {isource.sym} -1595 570 0 0 {name=I3 value=50u}
 C {sg13g2_pr/sg13_lv_pmos.sym} -1575 280 0 1 {name=M21
@@ -463,3 +439,31 @@ m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
+C {sg13g2_pr/sg13_lv_nmos.sym} -430 545 0 0 {name=M12
+l=1u
+w=15u
+ng=2
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -450 545 0 0 {name=p7 sig_type=std_logic lab=VbbN}
+C {sg13g2_pr/sg13_lv_pmos.sym} -390 310 0 1 {name=M13
+l=0.7u
+w=3.92u
+ng=2
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} -390 400 0 1 {name=M14
+l=0.15u
+w=55u
+ng=55
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {ngspice_probe.sym} -410 360 0 0 {name=r10}
+C {ngspice_probe.sym} -370 310 0 0 {name=r11}
+C {lab_wire.sym} -330 310 0 1 {name=p21 sig_type=std_logic lab=Vb0}
