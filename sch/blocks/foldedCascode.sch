@@ -300,9 +300,9 @@ C {lab_wire.sym} 430 -120 0 1 {name=p35 sig_type=std_logic lab=Vb2}
 C {lab_wire.sym} 100 10 0 1 {name=p36 sig_type=std_logic lab=Vb0}
 C {sg13g2_pr/sg13_lv_nmos.sym} -80 150 0 1 {name=M11
 l=0.3u
-w=44u
-ng=22
-m=6
+w=10u
+ng=2
+m=10
 model=sg13_lv_nmos
 spiceprefix=X
 }
