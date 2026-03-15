@@ -169,7 +169,7 @@ C {iopin.sym} 1250 -90 0 1 {name=p42 lab=Vo+}
 C {iopin.sym} 1450 -90 0 0 {name=p3 lab=Vo-}
 C {sg13g2_pr/sg13_lv_pmos.sym} 740 -80 0 0 {name=M1
 l=0.13u
-w=70u
+w=85u
 ng=100
 m=2
 model=sg13_lv_pmos
@@ -177,7 +177,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 960 -80 0 1 {name=M2
 l=0.13u
-w=70u
+w=85u
 ng=100
 m=2
 model=sg13_lv_pmos
@@ -214,7 +214,7 @@ C {lab_wire.sym} 1120 50 0 0 {name=p5 sig_type=std_logic lab=Vx}
 C {lab_wire.sym} 1120 80 0 0 {name=p28 sig_type=std_logic lab=Vy}
 C {sg13g2_pr/sg13_lv_nmos.sym} 1230 130 0 0 {name=M12
 l=0.8u
-w=24.2u
+w=24.3u
 ng=62
 m=6
 model=sg13_lv_nmos
@@ -230,7 +230,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1470 130 0 1 {name=M5
 l=0.8u
-w=24.2u
+w=24.3u
 ng=62
 m=6
 model=sg13_lv_nmos

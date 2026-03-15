@@ -47,7 +47,7 @@ tclcommand="xschem annotate_op"
 C {code_shown.sym} -510 700 0 0 {name=s1 only_toplevel=false value="
 .include openLoop.save
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 
-.temp 0
+.temp 125
 .control
 save all
 op
@@ -82,7 +82,7 @@ plot phase_vec_
 "
 }
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
-C {vsource.sym} -200 1270 0 0 {name=V1 value=1.2 savecurrent=false}
+C {vsource.sym} -200 1270 0 0 {name=V1 value=1.12 savecurrent=false}
 C {gnd.sym} -200 1300 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -200 1240 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 360 1080 0 1 {name=p3 sig_type=std_logic lab=VDD}
@@ -123,14 +123,14 @@ name=Libs_Ngspice1
 simulator=ngspice
 only_toplevel=false
 value="
-.lib cornerMOSlv.lib mos_ff
+.lib cornerMOSlv.lib mos_ss
 .lib cornerMOShv.lib mos_tt
 .lib cornerHBT.lib hbt_typ
 .lib cornerRES.lib res_typ
 .lib cornerCAP.lib cap_typ
 "
       }
-C {vsource.sym} 340 1260 0 0 {name=V5 value=0.3712337 savecurrent=false}
+C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4 savecurrent=false}
 C {gnd.sym} 340 1290 0 0 {name=l5 lab=GND}
 C {isource.sym} 340 1040 0 0 {name=I0 value=50u}
 C {lab_wire.sym} 340 1010 0 1 {name=p2 sig_type=std_logic lab=VDD}

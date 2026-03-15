@@ -109,10 +109,10 @@ N -80 -210 -50 -210 {lab=Vb3}
 N -640 -320 -630 -320 {lab=VDD}
 N -410 -320 -400 -320 {lab=VDD}
 N -630 -320 -410 -320 {lab=VDD}
-N -630 200 590 200 {lab=0}
 N 790 200 1080 200 {lab=0}
 N 590 -130 590 -30 {lab=#net7}
 N 790 -130 790 -30 {lab=#net8}
+N -630 200 590 200 {lab=0}
 C {vsource.sym} -850 -510 0 0 {name=V1 value=1.2 savecurrent=false}
 C {lab_wire.sym} -850 -540 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 60 -80 0 0 {name=p5 sig_type=std_logic lab=VinCM}
@@ -122,7 +122,7 @@ C {lab_wire.sym} 830 -250 0 1 {name=p12 sig_type=std_logic lab=Vb3}
 C {lab_wire.sym} 830 130 0 1 {name=p16 sig_type=std_logic lab=Vb4}
 C {sg13g2_pr/sg13_lv_nmos.sym} 570 130 0 0 {name=M5
 l=0.8u
-w=24.2u
+w=24.3u
 ng=62
 m=6
 model=sg13_lv_nmos
@@ -130,7 +130,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 810 130 0 1 {name=M6
 l=0.8u
-w=24.2u
+w=24.3u
 ng=62
 m=6
 model=sg13_lv_nmos
@@ -189,7 +189,7 @@ tclcommand="xschem annotate_op"
 C {code_shown.sym} -990 -210 0 0 {name=s2 only_toplevel=false value=".include foldedCascode.save"}
 C {sg13g2_pr/sg13_lv_pmos.sym} 80 -80 0 0 {name=M1
 l=0.13u
-w=70u
+w=85u
 ng=100
 m=2
 model=sg13_lv_pmos
@@ -248,7 +248,7 @@ C {lab_wire.sym} 830 0 0 1 {name=p15 sig_type=std_logic lab=Vb1_2}
 C {lab_wire.sym} 830 -160 0 1 {name=p13 sig_type=std_logic lab=Vb2}
 C {sg13g2_pr/sg13_lv_pmos.sym} 300 -80 0 1 {name=M2
 l=0.13u
-w=70u
+w=85u
 ng=100
 m=2
 model=sg13_lv_pmos
