@@ -16,22 +16,24 @@ N -740 -70 -690 -70 {lab=Vbn}
 N -740 -40 -690 -40 {lab=Vcmfb}
 N -740 0 -690 0 {lab=Vo1}
 N -740 20 -690 20 {lab=Vo2}
-N -5 -150 -5 -110 {lab=Vo2}
-N -5 -150 45 -150 {lab=Vo2}
+N -5 -150 -5 -110 {lab=#net1}
+N -5 -150 45 -150 {lab=#net1}
 N -5 -50 -5 -10 {lab=Vcmfb}
 N -5 -10 45 -10 {lab=Vcmfb}
-N -5 -220 -5 -150 {lab=Vo2}
+N -5 -220 -5 -150 {lab=#net1}
 N -95 -10 -5 -10 {lab=Vcmfb}
 N -95 -10 -95 70 {lab=Vcmfb}
 N -185 -10 -95 -10 {lab=Vcmfb}
-N -185 -150 -185 -110 {lab=Vo1}
+N -185 -150 -185 -110 {lab=#net2}
 N -185 -50 -185 -10 {lab=Vcmfb}
-N -185 -220 -185 -150 {lab=Vo1}
-N -275 -150 -185 -150 {lab=Vo1}
+N -185 -220 -185 -150 {lab=#net2}
+N -275 -150 -185 -150 {lab=#net2}
 N 105 -150 355 -150 {lab=Vcm}
 N -275 -10 -185 -10 {lab=Vcmfb}
 N 105 -10 355 -10 {lab=Vbn}
 N -585 -150 -335 -150 {lab=Vcm}
+N -5 -320 -5 -280 {lab=Vo2}
+N -185 -320 -185 -280 {lab=Vo1}
 C {iopin.sym} -740 -230 2 0 {name=p1 lab=VDD}
 C {iopin.sym} -740 -210 2 0 {name=p2 lab=VSS}
 C {iopin.sym} -740 -180 2 0 {name=p3 lab=phi1}
@@ -46,23 +48,21 @@ C {ipin.sym} -740 20 0 0 {name=p50 lab=Vo2}
 C {sw_custom.sym} 65 -30 0 1 {name=x15}
 C {lab_wire.sym} 65 -30 0 0 {name=p62 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 65 10 2 1 {name=p63 sig_type=std_logic lab=VSS}
-C {lab_wire.sym} -5 -220 0 1 {name=p64 sig_type=std_logic lab=Vo2}
 C {lab_wire.sym} -95 70 2 0 {name=p65 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 355 -150 2 0 {name=p66 sig_type=std_logic lab=Vcm}
 C {capa-2.sym} -5 -80 0 0 {name=C6
 m=1
-value=200f
+value=300f
 footprint=1206
 device=polarized_capacitor}
 C {sw_custom.sym} 65 -170 0 1 {name=x16}
 C {lab_wire.sym} 65 -170 0 0 {name=p68 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 65 -130 2 1 {name=p69 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 85 -170 0 1 {name=p70 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} -185 -220 0 0 {name=p71 sig_type=std_logic lab=Vo1}
 C {lab_wire.sym} 85 -130 2 0 {name=p72 sig_type=std_logic lab=_phi1}
 C {capa-2.sym} -185 -80 0 1 {name=C7
 m=1
-value=200f
+value=300f
 footprint=1206
 device=polarized_capacitor}
 C {lab_wire.sym} 85 10 2 0 {name=p73 sig_type=std_logic lab=_phi1}
@@ -74,3 +74,15 @@ C {lab_wire.sym} -295 -170 0 1 {name=p8 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -295 -130 2 0 {name=p9 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -315 -170 0 0 {name=p10 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -315 -130 2 1 {name=p12 sig_type=std_logic lab=_phi1}
+C {lab_wire.sym} -5 -320 0 1 {name=p64 sig_type=std_logic lab=Vo2}
+C {lab_wire.sym} -185 -320 0 0 {name=p71 sig_type=std_logic lab=Vo1}
+C {sw_custom.sym} -165 -240 1 0 {name=x2}
+C {lab_wire.sym} -165 -240 1 1 {name=p13 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -205 -240 3 0 {name=p14 sig_type=std_logic lab=VSS}
+C {lab_wire.sym} -165 -260 1 0 {name=p15 sig_type=std_logic lab=phi2}
+C {lab_wire.sym} -205 -260 3 1 {name=p16 sig_type=std_logic lab=_phi2}
+C {sw_custom.sym} 15 -240 1 0 {name=x3}
+C {lab_wire.sym} 15 -240 1 1 {name=p17 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -25 -240 3 0 {name=p18 sig_type=std_logic lab=VSS}
+C {lab_wire.sym} 15 -260 1 0 {name=p19 sig_type=std_logic lab=phi2}
+C {lab_wire.sym} -25 -260 3 1 {name=p20 sig_type=std_logic lab=_phi2}

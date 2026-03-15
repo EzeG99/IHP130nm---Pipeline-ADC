@@ -5,11 +5,11 @@ V {}
 S {}
 F {}
 E {}
-T {"sin(0 10m 0.2mega 0)"} -590 1160 0 0 0.4 0.4 {}
+T {"sin(0 150m 4.98046875mega 0)"} -590 1160 0 0 0.4 0.4 {}
 T {NO TOCAR
 } -530 1430 0 0 0.4 0.4 {}
 T {tf = tr = 0.5%T = 50pS
-tdead = 5%T = 0.5n
+tdead = 2%T = 0.2n
 T = 10n
 f = 1/T = 100MHz
 } -870 1500 0 0 0.4 0.4 {}
@@ -66,8 +66,8 @@ N 480 920 480 1050 {lab=Vo1}
 N 600 1050 660 1050 {lab=Vo1_}
 N 660 1050 660 1130 {lab=Vo1_}
 N 40 1380 70 1380 {lab=#net3}
-N 340 1230 340 1280 {lab=#net7}
-N 340 1280 580 1420 {lab=#net7}
+N 340 1230 340 1280 {lab=Vcmfb}
+N 340 1280 580 1420 {lab=Vcmfb}
 N 240 920 240 1130 {lab=Vi1}
 N 170 920 240 920 {lab=Vi1}
 N 240 1130 300 1130 {lab=Vi1}
@@ -81,28 +81,31 @@ N -50 920 -50 1080 {lab=Vi1_}
 N -290 1260 -290 1280 {lab=#net4}
 N -290 1130 -290 1200 {lab=Vi1_}
 N -190 1170 -190 1220 {lab=Vi2_}
-N 960 1480 960 1490 {lab=#net8}
-N 920 1480 920 1520 {lab=#net8}
-N 920 1480 960 1480 {lab=#net8}
-N 960 1450 960 1480 {lab=#net8}
-N 920 1420 920 1480 {lab=#net8}
+N 960 1480 960 1490 {lab=#net7}
+N 920 1480 960 1480 {lab=#net7}
+N 960 1450 960 1480 {lab=#net7}
 N 960 1520 960 1550 {lab=GND}
-N 780 1420 920 1420 {lab=#net8}
+N 780 1420 920 1420 {lab=#net7}
+N 920 1480 920 1520 {lab=#net7}
+N 920 1420 920 1480 {lab=#net7}
 C {code_shown.sym} -1030 1000 0 0 {name=s1 only_toplevel=false value="
-.temp 125
+.temp 65
 .model SW1 SW(Ron=100 Roff=10G Vt=0.4 Vh=0.1)
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 v(Vi1)=0.6 v(Vi2)=0.6
 .control
-tran 0.1n 5u 1u
+op
+tran 0.1n 10.74u 0 10n
+
 write closeLoop.raw
 *plot v(Vo1_) v(phi1)
 plot v(Vo1_) v(Vi1_)
-*plot V(Vcmfb)
+plot V(Vcmfb)
 *plot v(Vo1)
 plot v(vo1)
 plot v(Vo1_)-v(Vo2_)
 plot v(Vo1_) v(phi1) v(phi2)
 *plot phi1 phi2
+wrdata output.txt v(Vo1_) v(Vo2_)
 
 .endc
 "
@@ -122,7 +125,7 @@ name=Libs_Ngspice1
 simulator=ngspice
 only_toplevel=false
 value="
-.lib cornerMOSlv.lib mos_ss
+.lib cornerMOSlv.lib mos_tt
 .lib cornerMOShv.lib mos_tt
 .lib cornerHBT.lib hbt_typ
 .lib cornerRES.lib res_typ
@@ -134,7 +137,7 @@ C {gnd.sym} -240 1340 0 0 {name=l17 lab=GND}
 C {vsource.sym} -590 1520 0 0 {name=V5 value="PULSE(0 1.2 0n 50p 50p 5n 10n)" savecurrent=false}
 C {gnd.sym} -590 1550 0 0 {name=l18 lab=GND
 value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
-C {vsource.sym} -590 1620 0 0 {name=V6 value="PULSE(0 1.2 5.25n 50p 50p 4.5n 10n)" savecurrent=false}
+C {vsource.sym} -590 1620 0 0 {name=V6 value="PULSE(0 1.2 5.1n 50p 50p 4.8n 10n)" savecurrent=false}
 C {gnd.sym} -590 1650 0 0 {name=l19 lab=GND
 value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
 C {lab_wire.sym} -590 1490 0 0 {name=p2 sig_type=std_logic lab=phi1}
@@ -231,12 +234,12 @@ C {lab_wire.sym} -250 860 0 0 {name=p71 sig_type=std_logic lab=Vi2}
 C {lab_wire.sym} -190 950 2 0 {name=p72 sig_type=std_logic lab=Vcm}
 C {capa-2.sym} 140 1170 1 1 {name=C4
 m=1
-value=300f
+value=500f
 footprint=1206
 device=polarized_capacitor}
-C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 20m 1mega 0)" savecurrent=false}
+C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 150m 4.98046875mega 0)" savecurrent=false}
 C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
-C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 20m 1mega 0)" savecurrent=false}
+C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 150m 4.98046875mega 0)" savecurrent=false}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
 value=1p
@@ -256,27 +259,12 @@ C {lab_wire.sym} 50 1260 2 1 {name=p43 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 90 1260 2 0 {name=p56 sig_type=std_logic lab=_phi2}
 C {lab_wire.sym} 70 1000 0 0 {name=p60 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} 70 1300 2 0 {name=p61 sig_type=std_logic lab=Vcm}
-C {capa-2.sym} 140 1380 3 1 {name=C3
-m=1
-value=300f
-footprint=1206
-device=polarized_capacitor}
-C {capa-2.sym} 140 1130 1 1 {name=C5
-m=1
-value=300f
-footprint=1206
-device=polarized_capacitor}
-C {capa-2.sym} 140 920 3 1 {name=C6
-m=1
-value=300f
-footprint=1206
-device=polarized_capacitor}
 C {noconn.sym} -380 1490 2 0 {name=l5}
 C {noconn.sym} -380 1580 2 0 {name=l21}
 C {isource.sym} 960 1420 0 0 {name=I4 value=10u}
 C {sg13g2_pr/sg13_lv_nmos.sym} 940 1520 0 0 {name=M11
 l=0.7u
-w=1.9u
+w=1.91u
 ng=2
 m=1
 model=sg13_lv_nmos
@@ -285,3 +273,19 @@ spiceprefix=X
 C {ngspice_probe.sym} 960 1480 0 0 {name=r7}
 C {lab_wire.sym} 960 1390 0 1 {name=p65 sig_type=std_logic lab=VDD}
 C {gnd.sym} 960 1550 0 0 {name=l28 lab=GND}
+C {lab_wire.sym} 580 1420 1 1 {name=p73 sig_type=std_logic lab=Vcmfb}
+C {capa-2.sym} 140 1130 1 1 {name=C3
+m=1
+value=500f
+footprint=1206
+device=polarized_capacitor}
+C {capa-2.sym} 140 920 1 1 {name=C5
+m=1
+value=500f
+footprint=1206
+device=polarized_capacitor}
+C {capa-2.sym} 140 1380 1 1 {name=C6
+m=1
+value=500f
+footprint=1206
+device=polarized_capacitor}
