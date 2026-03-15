@@ -49,10 +49,7 @@ N 225 610 235 610 {lab=VSS}
 N 385 450 395 450 {lab=VSS}
 N 385 450 385 610 {lab=VSS}
 N 235 610 385 610 {lab=VSS}
-N -15 350 -5 350 {lab=VDD}
-N -5 220 -5 350 {lab=VDD}
 N 65 220 65 270 {lab=VDD}
-N -5 220 65 220 {lab=VDD}
 N 65 300 65 310 {lab=#net5}
 N -15 310 65 310 {lab=#net5}
 N -15 310 -15 320 {lab=#net5}
@@ -69,7 +66,7 @@ N -205 520 -205 560 {lab=Vb3}
 N -245 520 -205 520 {lab=Vb3}
 N -245 380 -245 520 {lab=Vb3}
 N -245 610 225 610 {lab=VSS}
-N -95 220 -5 220 {lab=VDD}
+N -95 220 65 220 {lab=VDD}
 N 65 500 225 500 {lab=#net4}
 N 225 480 225 500 {lab=#net4}
 N 395 510 395 530 {lab=#net7}
@@ -158,6 +155,7 @@ N -370 310 -330 310 {lab=Vb0}
 N -625 610 -410 610 {lab=VSS}
 N -420 220 -410 220 {lab=VDD}
 N -625 220 -420 220 {lab=VDD}
+N -15 350 40 350 {lab=VDD}
 C {iopin.sym} -1610 610 0 1 {name=p1 lab=VSS}
 C {sg13g2_pr/sg13_lv_pmos.sym} 205 270 0 0 {name=M7
 l=0.7u
@@ -264,7 +262,6 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {ngspice_probe.sym} -210 520 0 0 {name=r14}
-C {ngspice_probe.sym} -445 520 0 1 {name=r15}
 C {lab_wire.sym} 125 560 0 1 {name=p41 sig_type=std_logic lab=Vb3}
 C {lab_wire.sym} 435 560 0 1 {name=p42 sig_type=std_logic lab=Vb3}
 C {sg13g2_pr/sg13_lv_pmos.sym} -225 350 0 1 {name=M30
@@ -467,3 +464,4 @@ spiceprefix=X
 C {ngspice_probe.sym} -410 360 0 0 {name=r10}
 C {ngspice_probe.sym} -370 310 0 0 {name=r11}
 C {lab_wire.sym} -330 310 0 1 {name=p21 sig_type=std_logic lab=Vb0}
+C {lab_wire.sym} 40 350 0 1 {name=p16 sig_type=std_logic lab=VDD}
