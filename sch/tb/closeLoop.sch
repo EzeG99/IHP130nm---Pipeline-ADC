@@ -97,6 +97,7 @@ simulator=ngspice
 only_toplevel=false
 value="
 .lib cornerMOSlv.lib mos_tt
+.lib cornerCAP.lib cap_typ
 "
       }
 C {vsource.sym} -240 1310 0 0 {name=V2 value=0.6 savecurrent=false}
@@ -197,14 +198,9 @@ C {lab_wire.sym} -230 880 2 1 {name=p69 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} -190 860 2 0 {name=p70 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} -250 860 0 0 {name=p71 sig_type=std_logic lab=Vi2}
 C {lab_wire.sym} -190 950 2 0 {name=p72 sig_type=std_logic lab=Vcm}
-C {capa-2.sym} 140 1170 1 0 {name=C4
-m=1
-value=500f
-footprint=1206
-device=polarized_capacitor}
-C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 150m 4.98046875mega 0)" savecurrent=false}
+C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
 C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
-C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 150m 4.98046875mega 0)" savecurrent=false}
+C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
 value=1p
@@ -238,21 +234,6 @@ spiceprefix=X
 C {ngspice_probe.sym} 910 1460 0 0 {name=r7}
 C {lab_wire.sym} 910 1370 0 1 {name=p65 sig_type=std_logic lab=VDD}
 C {gnd.sym} 910 1530 0 0 {name=l28 lab=GND}
-C {capa-2.sym} 140 1130 1 1 {name=C3
-m=1
-value=500f
-footprint=1206
-device=polarized_capacitor}
-C {capa-2.sym} 140 920 1 1 {name=C5
-m=1
-value=500f
-footprint=1206
-device=polarized_capacitor}
-C {capa-2.sym} 140 1380 1 0 {name=C6
-m=1
-value=500f
-footprint=1206
-device=polarized_capacitor}
 C {lab_wire.sym} 340 1230 2 1 {name=p74 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 580 1420 2 1 {name=p75 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 780 1440 2 0 {name=p73 sig_type=std_logic lab=Vcm}
@@ -262,7 +243,7 @@ C {code.sym} -630 910 0 0 {name=TRAN only_toplevel=false value="
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 v(Vi1)=0.6 v(Vi2)=0.6
 .control
 op
-tran 100p 21u
+tran 100p 22u 
 let Vinn = v(Vi1_)-v(Vi2_)
 let Voutt = v(Vo1_)-v(Vo2_)
 meas tran vin_pp  PP Vinn from=1u to=3u
@@ -288,3 +269,27 @@ wrdata output.txt v(Vo1_) v(Vo2_)
 
 .endc
 "}
+C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C7
+model=cap_cmim
+w=18.2e-6
+l=18.2e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 140 1130 1 1 {name=C3
+model=cap_cmim
+w=18.2e-6
+l=18.2e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 140 1170 1 0 {name=C4
+model=cap_cmim
+w=18.2e-6
+l=18.2e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 140 1380 1 0 {name=C5
+model=cap_cmim
+w=18.2e-6
+l=18.2e-6
+m=1
+spiceprefix=X}
