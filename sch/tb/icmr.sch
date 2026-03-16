@@ -5,7 +5,7 @@ V {}
 S {}
 F {}
 E {}
-N 260 1170 300 1170 {lab=VINN}
+N 260 1170 300 1170 {lab=Vi1}
 N 660 1130 770 1130 {lab=Vo1}
 N 710 1170 770 1170 {lab=Vo2}
 N 420 1170 710 1170 {lab=Vo2}
@@ -14,8 +14,8 @@ N 660 1130 660 1190 {lab=Vo1}
 N 710 1170 710 1190 {lab=Vo2}
 N 340 1230 340 1240 {lab=#net1}
 N 110 1230 260 1230 {lab=GND}
-N 110 1130 110 1170 {lab=VINN2}
-N 110 1130 300 1130 {lab=VINN2}
+N 110 1130 110 1170 {lab=Vi2}
+N 110 1130 300 1130 {lab=Vi2}
 C {launcher.sym} 70 1380 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
@@ -53,9 +53,11 @@ save all
 op
 write icmr.raw
 
-dc Vin 0.4 0.8 0.002
-plot v(Vo1) v(Vo2)
-plot v(VINN) v(VINN2)
+dc Vcm 0.4 0.8 0.5m
+let gain = (v(Vo1)-v(Vo2))/(v(Vi1)-v(Vi2))
+plot gain
+plot v(Vo1) gain/3k
+
 
 .endc
 "
@@ -70,16 +72,15 @@ C {lab_wire.sym} 340 1010 0 1 {name=p4 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1220 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 770 1130 0 1 {name=p5 sig_type=std_logic lab=Vo1}
 C {lab_wire.sym} 770 1170 0 1 {name=p6 sig_type=std_logic lab=Vo2}
-C {vsource.sym} 260 1200 0 0 {name=Vin value=0.6 savecurrent=false}
 C {gnd.sym} 260 1230 0 0 {name=l3 lab=GND}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
-value=0.7p
+value=1.2p
 footprint=1206
 device=polarized_capacitor}
 C {capa-2.sym} 710 1220 0 0 {name=C2
 m=1
-value=0.7p
+value=1.2p
 footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 660 1250 0 0 {name=l7 lab=GND}
@@ -98,6 +99,10 @@ value="
       }
 C {vsource.sym} 340 1270 0 0 {name=V5 value=0.4 savecurrent=false}
 C {gnd.sym} 340 1300 0 0 {name=l6 lab=GND}
-C {lab_wire.sym} 260 1170 0 1 {name=p2 sig_type=std_logic lab=VINN}
-C {vsource_arith.sym} 110 1200 0 0 {name=E1 VOL=(1.2-V(VINN))}
-C {lab_wire.sym} 170 1130 0 1 {name=p7 sig_type=std_logic lab=VINN2}
+C {lab_wire.sym} 260 1170 0 1 {name=p2 sig_type=std_logic lab=Vi1}
+C {lab_wire.sym} 170 1130 0 1 {name=p7 sig_type=std_logic lab=Vi2}
+C {vsource.sym} 0 1200 0 0 {name=Vcm value=0.6 savecurrent=false}
+C {gnd.sym} 0 1230 0 0 {name=l11 lab=GND}
+C {lab_wire.sym} 0 1170 0 1 {name=p8 sig_type=std_logic lab=Vcm}
+C {vsource_arith.sym} 110 1200 0 0 {name=E2 VOL=(v(Vcm)+1n)}
+C {vsource_arith.sym} 260 1200 0 0 {name=E3 VOL=(v(Vcm)-1n)}
