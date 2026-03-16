@@ -125,13 +125,24 @@ fft_db = 10*np.log10(power/np.max(power))
 
 plt.figure(figsize=(10,6))
 
+#LOG X
+#freq_plot = freq.copy()        
+#freq_plot[0] = freq_plot[1]    
+
 plt.plot(freq/1e6, fft_db)
+
+#LOG X
+#plt.semilogx(freq_plot, fft_db, linewidth=1.5) 
 
 plt.xlabel("Frequency (MHz)")
 plt.ylabel("Magnitude (dBFS)")
 plt.title("Output Spectrum")
 
-plt.ylim(-120,0)
+plt.ylim(-180,0)
+plt.xlim(0,50)
+
+#LOG X
+#plt.xlim([1e5, fs/2]) 
 
 plt.grid()
 
