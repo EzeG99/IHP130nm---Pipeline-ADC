@@ -78,12 +78,12 @@ N -95 510 395 510 {lab=#net7}
 N -95 480 -95 510 {lab=#net7}
 N 395 480 395 510 {lab=#net7}
 N -1595 220 -1595 280 {lab=VDD}
-N -1595 320 -1595 540 {lab=VbbP}
+N -1595 320 -1595 540 {lab=IbiasN}
 N -1595 600 -1595 610 {lab=VSS}
-N -1555 280 -1555 320 {lab=VbbP}
-N -1595 320 -1555 320 {lab=VbbP}
-N -1595 310 -1595 320 {lab=VbbP}
-N -1555 280 -1445 280 {lab=VbbP}
+N -1555 280 -1555 320 {lab=IbiasN}
+N -1595 320 -1555 320 {lab=IbiasN}
+N -1595 310 -1595 320 {lab=IbiasN}
+N -1555 280 -1445 280 {lab=IbiasN}
 N -1405 220 -1405 280 {lab=VDD}
 N -1405 500 -1405 510 {lab=VbbN}
 N -1365 500 -1365 540 {lab=VbbN}
@@ -293,7 +293,6 @@ C {opin.sym} 395 395 0 0 {name=p5 lab=Vo2}
 C {ipin.sym} -135 450 0 0 {name=p3 lab=Vi+}
 C {ipin.sym} 105 450 0 1 {name=p15 lab=Vi-}
 C {iopin.sym} -1610 220 0 1 {name=p14 lab=VDD}
-C {isource.sym} -1595 570 0 0 {name=I3 value=50u}
 C {sg13g2_pr/sg13_lv_pmos.sym} -1575 280 0 1 {name=M21
 l=1u
 w=18u
@@ -303,7 +302,6 @@ model=sg13_lv_pmos
 spiceprefix=X
 }
 C {ngspice_probe.sym} -1555 280 0 0 {name=r6}
-C {lab_wire.sym} -1555 320 0 1 {name=p35 sig_type=std_logic lab=VbbP}
 C {sg13g2_pr/sg13_lv_pmos.sym} -1425 280 0 0 {name=M24
 l=1u
 w=18u
@@ -364,7 +362,7 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {lab_wire.sym} -1055 275 0 0 {name=p26 sig_type=std_logic lab=VbbP}
+C {lab_wire.sym} -1055 275 0 0 {name=p26 sig_type=std_logic lab=IbiasN}
 C {sg13g2_pr/sg13_lv_pmos.sym} -645 400 0 0 {name=M26
 l=0.3u
 w=9u
@@ -465,3 +463,4 @@ C {ngspice_probe.sym} -410 360 0 0 {name=r10}
 C {ngspice_probe.sym} -370 310 0 0 {name=r11}
 C {lab_wire.sym} -330 310 0 1 {name=p21 sig_type=std_logic lab=Vb0}
 C {lab_wire.sym} 40 350 0 1 {name=p16 sig_type=std_logic lab=VDD}
+C {ipin.sym} -1595 540 0 0 {name=p19 lab=IbiasN}

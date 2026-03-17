@@ -113,7 +113,6 @@ N 60 -320 280 -320 {lab=VDD}
 N -80 -320 50 -320 {lab=VDD}
 N -1030 -160 -100 -160 {lab=IbiasP}
 N 530 200 1250 200 {lab=VSS}
-N -140 200 -100 200 {lab=VSS}
 N -100 110 -100 120 {lab=IbiasP}
 N -100 150 -100 200 {lab=VSS}
 N -60 110 -60 150 {lab=IbiasP}
@@ -129,11 +128,14 @@ N 530 -60 530 120 {lab=Vb3}
 N 530 150 530 200 {lab=VSS}
 N 290 200 530 200 {lab=VSS}
 N -60 150 20 150 {lab=IbiasP}
+N -165 110 -100 110 {lab=IbiasP}
+N -205 110 -205 200 {lab=VSS}
+N -205 200 -100 200 {lab=VSS}
 C {iopin.sym} -1030 -330 0 1 {name=p7 lab=VSS
 }
 C {iopin.sym} -1030 -360 0 1 {name=p4 lab=VDD}
 C {ipin.sym} -1030 -300 0 0 {name=p6 lab=ViCmfb}
-C {lab_wire.sym} -140 200 0 0 {name=p24 sig_type=std_logic lab=VSS}
+C {lab_wire.sym} -205 200 0 0 {name=p24 sig_type=std_logic lab=VSS}
 C {iopin.sym} -1030 -160 0 1 {name=p30 lab=IbiasP
 }
 C {lab_wire.sym} 1210 -250 0 0 {name=p18 sig_type=std_logic lab=Vb3}
@@ -353,3 +355,13 @@ spiceprefix=X
 C {lab_wire.sym} 250 150 0 0 {name=p10 sig_type=std_logic lab=IbiasP}
 C {lab_wire.sym} 490 150 0 0 {name=p8 sig_type=std_logic lab=IbiasP}
 C {lab_wire.sym} 20 150 0 0 {name=p9 sig_type=std_logic lab=IbiasP}
+C {sg13g2_pr/sg13_lv_nmos.sym} -185 110 0 1 {name=M22
+l=1u
+w=1.8u
+ng=2
+m=10
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -205 80 0 0 {name=p15 sig_type=std_logic lab=IbiasN}
+C {lab_wire.sym} 1070 330 0 0 {name=p14 sig_type=std_logic lab=IbiasN}
