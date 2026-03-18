@@ -163,22 +163,13 @@ C {lab_wire.sym} 1370 290 0 1 {name=p27 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 1370 310 0 1 {name=p32 sig_type=std_logic lab=Vb1_1}
 C {lab_wire.sym} 1370 330 0 1 {name=p33 sig_type=std_logic lab=Vb1_2}
 C {lab_wire.sym} 1370 350 0 1 {name=p13 sig_type=std_logic lab=VSS}
-C {sg13g2_pr/sg13_lv_pmos.sym} 830 -210 0 0 {name=M0
-l=0.3u
-w=70u
-ng=120
-m=8
-model=sg13_lv_pmos
-spiceprefix=X
-
-}
 C {lab_wire.sym} 1210 -160 0 0 {name=p20 sig_type=std_logic lab=Vb2}
 C {lab_wire.sym} 1490 -160 0 1 {name=p25 sig_type=std_logic lab=Vb2}
 C {iopin.sym} 1250 -90 0 1 {name=p42 lab=Vo+}
 C {iopin.sym} 1450 -90 0 0 {name=p3 lab=Vo-}
 C {sg13g2_pr/sg13_lv_pmos.sym} 740 -80 0 0 {name=M1
 l=0.13u
-w=85u
+w=115u
 ng=100
 m=2
 model=sg13_lv_pmos
@@ -186,7 +177,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 960 -80 0 1 {name=M2
 l=0.13u
-w=85u
+w=115u
 ng=100
 m=2
 model=sg13_lv_pmos
@@ -207,7 +198,7 @@ C {lab_wire.sym} 1120 50 0 0 {name=p5 sig_type=std_logic lab=Vx}
 C {lab_wire.sym} 1120 80 0 0 {name=p28 sig_type=std_logic lab=Vy}
 C {sg13g2_pr/sg13_lv_nmos.sym} 1230 130 0 0 {name=M12
 l=0.8u
-w=24.2u
+w=24.3u
 ng=62
 m=6
 model=sg13_lv_nmos
@@ -223,7 +214,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1470 130 0 1 {name=M5
 l=0.8u
-w=24.2u
+w=24.3u
 ng=62
 m=6
 model=sg13_lv_nmos
@@ -232,15 +223,15 @@ spiceprefix=X
 C {lab_wire.sym} 60 -320 0 0 {name=p11 sig_type=std_logic lab=VDD}
 C {sg13g2_pr/sg13_lv_pmos.sym} 80 -30 0 1 {name=M6
 l=0.13u
-w=60u
-ng=60
+w=65u
+ng=65
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 80 -120 0 1 {name=M13
 l=0.3u
-w=14u
+w=26u
 ng=5
 m=1
 model=sg13_lv_pmos
@@ -362,6 +353,14 @@ l=0.4u
 w=27u
 ng=9
 m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 830 -210 0 0 {name=M0
+l=0.3u
+w=113.5u
+ng=210
+m=8
 model=sg13_lv_pmos
 spiceprefix=X
 }

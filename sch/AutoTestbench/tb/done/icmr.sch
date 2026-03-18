@@ -57,7 +57,7 @@ save all
 
 dc V5 0.3 0.6 0.0001
 plot Vo1
-meas dc V5_at_Vo1 FIND V(V5_) WHEN V(Vo1)=0.6
+meas dc V5_at_Vo1 FIND V(V5_) WHEN V(Vo1)=$VCM
 let VcmIdeal = V5_at_Vo1
 
 print VcmIdeal

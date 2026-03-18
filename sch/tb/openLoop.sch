@@ -47,7 +47,7 @@ tclcommand="xschem annotate_op"
 C {code_shown.sym} -510 700 0 0 {name=s1 only_toplevel=false value="
 .include openLoop.save
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 
-.temp 125
+.temp 65
 .control
 save all
 op
@@ -85,14 +85,14 @@ plot phase_vec_
 "
 }
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
-C {vsource.sym} -200 1270 0 0 {name=V1 value=1.14 savecurrent=false}
+C {vsource.sym} -200 1270 0 0 {name=V1 value=1.2 savecurrent=false}
 C {gnd.sym} -200 1300 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -200 1240 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 360 1080 0 1 {name=p3 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1220 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 770 1130 0 1 {name=p5 sig_type=std_logic lab=Vo1}
 C {lab_wire.sym} 770 1170 0 1 {name=p6 sig_type=std_logic lab=Vo2}
-C {vsource.sym} 200 1220 0 0 {name=V3 value=0.57 savecurrent=false}
+C {vsource.sym} 200 1220 0 0 {name=V3 value=0.6 savecurrent=false}
 C {gnd.sym} 200 1250 0 0 {name=l3 lab=GND}
 C {vsource.sym} 200 1160 0 0 {name=V4 value="0 AC 1" savecurrent=false}
 C {ngspice_get_expr.sym} 770 1320 0 0 {name=r2 node="[format %.4g [expr 1 / [ngspice::get_node \{@n.x1.xm1.nsg13_lv_pmos[gds]\}] ] ]"
@@ -109,12 +109,12 @@ C {ngspice_get_expr.sym} 840 1390 0 0 {name=r1 node="[format %.4g [expr [ngspice
 descr="gm3="}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
-value=1.2p
+value=1.25p
 footprint=1206
 device=polarized_capacitor}
 C {capa-2.sym} 710 1220 0 0 {name=C2
 m=1
-value=1.2p
+value=1.25p
 footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 660 1250 0 0 {name=l7 lab=GND}
@@ -126,7 +126,7 @@ name=Libs_Ngspice1
 simulator=ngspice
 only_toplevel=false
 value="
-.lib cornerMOSlv.lib mos_ss
+.lib cornerMOSlv.lib mos_tt
 .lib cornerMOShv.lib mos_tt
 .lib cornerHBT.lib hbt_typ
 .lib cornerRES.lib res_typ
@@ -135,6 +135,6 @@ value="
       }
 C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4 savecurrent=false}
 C {gnd.sym} 340 1290 0 0 {name=l5 lab=GND}
-C {isource.sym} 340 1040 0 0 {name=I0 value=47.5u}
+C {isource.sym} 340 1040 0 0 {name=I0 value=50u}
 C {lab_wire.sym} 340 1010 0 1 {name=p2 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 300 1230 0 0 {name=p4 sig_type=std_logic lab=V5_}

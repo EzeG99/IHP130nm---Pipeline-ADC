@@ -37,15 +37,15 @@ N 70 1380 70 1510 {lab=#net3}
 N 70 1380 110 1380 {lab=#net3}
 N -50 1380 -20 1380 {lab=Vi2_}
 N -50 1220 -50 1380 {lab=Vi2_}
-N -290 1280 -190 1280 {lab=#net4}
+N -290 1280 -190 1280 {lab=Vcm}
 N -290 1130 -50 1130 {lab=Vi1_}
 N -190 1170 -50 1170 {lab=Vi2_}
-N 70 1170 110 1170 {lab=#net5}
-N 70 1170 70 1220 {lab=#net5}
-N 30 1220 70 1220 {lab=#net5}
+N 70 1170 110 1170 {lab=#net4}
+N 70 1170 70 1220 {lab=#net4}
+N 30 1220 70 1220 {lab=#net4}
 N -50 1220 -30 1220 {lab=Vi2_}
 N -50 1170 -50 1220 {lab=Vi2_}
-N 70 1220 70 1240 {lab=#net5}
+N 70 1220 70 1240 {lab=#net4}
 N 70 1080 70 1130 {lab=#net2}
 N 30 1080 70 1080 {lab=#net2}
 N -50 1080 -30 1080 {lab=Vi1_}
@@ -71,15 +71,15 @@ N 240 1380 320 1380 {lab=Vi2}
 N 170 1380 240 1380 {lab=Vi2}
 N 70 790 70 920 {lab=#net1}
 N -50 920 -50 1080 {lab=Vi1_}
-N -290 1260 -290 1280 {lab=#net4}
+N -290 1260 -290 1280 {lab=Vcm}
 N -290 1130 -290 1200 {lab=Vi1_}
 N -190 1170 -190 1220 {lab=Vi2_}
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
-C {vsource.sym} -590 1410 0 0 {name=V1 value=1.14 savecurrent=false}
+C {vsource.sym} -590 1410 0 0 {name=V1 value=\{VDD\} savecurrent=false}
 C {gnd.sym} -590 1440 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -590 1380 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 360 1080 0 1 {name=p3 sig_type=std_logic lab=VDD}
-C {isource.sym} 340 1040 0 0 {name=I0 value=47.5u}
+C {isource.sym} 340 1040 0 0 {name=I0 value=\{IREF\}}
 C {lab_wire.sym} 340 1010 0 1 {name=p4 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1220 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 770 1130 0 1 {name=p5 sig_type=std_logic lab=Vo1_}
@@ -89,12 +89,10 @@ name=Libs_Ngspice1
 simulator=ngspice
 only_toplevel=false
 value="
-.lib cornerMOSlv.lib mos_ss
+.lib cornerMOSlv.lib mos_$PROCESS
 .lib cornerCAP.lib cap_typ
 "
       }
-C {vsource.sym} -240 1310 0 0 {name=V2 value=0.57 savecurrent=false}
-C {gnd.sym} -240 1340 0 0 {name=l17 lab=GND}
 C {vsource.sym} -590 1520 0 0 {name=V5 value="PULSE(0 1.2 0n 50p 50p 5n 10n)" savecurrent=false}
 C {gnd.sym} -590 1550 0 0 {name=l18 lab=GND
 value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
@@ -160,7 +158,7 @@ C {lab_wire.sym} 480 1120 0 1 {name=p57 sig_type=std_logic lab=Vo1}
 C {lab_wire.sym} 770 1170 0 1 {name=p58 sig_type=std_logic lab=Vo2_}
 C {lab_wire.sym} 255 1130 0 1 {name=p18 sig_type=std_logic lab=Vi1}
 C {lab_wire.sym} 255 1170 0 1 {name=p19 sig_type=std_logic lab=Vi2}
-C {vsource.sym} -520 1410 0 0 {name=V12 value=0.57 savecurrent=false}
+C {vsource.sym} -520 1410 0 0 {name=V12 value=\{VCM\} savecurrent=false}
 C {lab_wire.sym} -520 1380 0 0 {name=p30 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} -10 1240 2 1 {name=p32 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} 0 1400 2 1 {name=p34 sig_type=std_logic lab=_phi1}
@@ -219,20 +217,29 @@ C {lab_wire.sym} 340 1230 2 1 {name=p74 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 580 1420 2 1 {name=p75 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 780 1440 2 0 {name=p73 sig_type=std_logic lab=Vcm}
 C {code.sym} -630 910 0 0 {name=TRAN only_toplevel=false value="
-.temp 120
+.temp $TEMP
 .model SW1 SW(Ron=50 Roff=10G Vt=0.4 Vh=0.1)
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 v(Vi1)=0.6 v(Vi2)=0.6
+.param VDD=$VDD
+.param IREF=$IREF
+.param VCM=$VCM
 .control
-tran 100p 5u 
+op
+tran 100p 12u 
 let vcm = (v(Vo1) + v(Vo2)) / 2
-meas tran vcm_avg AVG vcm FROM=4u TO=5u
+meas tran vcm_avg AVG vcm FROM=1u TO=3u
 let Vinn = v(Vi1_)-v(Vi2_)
 let Voutt = v(Vo1_)-v(Vo2_)
-meas tran vin_pp  PP Vinn from=4u to=5u
-meas tran vout_pp PP Voutt from=4u to=5u
+meas tran vin_pp  PP Vinn from=1u to=3u
+meas tran vout_pp PP Voutt from=1u to=3u
 
 let gain = vout_pp/vin_pp
 print gain
+
+let vcm_ = vcm_avg
+
+echo "Gain" $&gain > results.txt 
+echo "Vcm" $&vcm_ >> results.txt 
 
 plot v(Vo1_)-v(Vo2_) v(phi2)
 
@@ -247,7 +254,9 @@ plot v(vo1)
 plot v(Vo1_)-v(Vo2_)
 plot v(Vo1_) v(phi1) v(phi2)
 *plot phi1 phi2
-wrdata output.txt v(Vo1_) v(Vo2_)
+
+
+wrdata output.txt v(phi1) v(phi2) v(Vi1_) v(Vi2_) v(Vo1_) v(Vo2_)
 
 .endc
 "}
@@ -275,5 +284,6 @@ w=18.2e-6
 l=18.2e-6
 m=1
 spiceprefix=X}
-C {isource.sym} 810 1420 1 0 {name=I1 value=47.5u}
+C {isource.sym} 810 1420 1 0 {name=I1 value=\{IREF\}}
 C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -240 1280 3 0 {name=p76 sig_type=std_logic lab=Vcm}

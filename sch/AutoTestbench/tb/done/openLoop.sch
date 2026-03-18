@@ -57,7 +57,7 @@ op
 write openLoop.raw
 dc V5 0.3 0.6 0.0001
 plot Vo1
-meas dc V5_at_Vo1 FIND V(V5) WHEN V(Vo1)=0.6
+meas dc V5_at_Vo1 FIND V(V5) WHEN V(Vo1)=$VCM
 
 let VcmIdeal = V5_at_Vo1
 
@@ -124,12 +124,12 @@ C {ngspice_get_expr.sym} 840 1390 0 0 {name=r1 node="[format %.4g [expr [ngspice
 descr="gm3="}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
-value=1.2p
+value=1.25p
 footprint=1206
 device=polarized_capacitor}
 C {capa-2.sym} 710 1220 0 0 {name=C2
 m=1
-value=1.2p
+value=1.25p
 footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 660 1250 0 0 {name=l7 lab=GND}
