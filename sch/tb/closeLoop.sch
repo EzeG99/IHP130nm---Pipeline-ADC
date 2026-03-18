@@ -74,13 +74,6 @@ N -50 920 -50 1080 {lab=Vi1_}
 N -290 1260 -290 1280 {lab=#net4}
 N -290 1130 -290 1200 {lab=Vi1_}
 N -190 1170 -190 1220 {lab=Vi2_}
-N 910 1460 910 1470 {lab=#net6}
-N 870 1460 910 1460 {lab=#net6}
-N 910 1430 910 1460 {lab=#net6}
-N 910 1500 910 1530 {lab=GND}
-N 870 1460 870 1500 {lab=#net6}
-N 870 1420 870 1460 {lab=#net6}
-N 780 1420 870 1420 {lab=#net6}
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
 C {vsource.sym} -590 1410 0 0 {name=V1 value=1.2 savecurrent=false}
 C {gnd.sym} -590 1440 0 0 {name=l1 lab=GND}
@@ -198,9 +191,9 @@ C {lab_wire.sym} -230 880 2 1 {name=p69 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} -190 860 2 0 {name=p70 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} -250 860 0 0 {name=p71 sig_type=std_logic lab=Vi2}
 C {lab_wire.sym} -190 950 2 0 {name=p72 sig_type=std_logic lab=Vcm}
-C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
+C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 100m 4.98046875mega 0)" savecurrent=false}
 C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
-C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
+C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 100m 4.98046875mega 0)" savecurrent=false}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
 value=1p
@@ -222,28 +215,18 @@ C {lab_wire.sym} 70 1000 0 0 {name=p60 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} 70 1300 2 0 {name=p61 sig_type=std_logic lab=Vcm}
 C {noconn.sym} -380 1490 2 0 {name=l5}
 C {noconn.sym} -380 1580 2 0 {name=l21}
-C {isource.sym} 910 1400 0 0 {name=I4 value=10u}
-C {sg13g2_pr/sg13_lv_nmos.sym} 890 1500 0 0 {name=M11
-l=0.7u
-w=1.91u
-ng=2
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {ngspice_probe.sym} 910 1460 0 0 {name=r7}
-C {lab_wire.sym} 910 1370 0 1 {name=p65 sig_type=std_logic lab=VDD}
-C {gnd.sym} 910 1530 0 0 {name=l28 lab=GND}
 C {lab_wire.sym} 340 1230 2 1 {name=p74 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 580 1420 2 1 {name=p75 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 780 1440 2 0 {name=p73 sig_type=std_logic lab=Vcm}
 C {code.sym} -630 910 0 0 {name=TRAN only_toplevel=false value="
 .temp 65
-.model SW1 SW(Ron=100 Roff=10G Vt=0.4 Vh=0.1)
+.model SW1 SW(Ron=50 Roff=10G Vt=0.4 Vh=0.1)
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 v(Vi1)=0.6 v(Vi2)=0.6
 .control
 op
 tran 100p 22u 
+let vcm = (v(Vo1) + v(Vo2)) / 2
+meas tran vcm_avg AVG vcm FROM=1u TO=3u
 let Vinn = v(Vi1_)-v(Vi2_)
 let Voutt = v(Vo1_)-v(Vo2_)
 meas tran vin_pp  PP Vinn from=1u to=3u
@@ -293,3 +276,5 @@ w=18.2e-6
 l=18.2e-6
 m=1
 spiceprefix=X}
+C {isource.sym} 810 1420 1 0 {name=I1 value=50u}
+C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}

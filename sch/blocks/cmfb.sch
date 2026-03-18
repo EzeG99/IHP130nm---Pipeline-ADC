@@ -12,7 +12,7 @@ N -740 -160 -690 -160 {lab=_phi1}
 N -740 -140 -690 -140 {lab=phi2}
 N -740 -120 -690 -120 {lab=_phi2}
 N -740 -90 -690 -90 {lab=Vcm}
-N -740 -70 -690 -70 {lab=Vbn}
+N -740 -70 -690 -70 {lab=Iref}
 N -740 -40 -690 -40 {lab=Vcmfb}
 N -740 0 -690 0 {lab=Vo1}
 N -740 20 -690 20 {lab=Vo2}
@@ -30,10 +30,15 @@ N -185 -220 -185 -150 {lab=#net2}
 N -275 -150 -185 -150 {lab=#net2}
 N 105 -150 355 -150 {lab=Vcm}
 N -275 -10 -185 -10 {lab=Vcmfb}
-N 105 -10 355 -10 {lab=Vbn}
+N 350 -10 355 -10 {lab=Iref}
 N -585 -150 -335 -150 {lab=Vcm}
 N -5 -320 -5 -280 {lab=Vo2}
 N -185 -320 -185 -280 {lab=Vo1}
+N 390 -10 390 30 {lab=VSS}
+N 350 -40 350 -10 {lab=Iref}
+N 105 -10 350 -10 {lab=Iref}
+N 350 -40 390 -40 {lab=Iref}
+N 390 -70 390 -40 {lab=Iref}
 C {iopin.sym} -740 -230 2 0 {name=p1 lab=VDD}
 C {iopin.sym} -740 -210 2 0 {name=p2 lab=VSS}
 C {iopin.sym} -740 -180 2 0 {name=p3 lab=phi1}
@@ -41,7 +46,7 @@ C {iopin.sym} -740 -160 2 0 {name=p4 lab=_phi1}
 C {iopin.sym} -740 -140 2 0 {name=p5 lab=phi2}
 C {iopin.sym} -740 -120 2 0 {name=p6 lab=_phi2}
 C {ipin.sym} -740 -90 0 0 {name=p30 lab=Vcm}
-C {ipin.sym} -740 -70 0 0 {name=p31 lab=Vbn}
+C {ipin.sym} -740 -70 0 0 {name=p31 lab=Iref}
 C {opin.sym} -740 -40 0 1 {name=p32 lab=Vcmfb}
 C {ipin.sym} -740 0 0 0 {name=p49 lab=Vo1}
 C {ipin.sym} -740 20 0 0 {name=p50 lab=Vo2}
@@ -52,7 +57,7 @@ C {lab_wire.sym} -95 70 2 0 {name=p65 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 355 -150 2 0 {name=p66 sig_type=std_logic lab=Vcm}
 C {capa-2.sym} -5 -80 0 0 {name=C6
 m=1
-value=150f
+value=250f
 footprint=1206
 device=polarized_capacitor}
 C {sw_custom.sym} 65 -170 0 1 {name=x16}
@@ -62,12 +67,11 @@ C {lab_wire.sym} 85 -170 0 1 {name=p70 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 85 -130 2 0 {name=p72 sig_type=std_logic lab=_phi1}
 C {capa-2.sym} -185 -80 0 1 {name=C7
 m=1
-value=150f
+value=250f
 footprint=1206
 device=polarized_capacitor}
 C {lab_wire.sym} 85 10 2 0 {name=p73 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} 85 -30 0 1 {name=p74 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} 355 -10 2 0 {name=p11 sig_type=std_logic lab=Vbn}
 C {lab_wire.sym} -585 -150 2 1 {name=p7 sig_type=std_logic lab=Vcm}
 C {sw_custom.sym} -295 -170 0 0 {name=x1}
 C {lab_wire.sym} -295 -170 0 1 {name=p8 sig_type=std_logic lab=VDD}
@@ -86,3 +90,13 @@ C {lab_wire.sym} 15 -240 1 1 {name=p17 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -25 -240 3 0 {name=p18 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 15 -260 1 0 {name=p19 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} -25 -260 3 1 {name=p20 sig_type=std_logic lab=_phi2}
+C {sg13g2_pr/sg13_lv_nmos.sym} 370 -10 0 0 {name=M9
+l=0.8u
+w=8.6u
+ng=2
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} 390 30 3 0 {name=p11 sig_type=std_logic lab=VSS}
+C {lab_wire.sym} 390 -70 3 1 {name=p21 sig_type=std_logic lab=Iref}

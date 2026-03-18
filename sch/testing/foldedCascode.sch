@@ -111,7 +111,7 @@ N -360 -120 -200 -120 {lab=Vb2}
 N -80 -210 -50 -210 {lab=Vb3}
 N -640 -320 -630 -320 {lab=VDD}
 N -410 -320 -400 -320 {lab=VDD}
-N -630 -320 -410 -320 {lab=VDD}
+N -520 -320 -410 -320 {lab=VDD}
 N -160 200 590 200 {lab=0}
 N -750 -320 -750 50 {lab=VDD}
 N -750 -320 -640 -320 {lab=VDD}
@@ -121,7 +121,6 @@ N -750 110 -750 120 {lab=VbbN}
 N -750 200 -630 200 {lab=0}
 N -630 160 -630 200 {lab=0}
 N -400 170 -400 200 {lab=0}
-N -630 200 -400 200 {lab=0}
 N -160 170 -160 200 {lab=0}
 N -400 200 -160 200 {lab=0}
 N -750 150 -750 200 {lab=0}
@@ -137,6 +136,15 @@ N 140 320 200 320 {lab=VDD}
 N 790 200 1080 200 {lab=0}
 N 590 -130 590 -30 {lab=#net9}
 N 790 -130 790 -30 {lab=#net10}
+N -520 160 -520 200 {lab=0}
+N -630 200 -520 200 {lab=0}
+N -520 -320 -520 -60 {lab=VDD}
+N -630 -320 -520 -320 {lab=VDD}
+N -520 200 -400 200 {lab=0}
+N -520 120 -520 130 {lab=#net11}
+N -560 120 -560 160 {lab=#net11}
+N -560 120 -520 120 {lab=#net11}
+N -520 0 -520 120 {lab=#net11}
 C {vsource.sym} -510 -510 0 0 {name=V1 value=1.2 savecurrent=false}
 C {lab_wire.sym} -510 -540 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 60 -80 0 0 {name=p5 sig_type=std_logic lab=VinCM}
@@ -174,7 +182,7 @@ C {vsource.sym} -430 -510 0 0 {name=V7 value=0.6 savecurrent=false}
 C {lab_wire.sym} -430 -540 0 0 {name=p26 sig_type=std_logic lab=VinCM}
 C {gnd.sym} -510 -480 0 0 {name=l5 lab=GND}
 C {gnd.sym} -430 -480 0 0 {name=l11 lab=GND}
-C {launcher.sym} 330 130 0 0 {name=h4
+C {launcher.sym} -500 230 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
 # Setup the default simulation commands if not already set up
@@ -198,7 +206,7 @@ write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get curr
 xschem netlist
 simulate
 "}
-C {devices/launcher.sym} 330 190 0 0 {name=h2
+C {devices/launcher.sym} -500 290 0 0 {name=h2
 descr="OP annotate" 
 tclcommand="xschem annotate_op"
 }
@@ -437,3 +445,14 @@ m=4
 model=sg13_lv_pmos
 spiceprefix=X
 }
+C {isource.sym} -520 -30 0 0 {name=I1 value=50u}
+C {sg13g2_pr/sg13_lv_nmos.sym} -540 160 0 0 {name=M9
+l=0.8u
+w=8.6u
+ng=2
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {ngspice_probe.sym} -560 130 0 1 {name=r7}
+C {ngspice_probe.sym} -520 120 0 1 {name=r14}
