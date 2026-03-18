@@ -52,7 +52,7 @@ C {lab_wire.sym} -95 70 2 0 {name=p65 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 355 -150 2 0 {name=p66 sig_type=std_logic lab=Vcm}
 C {capa-2.sym} -5 -80 0 0 {name=C6
 m=1
-value=100f
+value=150f
 footprint=1206
 device=polarized_capacitor}
 C {sw_custom.sym} 65 -170 0 1 {name=x16}
@@ -62,7 +62,7 @@ C {lab_wire.sym} 85 -170 0 1 {name=p70 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 85 -130 2 0 {name=p72 sig_type=std_logic lab=_phi1}
 C {capa-2.sym} -185 -80 0 1 {name=C7
 m=1
-value=100f
+value=150f
 footprint=1206
 device=polarized_capacitor}
 C {lab_wire.sym} 85 10 2 0 {name=p73 sig_type=std_logic lab=_phi1}
