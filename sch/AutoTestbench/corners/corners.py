@@ -8,17 +8,22 @@ CORNERS = {
     "TT": {
         "process": "tt",
         "vdd": 1.2,
-        "iref": 50,
+        "iref": 50e-6,
+        "vcm": 0.6,
         "temp": 65,
     },
     "FF": {
         "process": "ff",
         "vdd": 1.26,
+        "iref": 52.5e-6,
+        "vcm": 0.63,
         "temp": 0,
     },
     "SS": {
         "process": "ss",
         "vdd": 1.14,
+        "iref": 47.5e-6,
+        "vcm": 0.57,
         "temp": 125,
     },
 }

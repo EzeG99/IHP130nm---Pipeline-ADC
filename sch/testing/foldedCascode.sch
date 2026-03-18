@@ -30,6 +30,7 @@ T {0.99} -115 -165 0 0 0.2 0.2 {}
 T {10u} -615 115 0 0 0.2 0.2 {}
 T {25u} -385 115 0 0 0.2 0.2 {}
 T {10u} -145 115 0 0 0.2 0.2 {}
+T {714.76uA} 260 440 0 0 0.4 0.4 {}
 N 590 -220 590 -190 {
 lab=#net1}
 N 790 -220 790 -190 {
@@ -182,7 +183,7 @@ C {vsource.sym} -430 -510 0 0 {name=V7 value=0.6 savecurrent=false}
 C {lab_wire.sym} -430 -540 0 0 {name=p26 sig_type=std_logic lab=VinCM}
 C {gnd.sym} -510 -480 0 0 {name=l5 lab=GND}
 C {gnd.sym} -430 -480 0 0 {name=l11 lab=GND}
-C {launcher.sym} -500 230 0 0 {name=h4
+C {launcher.sym} 180 -420 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
 # Setup the default simulation commands if not already set up
@@ -206,7 +207,7 @@ write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get curr
 xschem netlist
 simulate
 "}
-C {devices/launcher.sym} -500 290 0 0 {name=h2
+C {devices/launcher.sym} 180 -360 0 0 {name=h2
 descr="OP annotate" 
 tclcommand="xschem annotate_op"
 }
@@ -219,20 +220,12 @@ m=2
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_pmos.sym} 170 -210 0 0 {name=M0
-l=0.3u
-w=70u
-ng=120
-m=8
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {sg13g2_pr/annotate_fet_params.sym} 370 -90 0 0 {name=annot1 ref=M1}
 C {sg13g2_pr/annotate_fet_params.sym} 957.5 -322.5 0 0 {name=annot2 ref=M4}
 C {sg13g2_pr/annotate_fet_params.sym} 957.5 -52.5 0 0 {name=annot3 ref=M3}
 C {sg13g2_pr/annotate_fet_params.sym} 957.5 77.5 0 0 {name=annot4 ref=M5}
 C {sg13g2_pr/annotate_fet_params.sym} 957.5 -192.5 0 0 {name=annot5 ref=M7}
-C {sg13g2_pr/annotate_fet_params.sym} 310 -280 0 0 {name=annot6 ref=M0}
+C {sg13g2_pr/annotate_fet_params.sym} 310 -280 0 0 {name=annot6 ref=M10}
 C {ngspice_probe.sym} 590 -190 0 0 {name=r1}
 C {ngspice_probe.sym} 590 100 0 0 {name=r2}
 C {ngspice_probe.sym} 190 -130 0 0 {name=r3}
@@ -295,15 +288,15 @@ spiceprefix=X
 C {lab_wire.sym} -630 -320 0 0 {name=p24 sig_type=std_logic lab=VDD}
 C {sg13g2_pr/sg13_lv_pmos.sym} -610 -30 0 1 {name=M8
 l=0.13u
-w=60u
-ng=60
+w=65u
+ng=65
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -610 -120 0 1 {name=M13
 l=0.3u
-w=14u
+w=26u
 ng=5
 m=1
 model=sg13_lv_pmos
@@ -400,11 +393,11 @@ spiceprefix=X
 }
 C {lab_wire.sym} -850 120 0 0 {name=p8 sig_type=std_logic lab=IbiasN}
 C {lab_wire.sym} 440 360 0 0 {name=p17 sig_type=std_logic lab=IbiasN}
-C {vsource.sym} 100 350 0 0 {name=V2 value=0.71 savecurrent=false}
+C {vsource.sym} 100 350 0 0 {name=V2 value=0.81 savecurrent=false}
 C {vsource.sym} 290 310 0 0 {name=V3 value=1.2 savecurrent=false}
-C {vsource.sym} 140 380 0 0 {name=V4 value=0.987 savecurrent=false}
+C {vsource.sym} 140 380 0 0 {name=V4 value=1.0113 savecurrent=false}
 C {lab_wire.sym} 200 320 0 1 {name=p18 sig_type=std_logic lab=VDD}
-C {sg13g2_pr/annotate_fet_params.sym} 152.5 437.5 0 0 {name=annot7 ref=M10}
+C {sg13g2_pr/annotate_fet_params.sym} 152.5 437.5 0 0 {name=annot7 ref=M24}
 C {sg13g2_pr/sg13_lv_pmos.sym} 810 -160 0 1 {name=M17
 l=0.4u
 w=100u
@@ -417,14 +410,6 @@ C {sg13g2_pr/sg13_lv_pmos.sym} 570 -160 0 0 {name=M7
 l=0.4u
 w=100u
 ng=150
-m=4
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 120 320 0 0 {name=M10
-l=0.8u
-w=54.5u
-ng=100
 m=4
 model=sg13_lv_pmos
 spiceprefix=X
@@ -456,3 +441,21 @@ spiceprefix=X
 }
 C {ngspice_probe.sym} -560 130 0 1 {name=r7}
 C {ngspice_probe.sym} -520 120 0 1 {name=r14}
+C {sg13g2_pr/sg13_lv_pmos.sym} 120 320 0 0 {name=M24
+l=0.3u
+w=110u
+ng=200
+m=8
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {vsource.sym} 110 170 0 0 {name=V5 value=0.442134 savecurrent=false}
+C {noconn.sym} 110 140 0 0 {name=l3}
+C {sg13g2_pr/sg13_lv_pmos.sym} 170 -210 0 0 {name=M10
+l=0.3u
+w=113.5u
+ng=210
+m=8
+model=sg13_lv_pmos
+spiceprefix=X
+}

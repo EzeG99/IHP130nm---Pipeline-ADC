@@ -15,12 +15,8 @@ source $::env(PDK_ROOT)/$::env(PDK)/libs.tech/xschem/xschemrc
 set PROJECT_DIR [file dirname [info script]]
 
 # agregar carpeta blocks
-append XSCHEM_LIBRARY_PATH :$PROJECT_DIR/../Schematics_and_Symbols
+append XSCHEM_LIBRARY_PATH :$PROJECT_DIR/../blocks
 append XSCHEM_LIBRARY_PATH :[pwd]
 
 puts "Loaded Schematics_and_Symbols"
 
-append XSCHEM_LIBRARY_PATH :$PROJECT_DIR/../Schematics_and_Symbols/IOCells
-append XSCHEM_LIBRARY_PATH :[pwd]
-
-puts "Loaded IOCells"

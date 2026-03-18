@@ -15,7 +15,7 @@ N 200 1190 260 1190 {lab=#net1}
 N 260 1170 260 1190 {lab=#net1}
 N 660 1130 660 1190 {lab=Vo1}
 N 710 1170 710 1190 {lab=Vo2}
-N 300 1230 340 1230 {lab=V5_}
+N 300 1230 340 1230 {lab=V5}
 C {launcher.sym} 70 1380 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
@@ -44,17 +44,21 @@ C {devices/launcher.sym} 70 1410 0 0 {name=h2
 descr="OP annotate" 
 tclcommand="xschem annotate_op"
 }
-C {code_shown.sym} -510 700 0 0 {name=s1 only_toplevel=false value="
-.include openLoop.save
+C {code_shown.sym} -470 370 0 0 {name=s1 only_toplevel=false value="
+.lib cornerMOSlv.lib mos_$PROCESS
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 
-.temp 125
+.temp $TEMP
+.param VDD=$VDD
+.param VCM=$VCM
+.param IREF=$IREF
 .control
 save all
 op
 write openLoop.raw
 dc V5 0.3 0.6 0.0001
 plot Vo1
-meas dc V5_at_Vo1 FIND V(V5_) WHEN V(Vo1)=0.6
+meas dc V5_at_Vo1 FIND V(V5) WHEN V(Vo1)=0.6
+
 let VcmIdeal = V5_at_Vo1
 
 print VcmIdeal
@@ -63,6 +67,7 @@ alter @V5[dc] $&VcmIdeal $ vector
 ac dec 1k 1 100G
 let Vout_diff = v(Vo2)-v(Vo1)
 let Av = db(Vout_diff)
+meas ac UGBW WHEN Av=0
 
 meas ac Ao FIND Av WHEN frequency=10
 
@@ -75,6 +80,16 @@ meas ac PHASE_UGBW FIND phase_vec WHEN frequency=UGBW
 
 let PM = 180 + PHASE_UGBW
 
+let Ao_ = Ao
+let UGBW_ = UGBW
+
+echo "PM" $&PM > results.txt
+echo "Ao" $&Ao_ >> results.txt
+echo "UGBW" $&UGBW_ >> results.txt
+
+wrdata AvOL.txt Av
+wrdata PhaseOL.txt phase_vec
+
 print Ao
 print UGBW
 print PM
@@ -85,14 +100,14 @@ plot phase_vec_
 "
 }
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
-C {vsource.sym} -200 1270 0 0 {name=V1 value=1.14 savecurrent=false}
+C {vsource.sym} -200 1270 0 0 {name=V1 value=\{VDD\} savecurrent=false}
 C {gnd.sym} -200 1300 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -200 1240 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 360 1080 0 1 {name=p3 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1220 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 770 1130 0 1 {name=p5 sig_type=std_logic lab=Vo1}
 C {lab_wire.sym} 770 1170 0 1 {name=p6 sig_type=std_logic lab=Vo2}
-C {vsource.sym} 200 1220 0 0 {name=V3 value=0.57 savecurrent=false}
+C {vsource.sym} 200 1220 0 0 {name=V3 value=\{VCM\} savecurrent=false}
 C {gnd.sym} 200 1250 0 0 {name=l3 lab=GND}
 C {vsource.sym} 200 1160 0 0 {name=V4 value="0 AC 1" savecurrent=false}
 C {ngspice_get_expr.sym} 770 1320 0 0 {name=r2 node="[format %.4g [expr 1 / [ngspice::get_node \{@n.x1.xm1.nsg13_lv_pmos[gds]\}] ] ]"
@@ -121,20 +136,8 @@ C {gnd.sym} 660 1250 0 0 {name=l7 lab=GND}
 C {gnd.sym} 710 1250 0 0 {name=l8 lab=GND}
 C {ngspice_get_expr.sym} 840 1430 0 0 {name=r7 node="[format %.4g [expr [ngspice::get_node \{@n.x1.xm7.nsg13_lv_pmos[gm]\}] ] ]"
 descr="gm7="}
-C {simulator_commands_shown.sym} 0 730 0 0 {
-name=Libs_Ngspice1
-simulator=ngspice
-only_toplevel=false
-value="
-.lib cornerMOSlv.lib mos_ss
-.lib cornerMOShv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.lib cornerCAP.lib cap_typ
-"
-      }
 C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4 savecurrent=false}
 C {gnd.sym} 340 1290 0 0 {name=l5 lab=GND}
-C {isource.sym} 340 1040 0 0 {name=I0 value=47.5u}
+C {isource.sym} 340 1040 0 0 {name=I0 value=\{IREF\}}
 C {lab_wire.sym} 340 1010 0 1 {name=p2 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} 300 1230 0 0 {name=p4 sig_type=std_logic lab=V5_}
+C {lab_wire.sym} 300 1230 0 0 {name=p4 sig_type=std_logic lab=V5}
