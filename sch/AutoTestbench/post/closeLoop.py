@@ -65,10 +65,11 @@ for sim_type in SIM_TYPES:
         phi2 = data[:, 3]
         vi1  = data[:, 5]
         vi2  = data[:, 7]
-        vo1  = data[:, 9]
+        vo1_  = data[:, 9]
         vo2  = data[:, 11]
+        vo1  = data[:, 13]
 
-        vout = vo1 - vo2
+        vout = vo1_ - vo2
 
         # ======================
         # FFT
@@ -163,30 +164,28 @@ for sim_type in SIM_TYPES:
 # ======================
 # Time-domain stacked plot
 # ======================
-        mask = (time >= 1e-6) & (time <= 2e-6)
+        mask = (time >= 1e-6) & (time <= 1.6e-6)
 
         t_plot = time[mask]
 
-        vo_diff = vo1 - vo2  # <-- nueva señal
+        vo_diff = vo1_ - vo2  # <-- nueva señal
+        vi_diff = vi1 - vi2  # <-- nueva señal
 
-        fig, axs = plt.subplots(5, 1, figsize=(8, 7), sharex=True)
+        fig, axs = plt.subplots(4, 1, figsize=(8, 7), sharex=True)
 
         axs[0].plot(t_plot*1e6, phi1[mask])
         axs[0].set_ylabel("phi1")
 
-        axs[1].plot(t_plot*1e6, phi2[mask])
-        axs[1].set_ylabel("phi2")
+        axs[2].plot(t_plot*1e6, vi_diff[mask])
+        axs[2].set_ylabel("Vi (diff)")
 
-        axs[2].plot(t_plot*1e6, vo1[mask])
-        axs[2].set_ylabel("Vo1")
+        axs[1].plot(t_plot*1e6, vo1[mask])
+        axs[1].set_ylabel("Vo1 (OPAMP)")
 
-        axs[3].plot(t_plot*1e6, vi1[mask])
-        axs[3].set_ylabel("Vi1")
+        axs[3].plot(t_plot*1e6, vo_diff[mask])
+        axs[3].set_ylabel("Vo (diff)")
 
-        axs[4].plot(t_plot*1e6, vo_diff[mask])
-        axs[4].set_ylabel("Vo (diff)")
-
-        axs[4].set_xlabel("Time [us]")
+        axs[3].set_xlabel("Time [us]")
 
         fig.suptitle(f"Waveforms - {format_label(corner_dir.name)} ({sim_type})")
 
