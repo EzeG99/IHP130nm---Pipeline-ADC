@@ -36,9 +36,19 @@ PLOT_DIR.mkdir(parents=True, exist_ok=True)
 SIM_TYPES = ["sch", "pex"]
 
 # ===============================
-# Vo1 vs Vcm
+# Combined Plot: Vo1 + Gain vs Vcm
 # ===============================
-plt.figure(figsize=(7, 5))
+fig, ax1 = plt.subplots(figsize=(7, 5))
+
+# Eje extra (Gain) a la izquierda
+ax_gain = ax1.twinx()
+
+# mover eje de gain a la izquierda (externo)
+ax_gain.spines["left"].set_position(("outward", 60))
+ax_gain.spines["left"].set_visible(True)
+ax_gain.spines["right"].set_visible(False)
+ax_gain.yaxis.set_label_position("left")
+ax_gain.yaxis.set_ticks_position("left")
 
 for sim_type in SIM_TYPES:
 
@@ -47,100 +57,80 @@ for sim_type in SIM_TYPES:
         print(f"⚠ Missing {sim_type} directory")
         continue
 
-    linestyle = "-" if sim_type == "sch" else "--"
+    # sólido para Vo1 (como antes)
+    linestyle_vo = "-" if sim_type == "sch" else "--"
 
     for corner_dir in sorted(sim_path.iterdir()):
 
         if not corner_dir.is_dir():
             continue
 
+        label = f"{format_label(corner_dir.name)} ({sim_type})"
+
+        # -------- Vo1 --------
         vo1_file = corner_dir / "vo1.txt"
+        if vo1_file.exists():
+            df_vo = pd.read_csv(
+                vo1_file,
+                sep=r"\s+",
+                header=None,
+                names=["Vcm", "Vo1"]
+            )
 
-        if not vo1_file.exists():
+            ax1.plot(
+                df_vo["Vcm"],
+                df_vo["Vo1"],
+                linewidth=1.5,
+                linestyle=linestyle_vo,
+                label=f"{label} - Vo1"
+            )
+        else:
             print(f"⚠ Skipping {corner_dir.name} ({sim_type}): no vo1.txt")
-            continue
 
-        df = pd.read_csv(
-            vo1_file,
-            sep=r"\s+",
-            header=None,
-            names=["Vcm", "Vo1"]
-        )
-
-        label = f"{format_label(corner_dir.name)} ({sim_type})"
-
-        plt.plot(
-            df["Vcm"],
-            df["Vo1"],
-            linewidth=1.5,
-            linestyle=linestyle,
-            label=label
-        )
-
-plt.xlabel("Vcm [V]")
-plt.ylabel("Vo1 [V]")
-plt.title("ICMR - Output vs Input Common Mode")
-
-plt.legend(fontsize=8, ncol=legend_ncol)
-plt.grid(True)
-plt.tight_layout()
-
-plt.savefig(PLOT_DIR / "ICMR_Vo1.jpg", bbox_inches="tight")
-
-if os.getenv("NO_SHOW", "0") != "1":
-    plt.show()
-
-
-# ===============================
-# Gain vs Vcm
-# ===============================
-plt.figure(figsize=(7, 5))
-
-for sim_type in SIM_TYPES:
-
-    sim_path = BASE_PATH / sim_type
-    if not sim_path.exists():
-        continue
-
-    linestyle = "-" if sim_type == "sch" else "--"
-
-    for corner_dir in sorted(sim_path.iterdir()):
-
-        if not corner_dir.is_dir():
-            continue
-
+        # -------- Gain (siempre punteada) --------
         gain_file = corner_dir / "gain.txt"
+        if gain_file.exists():
+            df_gain = pd.read_csv(
+                gain_file,
+                sep=r"\s+",
+                header=None,
+                names=["Vcm", "Gain"]
+            )
 
-        if not gain_file.exists():
+            ax_gain.plot(
+                df_gain["Vcm"],
+                df_gain["Gain"],
+                linewidth=1.5,
+                linestyle="--",   # ← punteada
+                label=f"{label} - Gain"
+            )
+        else:
             print(f"⚠ Skipping {corner_dir.name} ({sim_type}): no gain.txt")
-            continue
 
-        df = pd.read_csv(
-            gain_file,
-            sep=r"\s+",
-            header=None,
-            names=["Vcm", "Gain"]
-        )
+# ===============================
+# Labels & layout
+# ===============================
+ax1.set_xlabel("Vcm [V]")
+ax1.set_ylabel("Vo1 [V]")
+ax_gain.set_ylabel("Gain")
 
-        label = f"{format_label(corner_dir.name)} ({sim_type})"
+ax1.grid(True)
 
-        plt.plot(
-            df["Vcm"],
-            df["Gain"],
-            linewidth=1.5,
-            linestyle=linestyle,
-            label=label
-        )
+# Combinar leyendas
+lines_1, labels_1 = ax1.get_legend_handles_labels()
+lines_2, labels_2 = ax_gain.get_legend_handles_labels()
 
-plt.xlabel("Vcm [V]")
-plt.ylabel("Gain")
-plt.title("ICMR - Gain vs Input Common Mode")
+ax1.legend(
+    lines_1 + lines_2,
+    labels_1 + labels_2,
+    fontsize=8,
+    ncol=legend_ncol
+)
 
-plt.legend(fontsize=8, ncol=legend_ncol)
-plt.grid(True)
+plt.title("ICMR - Vo1 & Gain vs Vcm")
 plt.tight_layout()
 
-plt.savefig(PLOT_DIR / "ICMR_Gain.jpg", bbox_inches="tight")
+plt.savefig(PLOT_DIR / "ICMR_combined.jpg", bbox_inches="tight")
 
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()

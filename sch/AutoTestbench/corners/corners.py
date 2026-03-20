@@ -7,23 +7,23 @@ from itertools import product
 CORNERS = {
     "TT": {
         "process": "tt",
-        "vdd": 1.2,
+        "vdd": 1.5,
         "iref": 50e-6,
-        "vcm": 0.6,
+        "vcm": 0.75,
         "temp": 60,
     },
     "FF": {
         "process": "ff",
-        "vdd": 1.26,
+        "vdd": 1.575,
         "iref": 52.5e-6,
-        "vcm": 0.63,
+        "vcm": 0.7875,
         "temp": 0,
     },
     "SS": {
         "process": "ss",
-        "vdd": 1.14,
+        "vdd": 1.42500,
         "iref": 47.5e-6,
-        "vcm": 0.57,
+        "vcm": 0.7125,
         "temp": 120,
     },
 }

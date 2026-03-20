@@ -22,7 +22,7 @@ else:
 # ===============================
 # Paths
 # ===============================
-BASE_PATH = Path("./runs/closeLoop")
+BASE_PATH = Path("./runs/HFcloseLoop")
 PLOT_DIR = Path("./post/plots")
 PLOT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -78,7 +78,7 @@ for sim_type in SIM_TYPES:
 
         samples -= np.mean(samples)
 
-        window = np.hanning(N)
+        window = np.blackman(N)   # <-- cambio importante
         samples *= window
 
         fft = np.fft.fft(samples)[:N//2]
@@ -86,37 +86,60 @@ for sim_type in SIM_TYPES:
 
         freq = np.fft.fftfreq(N, Ts)[:N//2]
 
-        # Fundamental
-        fund_bin = np.argmax(power[1:]) + 1
-        signal_bins = np.arange(fund_bin-2, fund_bin+3)
+# evitar DC + primeros bins sucios
+        search_start = 5
+
+        fund_bin = np.argmax(power[search_start:]) + search_start
+
+# bins del tono (más ancho para alta freq)
+        bw = 3
+        signal_bins = np.arange(fund_bin-bw, fund_bin+bw+1)
+        signal_bins = signal_bins[(signal_bins >= 0) & (signal_bins < len(power))]
 
         signal_power = np.sum(power[signal_bins])
 
         # Harmonics
         harmonics = []
         for h in range(2, 6):
-            b = fund_bin * h
-            if b < len(power):
-                harmonics.extend(np.arange(b-1, b+2))
 
-        harmonic_power = np.sum(power[harmonics]) if harmonics else 0
+            f_h = h * freq[fund_bin]
+
+            # aliasing folding
+            while f_h > fs/2:
+                f_h = abs(fs - f_h)
+
+            b = int(np.round(f_h / (fs/N)))
+
+            bins = np.arange(b-1, b+2)
+            bins = bins[(bins >= 0) & (bins < len(power))]
+
+            harmonics.extend(bins)
+
+        harmonic_power = np.sum(power[harmonics]) if len(harmonics) > 0 else 0
 
         # Noise
         noise_mask = np.ones_like(power, dtype=bool)
         noise_mask[signal_bins] = False
 
         for h in harmonics:
-            if h < len(power):
-                noise_mask[h] = False
+            noise_mask[h] = False
 
         noise_power = np.sum(power[noise_mask])
 
         # Metrics
-        SNR  = 10*np.log10(signal_power / noise_power)
-        SNDR = 10*np.log10(signal_power / (noise_power + harmonic_power))
-        THD  = 10*np.log10(harmonic_power / signal_power) if harmonic_power > 0 else -np.inf
-        SFDR = 10*np.log10(signal_power / np.max(power[harmonics])) if harmonics else np.nan
-        ENOB = (SNDR - 1.76) / 6.02
+
+        eps = 1e-20
+
+        SNR  = 10*np.log10((signal_power+eps)/(noise_power+eps))
+        SNDR = 10*np.log10((signal_power+eps)/(noise_power+harmonic_power+eps))
+        THD  = 10*np.log10((harmonic_power+eps)/(signal_power+eps))
+
+        if len(harmonics) > 0:
+            SFDR = 10*np.log10(signal_power / np.max(power[harmonics]))
+        else:
+            SFDR = np.nan
+
+        ENOB = (SNDR - 1.76)/6.02
 
         # ======================
         # FFT Plot

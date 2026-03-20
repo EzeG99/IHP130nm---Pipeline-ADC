@@ -189,9 +189,9 @@ C {lab_wire.sym} -230 880 2 1 {name=p69 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} -190 860 2 0 {name=p70 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} -250 860 0 0 {name=p71 sig_type=std_logic lab=Vi2}
 C {lab_wire.sym} -190 950 2 0 {name=p72 sig_type=std_logic lab=Vcm}
-C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
+C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 125m 43.26171875mega 0)" savecurrent=false}
 C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
-C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
+C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 43.26171875mega 0)" savecurrent=false}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
 value=1p
@@ -256,19 +256,19 @@ plot v(Vo1_) v(phi1) v(phi2)
 *plot phi1 phi2
 
 
-wrdata output.txt v(phi1) v(phi2) v(Vi1_) v(Vi2_) v(Vo1_) v(Vo2_) v(Vo1) v(Vo2)
+wrdata output.txt v(phi1) v(phi2) v(Vi1_) v(Vi2_) v(Vo1_) v(Vo2_) v(Vo1) v(Vi2)
 
 .endc
 "}
-C {isource.sym} 810 1420 1 0 {name=I1 value=\{IREF\}}
-C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} -240 1280 3 0 {name=p76 sig_type=std_logic lab=Vcm}
-C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C6
+C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C7
 model=cap_cmim
 w=16.2e-6
 l=16.2e-6
 m=1
 spiceprefix=X}
+C {isource.sym} 810 1420 1 0 {name=I1 value=\{IREF\}}
+C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -240 1280 3 0 {name=p76 sig_type=std_logic lab=Vcm}
 C {sg13g2_pr/cap_cmim.sym} 140 1130 1 1 {name=C3
 model=cap_cmim
 w=16.2e-6

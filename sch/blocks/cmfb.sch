@@ -70,21 +70,11 @@ C {lab_wire.sym} 65 -30 0 0 {name=p62 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 65 10 2 1 {name=p63 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -95 70 2 0 {name=p65 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 355 -150 2 0 {name=p66 sig_type=std_logic lab=Vcm}
-C {capa-2.sym} -5 -80 0 0 {name=C6
-m=1
-value=250f
-footprint=1206
-device=polarized_capacitor}
 C {sw_custom.sym} 65 -170 0 1 {name=x16}
 C {lab_wire.sym} 65 -170 0 0 {name=p68 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 65 -130 2 1 {name=p69 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 85 -170 0 1 {name=p70 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 85 -130 2 0 {name=p72 sig_type=std_logic lab=_phi1}
-C {capa-2.sym} -185 -80 0 1 {name=C7
-m=1
-value=250f
-footprint=1206
-device=polarized_capacitor}
 C {lab_wire.sym} 85 10 2 0 {name=p73 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} 85 -30 0 1 {name=p74 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -585 -150 2 1 {name=p7 sig_type=std_logic lab=Vcm}
@@ -115,11 +105,6 @@ C {lab_wire.sym} -510 10 2 1 {name=p26 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -510 -30 0 0 {name=p27 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -490 10 2 0 {name=p28 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} -490 -30 0 1 {name=p29 sig_type=std_logic lab=_phi2}
-C {capa-2.sym} -395 -70 0 1 {name=C1
-m=1
-value=30f
-footprint=1206
-device=polarized_capacitor}
 C {sw_custom.sym} 280 -130 2 1 {name=x6}
 C {lab_wire.sym} 280 -130 2 0 {name=p33 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 280 -170 0 1 {name=p34 sig_type=std_logic lab=VSS}
@@ -130,13 +115,32 @@ C {lab_wire.sym} 280 10 2 0 {name=p37 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 280 -30 0 1 {name=p38 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 260 10 2 1 {name=p39 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 260 -30 0 0 {name=p40 sig_type=std_logic lab=_phi2}
-C {capa-2.sym} 165 -70 0 0 {name=C2
-m=1
-value=30f
-footprint=1206
-device=polarized_capacitor}
 C {sw_custom.sym} -290 -30 0 0 {name=x8}
 C {lab_wire.sym} -290 -30 0 1 {name=p41 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -290 10 2 0 {name=p42 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -310 -30 0 0 {name=p43 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -310 10 2 1 {name=p44 sig_type=std_logic lab=_phi1}
+C {sg13g2_pr/cap_cmim.sym} -185 -80 0 0 {name=C3
+model=cap_cmim
+w=15.5e-6
+l=15.5e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} -395 -70 0 0 {name=C4
+model=cap_cmim
+w=4.5e-6
+l=4.5e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} -5 -80 0 0 {name=C5
+model=cap_cmim
+w=15.5e-6
+l=15.5e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 165 -70 0 0 {name=C1
+model=cap_cmim
+w=4.5e-6
+l=4.5e-6
+m=1
+spiceprefix=X}

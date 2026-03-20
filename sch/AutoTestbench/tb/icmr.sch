@@ -63,7 +63,7 @@ let VcmIdeal = V5_at_Vo1
 print VcmIdeal
 alter @V5[dc] $&VcmIdeal $ vector
 
-dc Vcm 0.4 0.8 0.5m
+dc Vcm 0.4 1.1 0.5m
 let gain = (v(Vo1)-v(Vo2))/(v(Vi1)-v(Vi2))
 let Vo1 = v(Vo1)
 
@@ -89,12 +89,12 @@ C {lab_wire.sym} 770 1170 0 1 {name=p6 sig_type=std_logic lab=Vo2}
 C {gnd.sym} 260 1230 0 0 {name=l3 lab=GND}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
-value=1.2p
+value=1.25p
 footprint=1206
 device=polarized_capacitor}
 C {capa-2.sym} 710 1220 0 0 {name=C2
 m=1
-value=1.2p
+value=1.25p
 footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 660 1250 0 0 {name=l7 lab=GND}

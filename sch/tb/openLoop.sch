@@ -54,7 +54,7 @@ op
 write openLoop.raw
 dc V5 0.3 0.6 0.0001
 plot Vo1
-meas dc V5_at_Vo1 FIND V(V5_) WHEN V(Vo1)=0.6
+meas dc V5_at_Vo1 FIND V(V5_) WHEN V(Vo1)=0.75
 let VcmIdeal = V5_at_Vo1
 
 print VcmIdeal
@@ -85,14 +85,14 @@ plot phase_vec_
 "
 }
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
-C {vsource.sym} -200 1270 0 0 {name=V1 value=1.2 savecurrent=false}
+C {vsource.sym} -200 1270 0 0 {name=V1 value=1.5 savecurrent=false}
 C {gnd.sym} -200 1300 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -200 1240 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 360 1080 0 1 {name=p3 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1220 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 770 1130 0 1 {name=p5 sig_type=std_logic lab=Vo1}
 C {lab_wire.sym} 770 1170 0 1 {name=p6 sig_type=std_logic lab=Vo2}
-C {vsource.sym} 200 1220 0 0 {name=V3 value=0.6 savecurrent=false}
+C {vsource.sym} 200 1220 0 0 {name=V3 value=0.75 savecurrent=false}
 C {gnd.sym} 200 1250 0 0 {name=l3 lab=GND}
 C {vsource.sym} 200 1160 0 0 {name=V4 value="0 AC 1" savecurrent=false}
 C {ngspice_get_expr.sym} 770 1320 0 0 {name=r2 node="[format %.4g [expr 1 / [ngspice::get_node \{@n.x1.xm1.nsg13_lv_pmos[gds]\}] ] ]"
@@ -133,7 +133,7 @@ value="
 .lib cornerCAP.lib cap_typ
 "
       }
-C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4 savecurrent=false}
+C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4026965 savecurrent=false}
 C {gnd.sym} 340 1290 0 0 {name=l5 lab=GND}
 C {isource.sym} 340 1040 0 0 {name=I0 value=50u}
 C {lab_wire.sym} 340 1010 0 1 {name=p2 sig_type=std_logic lab=VDD}
