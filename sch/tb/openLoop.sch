@@ -47,7 +47,7 @@ tclcommand="xschem annotate_op"
 C {code_shown.sym} -510 700 0 0 {name=s1 only_toplevel=false value="
 .include openLoop.save
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 
-.temp 65
+.temp 60
 .control
 save all
 op
@@ -133,7 +133,7 @@ value="
 .lib cornerCAP.lib cap_typ
 "
       }
-C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4026965 savecurrent=false}
+C {vsource.sym} 340 1260 0 0 {name=V5 value=0.4041447 savecurrent=false}
 C {gnd.sym} 340 1290 0 0 {name=l5 lab=GND}
 C {isource.sym} 340 1040 0 0 {name=I0 value=50u}
 C {lab_wire.sym} 340 1010 0 1 {name=p2 sig_type=std_logic lab=VDD}
