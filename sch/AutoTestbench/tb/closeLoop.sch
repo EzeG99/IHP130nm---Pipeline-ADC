@@ -218,7 +218,7 @@ C {lab_wire.sym} 580 1420 2 1 {name=p75 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 780 1440 2 0 {name=p73 sig_type=std_logic lab=Vcm}
 C {code.sym} -630 910 0 0 {name=TRAN only_toplevel=false value="
 .temp $TEMP
-.model SW1 SW(Ron=200 Roff=10G Vt=0.4 Vh=0.1)
+.model SW1 SW(Ron=150 Roff=10G Vt=0.4 Vh=0.1)
 .nodeset v(Vo1)=0.6 v(Vo2)=0.6 v(Vi1)=0.6 v(Vi2)=0.6
 .param VDD=$VDD
 .param IREF=$IREF
@@ -265,8 +265,14 @@ C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -240 1280 3 0 {name=p76 sig_type=std_logic lab=Vcm}
 C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C6
 model=cap_cmim
-w=16.2e-6
-l=16.2e-6
+w=16.15e-6
+l=16.15e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 140 1380 1 1 {name=C5
+model=cap_cmim
+w=16.15e-6
+l=16.15e-6
 m=1
 spiceprefix=X}
 C {sg13g2_pr/cap_cmim.sym} 140 1130 1 1 {name=C3
@@ -276,12 +282,6 @@ l=16.2e-6
 m=1
 spiceprefix=X}
 C {sg13g2_pr/cap_cmim.sym} 140 1170 1 1 {name=C4
-model=cap_cmim
-w=16.2e-6
-l=16.2e-6
-m=1
-spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 140 1380 1 1 {name=C5
 model=cap_cmim
 w=16.2e-6
 l=16.2e-6

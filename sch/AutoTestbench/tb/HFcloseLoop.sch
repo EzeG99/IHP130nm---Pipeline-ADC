@@ -260,12 +260,6 @@ wrdata output.txt v(phi1) v(phi2) v(Vi1_) v(Vi2_) v(Vo1_) v(Vo2_) v(Vo1) v(Vi2)
 
 .endc
 "}
-C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C7
-model=cap_cmim
-w=16.2e-6
-l=16.2e-6
-m=1
-spiceprefix=X}
 C {isource.sym} 810 1420 1 0 {name=I1 value=\{IREF\}}
 C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -240 1280 3 0 {name=p76 sig_type=std_logic lab=Vcm}
@@ -275,13 +269,19 @@ w=16.2e-6
 l=16.2e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 140 1170 1 1 {name=C4
+C {sg13g2_pr/cap_cmim.sym} 140 1380 1 1 {name=C5
 model=cap_cmim
-w=16.2e-6
-l=16.2e-6
+w=16.15e-6
+l=16.15e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 140 1380 1 1 {name=C5
+C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C6
+model=cap_cmim
+w=16.15e-6
+l=16.15e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 140 1170 1 1 {name=C4
 model=cap_cmim
 w=16.2e-6
 l=16.2e-6
