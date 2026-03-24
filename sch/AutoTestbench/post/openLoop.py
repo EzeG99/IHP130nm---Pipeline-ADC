@@ -84,7 +84,7 @@ for sim_type in SIM_TYPES:
 
 plt.axhline(0, linestyle="--", linewidth=1)
 
-plt.ylim(-10, 65)
+plt.ylim(-5, 75)
 
 ax = plt.gca()
 ax.yaxis.set_major_locator(MultipleLocator(5))
