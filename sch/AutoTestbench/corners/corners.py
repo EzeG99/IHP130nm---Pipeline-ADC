@@ -10,7 +10,7 @@ CORNERS = {
         "vdd": 1.5,
         "iref": 50e-6,
         "vcm": 0.75,
-        "temp": 60,
+        "temp": 65,
     },
     "FF": {
         "process": "ff",
@@ -24,7 +24,7 @@ CORNERS = {
         "vdd": 1.42500,
         "iref": 47.5e-6,
         "vcm": 0.7125,
-        "temp": 120,
+        "temp": 125,
     },
 }
 
