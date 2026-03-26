@@ -131,6 +131,7 @@ plt.title("ICMR - Vo1 & Gain vs Vcm")
 plt.tight_layout()
 
 plt.savefig(PLOT_DIR / "ICMR_combined.jpg", bbox_inches="tight")
+plt.savefig(PLOT_DIR / "ICMR_combined.pdf", bbox_inches="tight")
 
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()

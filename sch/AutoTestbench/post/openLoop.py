@@ -84,7 +84,7 @@ for sim_type in SIM_TYPES:
 
 plt.axhline(0, linestyle="--", linewidth=1)
 
-plt.ylim(-5, 75)
+plt.ylim(-5, 80)
 
 ax = plt.gca()
 ax.yaxis.set_major_locator(MultipleLocator(5))
@@ -111,6 +111,7 @@ plt.grid(True, which="both")
 plt.tight_layout()
 
 plt.savefig(PLOT_DIR / "AvOL.jpg", bbox_inches="tight")
+plt.savefig(PLOT_DIR / "AvOL.pdf", bbox_inches="tight")
 
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()
@@ -195,6 +196,7 @@ plt.grid(True, which="both")
 plt.tight_layout()
 
 plt.savefig(PLOT_DIR / "PhaseOL.jpg", bbox_inches="tight")
+plt.savefig(PLOT_DIR / "PhaseOL.pdf", bbox_inches="tight")
 
 if os.getenv("NO_SHOW", "0") != "1":
     plt.show()
