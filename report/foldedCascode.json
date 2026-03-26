@@ -1,13 +1,13 @@
-    {
+{
     "version": "0.1",
+    "tikzSettings": {},
     "components": [
         {
             "type": "node",
             "label": {
                 "value": "M1",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 263.811,
@@ -24,8 +24,7 @@
             "label": {
                 "value": "M2",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 340.914,
@@ -47,8 +46,7 @@
             "label": {
                 "value": "M0",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 302.362,
@@ -89,8 +87,7 @@
             "label": {
                 "value": "M9",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 491.339,
@@ -107,8 +104,7 @@
             "label": {
                 "value": "M7",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 491.339,
@@ -125,8 +121,7 @@
             "label": {
                 "value": "M3",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 491.339,
@@ -142,8 +137,7 @@
             "label": {
                 "value": "M5",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 491.339,
@@ -156,6 +150,12 @@
         },
         {
             "type": "node",
+            "label": {
+                "value": "A_1",
+                "anchor": "east",
+                "position": "default",
+                "distance": "0.52cm"
+            },
             "position": {
                 "x": 538.394,
                 "y": -211.03
@@ -277,8 +277,7 @@
             "label": {
                 "value": "M10",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 585.827,
@@ -295,8 +294,7 @@
             "label": {
                 "value": "M8",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 585.827,
@@ -313,8 +311,7 @@
             "label": {
                 "value": "M4",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 585.827,
@@ -335,8 +332,7 @@
             "label": {
                 "value": "M6",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 585.827,
@@ -943,6 +939,28 @@
                 "justify": 0,
                 "fontSize": "footnotesize",
                 "innerSep": "2.2pt",
+                "showPlaceholderText": true
+            }
+        },
+        {
+            "type": "rect",
+            "position": {
+                "x": 481.511,
+                "y": -198.425
+            },
+            "stroke": {
+                "opacity": 0
+            },
+            "size": {
+                "x": 38.552,
+                "y": 24.566
+            },
+            "text": {
+                "text": "X",
+                "align": 1,
+                "justify": 0,
+                "fontSize": "footnotesize",
+                "innerSep": "2.3pt",
                 "showPlaceholderText": true
             }
         }

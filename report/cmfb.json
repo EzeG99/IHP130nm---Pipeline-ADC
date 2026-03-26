@@ -1,0 +1,430 @@
+{
+    "version": "0.1",
+    "tikzSettings": {},
+    "components": [
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 151.181,
+                    "y": -188.976
+                },
+                {
+                    "x": 151.181,
+                    "y": -75.591
+                }
+            ],
+            "id": "capacitor",
+            "scale": {
+                "x": 1.2,
+                "y": 1.2
+            }
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 226.772,
+                    "y": -188.976
+                },
+                {
+                    "x": 226.772,
+                    "y": -75.591
+                }
+            ],
+            "id": "capacitor",
+            "scale": {
+                "x": 1.2,
+                "y": 1.2
+            }
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 302.362,
+                    "y": -188.976
+                },
+                {
+                    "x": 302.362,
+                    "y": -75.591
+                }
+            ],
+            "id": "capacitor",
+            "scale": {
+                "x": 0.7,
+                "y": 0.7
+            }
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 302.362,
+                    "y": -188.976
+                },
+                {
+                    "x": 368.504,
+                    "y": -188.976
+                }
+            ],
+            "label": {
+                "value": "\\theta_2"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 151.181,
+                    "y": -75.591
+                },
+                {
+                    "x": 217.323,
+                    "y": -75.591
+                },
+                {
+                    "x": 226.772,
+                    "y": -75.591
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|",
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 188.976,
+                    "y": -75.591
+                },
+                {
+                    "x": 188.976,
+                    "y": -37.795
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 151.181,
+                    "y": -188.976
+                },
+                {
+                    "x": 151.181,
+                    "y": -226.772
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 226.583,
+                    "y": -188.976
+                },
+                {
+                    "x": 226.772,
+                    "y": -226.772
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{O1}",
+                "anchor": "south",
+                "position": "default"
+            },
+            "position": {
+                "x": 226.772,
+                "y": -226.772
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{CMFB}",
+                "anchor": "north",
+                "position": "default"
+            },
+            "position": {
+                "x": 188.976,
+                "y": -37.795
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{O2}",
+                "anchor": "south",
+                "position": "default"
+            },
+            "position": {
+                "x": 151.181,
+                "y": -226.772
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{CM,Ideal}",
+                "anchor": "west",
+                "position": "default"
+            },
+            "position": {
+                "x": 368.504,
+                "y": -188.976
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{BN, Ideal}",
+                "anchor": "west",
+                "position": "default"
+            },
+            "position": {
+                "x": 368.504,
+                "y": -75.591
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 75.213,
+                    "y": -188.976
+                },
+                {
+                    "x": 75.213,
+                    "y": -75.591
+                }
+            ],
+            "id": "capacitor",
+            "scale": {
+                "x": 0.7,
+                "y": -0.7
+            }
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{CM,Ideal}",
+                "anchor": "east",
+                "position": "default"
+            },
+            "position": {
+                "x": 9.071,
+                "y": -188.976
+            },
+            "rotation": -180,
+            "scale": {
+                "x": 1,
+                "y": -1
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "V_{BN, Ideal}",
+                "anchor": "east",
+                "position": "default"
+            },
+            "position": {
+                "x": 9.071,
+                "y": -75.591
+            },
+            "rotation": -180,
+            "scale": {
+                "x": 1,
+                "y": -1
+            },
+            "id": "ocirc"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 302.268,
+                    "y": -75.591
+                },
+                {
+                    "x": 368.41,
+                    "y": -75.591
+                }
+            ],
+            "label": {
+                "value": "\\theta_2"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 619.717,
+                    "y": -143.124
+                },
+                {
+                    "x": 685.859,
+                    "y": -143.124
+                }
+            ],
+            "label": {
+                "value": "\\theta_2"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 543.938,
+                    "y": -143.124
+                },
+                {
+                    "x": 619.717,
+                    "y": -143.124
+                }
+            ],
+            "label": {
+                "value": "\\theta_1"
+            },
+            "id": "opening switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 226.772,
+                    "y": -188.976
+                },
+                {
+                    "x": 302.362,
+                    "y": -188.976
+                }
+            ],
+            "label": {
+                "value": "\\theta_1"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 226.583,
+                    "y": -75.591
+                },
+                {
+                    "x": 302.173,
+                    "y": -75.591
+                }
+            ],
+            "label": {
+                "value": "\\theta_1"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 8.882,
+                    "y": -188.976
+                },
+                {
+                    "x": 75.024,
+                    "y": -188.976
+                }
+            ],
+            "label": {
+                "value": "\\theta_2"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 8.976,
+                    "y": -75.591
+                },
+                {
+                    "x": 75.118,
+                    "y": -75.591
+                }
+            ],
+            "label": {
+                "value": "\\theta_2"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 75.024,
+                    "y": -188.976
+                },
+                {
+                    "x": 150.614,
+                    "y": -188.976
+                }
+            ],
+            "label": {
+                "value": "\\theta_1"
+            },
+            "id": "closing switch"
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 75.213,
+                    "y": -75.591
+                },
+                {
+                    "x": 150.803,
+                    "y": -75.591
+                }
+            ],
+            "label": {
+                "value": "\\theta_1"
+            },
+            "id": "closing switch"
+        }
+    ]
+}
