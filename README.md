@@ -9,8 +9,8 @@ Currently, the MDAC is the only block under development.
 |-----------|-------|
 | Resolution | 10 bits | 
 | Sampling Rate | 100 MS/s | |
-| Input Range | 400 mVpp diff | |
-| VDD | 1.2 V | |
+| Input Range |  1Vpp diff | |
+| VDD | 1.5 V | |
 | PDK | IHP 130 nm | |
 
 ## Architecture
