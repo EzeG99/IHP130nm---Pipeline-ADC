@@ -217,7 +217,7 @@ for sim_type in SIM_TYPES:
             ax.grid(True)
 
         plt.tight_layout()
-        plt.savefig(PLOT_DIR / f"WAVE_{corner_dir.name}_{sim_type}.jpg")
+        #plt.savefig(PLOT_DIR / f"WAVE_{corner_dir.name}_{sim_type}.jpg")
 
         if os.getenv("NO_SHOW", "0") != "1":
             plt.show()
