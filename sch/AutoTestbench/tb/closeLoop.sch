@@ -74,6 +74,10 @@ N -50 920 -50 1080 {lab=Vi1_}
 N -290 1260 -290 1280 {lab=Vcm}
 N -290 1130 -290 1200 {lab=Vi1_}
 N -190 1170 -190 1220 {lab=Vi2_}
+N -320 970 -320 1010 {lab=GND}
+N -360 970 -320 970 {lab=GND}
+N -180 970 -180 1010 {lab=GND}
+N -220 970 -180 970 {lab=GND}
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
 C {vsource.sym} -590 1410 0 0 {name=V1 value=\{VDD\} savecurrent=false}
 C {gnd.sym} -590 1440 0 0 {name=l1 lab=GND}
@@ -96,36 +100,28 @@ value="
 C {vsource.sym} -590 1520 0 0 {name=V5 value="PULSE(0 1.5 0n 50p 50p 5n 10n)" savecurrent=false}
 C {gnd.sym} -590 1550 0 0 {name=l18 lab=GND
 value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
-C {vsource.sym} -590 1620 0 0 {name=V6 value="PULSE(0 1.5 5.1n 50p 50p 4.8n 10n)" savecurrent=false}
+C {vsource.sym} -590 1620 0 0 {name=V6 value="PULSE(0 1.5 5.2n 50p 50p 4.6n 10n)" savecurrent=false}
 C {gnd.sym} -590 1650 0 0 {name=l19 lab=GND
 value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
 C {lab_wire.sym} -590 1490 0 0 {name=p2 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -590 1590 0 0 {name=p7 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} -115 1130 0 1 {name=p21 sig_type=std_logic lab=Vi1_}
-C {sw_custom.sym} 20 1360 0 0 {name=x2}
 C {lab_wire.sym} 20 1360 0 1 {name=p11 sig_type=std_logic lab=VDD}
 C {gnd.sym} 20 1400 0 0 {name=l9 lab=GND}
 C {lab_wire.sym} -380 1490 0 0 {name=p20 sig_type=std_logic lab=_phi1}
-C {lab_wire.sym} -380 1580 0 0 {name=p23 sig_type=std_logic lab=_phi2}
-C {sw_custom.sym} 10 1200 0 0 {name=x3}
+C {lab_wire.sym} -380 1590 0 0 {name=p23 sig_type=std_logic lab=_phi2}
 C {lab_wire.sym} 10 1200 0 1 {name=p8 sig_type=std_logic lab=VDD}
 C {gnd.sym} 10 1240 0 0 {name=l2 lab=GND}
-C {sw_custom.sym} 90 1020 1 1 {name=x6}
 C {lab_wire.sym} 90 1020 1 0 {name=p13 sig_type=std_logic lab=VDD}
 C {gnd.sym} 50 1020 1 1 {name=l10 lab=GND}
-C {sw_custom.sym} 360 1360 0 0 {name=x7}
 C {lab_wire.sym} 360 1360 0 1 {name=p14 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1400 0 0 {name=l13 lab=GND}
-C {sw_custom.sym} 360 770 0 0 {name=x8}
 C {lab_wire.sym} 360 770 0 1 {name=p15 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 810 0 0 {name=l14 lab=GND}
-C {sw_custom.sym} 360 900 0 0 {name=x10}
 C {lab_wire.sym} 360 900 0 1 {name=p17 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 940 0 0 {name=l11 lab=GND}
-C {sw_custom.sym} 20 900 0 0 {name=x9}
 C {lab_wire.sym} 20 900 0 1 {name=p16 sig_type=std_logic lab=VDD}
 C {gnd.sym} 20 940 0 0 {name=l15 lab=GND}
-C {sw_custom.sym} 360 1490 0 0 {name=x11}
 C {lab_wire.sym} 360 1490 0 1 {name=p12 sig_type=std_logic lab=VDD}
 C {gnd.sym} 360 1530 0 0 {name=l16 lab=GND}
 C {cmfb.sym} 630 1410 0 0 {name=x12}
@@ -135,22 +131,18 @@ C {lab_wire.sym} 740 1500 1 1 {name=p25 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 720 1500 1 1 {name=p26 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} 700 1500 1 1 {name=p27 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 680 1500 1 1 {name=p28 sig_type=std_logic lab=_phi2}
-C {sw_custom.sym} 10 1060 0 0 {name=x5}
 C {lab_wire.sym} 10 1060 0 1 {name=p10 sig_type=std_logic lab=VDD}
 C {gnd.sym} 10 1100 0 0 {name=l6 lab=GND}
 C {lab_wire.sym} -10 1060 0 0 {name=p31 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -10 1200 0 0 {name=p33 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 0 900 0 0 {name=p35 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 0 1360 0 0 {name=p37 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} 340 900 0 0 {name=p41 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 90 1040 0 1 {name=p45 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 340 770 3 1 {name=p47 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 340 1490 3 1 {name=p49 sig_type=std_logic lab=phi2}
-C {sw_custom.sym} 580 1030 0 0 {name=x13}
 C {lab_wire.sym} 580 1030 0 1 {name=p51 sig_type=std_logic lab=VDD}
 C {gnd.sym} 580 1070 0 0 {name=l25 lab=GND}
 C {lab_wire.sym} 560 1030 3 1 {name=p52 sig_type=std_logic lab=phi2}
-C {sw_custom.sym} 580 1230 0 0 {name=x14}
 C {lab_wire.sym} 580 1230 0 1 {name=p54 sig_type=std_logic lab=VDD}
 C {gnd.sym} 580 1270 0 0 {name=l26 lab=GND}
 C {lab_wire.sym} 560 1230 3 1 {name=p55 sig_type=std_logic lab=phi2}
@@ -175,20 +167,6 @@ C {lab_wire.sym} 560 1070 2 1 {name=p53 sig_type=std_logic lab=_phi2}
 C {lab_wire.sym} 340 1360 0 0 {name=p39 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 780 1400 0 1 {name=p59 sig_type=std_logic lab=Vo2}
 C {lab_wire.sym} 780 1380 0 1 {name=p29 sig_type=std_logic lab=Vo1}
-C {sw_custom.sym} -210 930 0 0 {name=x15}
-C {lab_wire.sym} -210 930 0 1 {name=p62 sig_type=std_logic lab=VDD}
-C {gnd.sym} -210 970 0 0 {name=l20 lab=GND}
-C {lab_wire.sym} -230 930 0 0 {name=p63 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} -230 970 2 1 {name=p64 sig_type=std_logic lab=_phi1}
-C {lab_wire.sym} -250 950 0 0 {name=p66 sig_type=std_logic lab=Vi1}
-C {sw_custom.sym} -210 840 0 0 {name=x16}
-C {lab_wire.sym} -210 840 0 1 {name=p67 sig_type=std_logic lab=VDD}
-C {gnd.sym} -210 880 0 0 {name=l27 lab=GND}
-C {lab_wire.sym} -230 840 0 0 {name=p68 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} -230 880 2 1 {name=p69 sig_type=std_logic lab=_phi1}
-C {lab_wire.sym} -190 860 2 0 {name=p70 sig_type=std_logic lab=Vcm}
-C {lab_wire.sym} -250 860 0 0 {name=p71 sig_type=std_logic lab=Vi2}
-C {lab_wire.sym} -190 950 2 0 {name=p72 sig_type=std_logic lab=Vcm}
 C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
 C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
 C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
@@ -204,15 +182,12 @@ footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 660 1250 0 0 {name=l3 lab=GND}
 C {gnd.sym} 710 1250 0 0 {name=l7 lab=GND}
-C {sw_custom.sym} 50 1280 3 1 {name=x4}
 C {lab_wire.sym} 50 1280 3 0 {name=p9 sig_type=std_logic lab=VDD}
 C {gnd.sym} 90 1280 3 1 {name=l8 lab=GND}
 C {lab_wire.sym} 50 1260 2 1 {name=p43 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 90 1260 2 0 {name=p56 sig_type=std_logic lab=_phi2}
 C {lab_wire.sym} 70 1000 0 0 {name=p60 sig_type=std_logic lab=Vcm}
 C {lab_wire.sym} 70 1300 2 0 {name=p61 sig_type=std_logic lab=Vcm}
-C {noconn.sym} -380 1490 2 0 {name=l5}
-C {noconn.sym} -380 1580 2 0 {name=l21}
 C {lab_wire.sym} 340 1230 2 1 {name=p74 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 580 1420 2 1 {name=p75 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 780 1440 2 0 {name=p73 sig_type=std_logic lab=Vcm}
@@ -227,11 +202,11 @@ C {code.sym} -630 910 0 0 {name=TRAN only_toplevel=false value="
 op
 tran 100p 12u 
 let vcm = (v(Vo1) + v(Vo2)) / 2
-meas tran vcm_avg AVG vcm FROM=1u TO=3u
+meas tran vcm_avg AVG vcm FROM=2.5u TO=3u
 let Vinn = v(Vi1_)-v(Vi2_)
 let Voutt = v(Vo1_)-v(Vo2_)
-meas tran vin_pp  PP Vinn from=1u to=3u
-meas tran vout_pp PP Voutt from=1u to=3u
+meas tran vin_pp  PP Vinn from=2u to=3u
+meas tran vout_pp PP Voutt from=2u to=3u
 
 let gain = vout_pp/vin_pp
 print gain
@@ -263,27 +238,70 @@ wrdata output.txt v(phi1) v(phi2) v(Vi1_) v(Vi2_) v(Vo1_) v(Vo2_) v(Vo1) v(Vo2)
 C {isource.sym} 810 1420 1 0 {name=I1 value=\{IREF\}}
 C {lab_wire.sym} 840 1420 0 1 {name=p65 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -240 1280 3 0 {name=p76 sig_type=std_logic lab=Vcm}
-C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C6
+C {sw_boost.sym} 10 1060 0 0 {name=x17}
+C {sw_boost.sym} 10 1200 0 0 {name=x3}
+C {sw_boost.sym} 360 900 0 0 {name=x5}
+C {sw_boost.sym} 360 1360 0 0 {name=x7}
+C {sw_tg.sym} 360 1490 0 0 {name=x10}
+C {sw_tg.sym} 360 770 0 0 {name=x8}
+C {sw_boost.sym} 20 900 0 0 {name=x2}
+C {sw_boost.sym} 20 1360 0 0 {name=x4}
+C {sw_tg.sym} 90 1020 1 1 {name=x6}
+C {sw_tg.sym} 50 1280 3 1 {name=x9}
+C {vsource.sym} -380 1520 0 0 {name=V2 value="PULSE(1.5 0 0n 50p 50p 5n 10n)" savecurrent=false}
+C {gnd.sym} -380 1550 0 0 {name=l5 lab=GND
+value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
+C {vsource.sym} -380 1620 0 0 {name=V7 value="PULSE(1.5 0 5.2n 50p 50p 4.6n 10n)" savecurrent=false}
+C {gnd.sym} -380 1650 0 0 {name=l17 lab=GND
+value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
+C {lab_wire.sym} 340 900 0 0 {name=p41 sig_type=std_logic lab=phi1}
+C {sw_boost.sym} 580 1030 0 0 {name=x11}
+C {sw_boost.sym} 580 1230 0 0 {name=x13}
+C {lab_wire.sym} -400 970 0 0 {name=p77 sig_type=std_logic lab=phi1}
+C {lab_wire.sym} -360 940 0 0 {name=p78 sig_type=std_logic lab=Vi1}
+C {sg13g2_pr/sg13_lv_nmos.sym} -380 970 0 0 {name=M1
+l=0.13u
+w=0.5u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -360 1000 2 0 {name=p79 sig_type=std_logic lab=Vcm}
+C {gnd.sym} -320 1010 0 0 {name=l21 lab=GND}
+C {lab_wire.sym} -260 970 0 0 {name=p80 sig_type=std_logic lab=phi1}
+C {lab_wire.sym} -220 940 0 0 {name=p81 sig_type=std_logic lab=Vi2}
+C {sg13g2_pr/sg13_lv_nmos.sym} -240 970 0 0 {name=M2
+l=0.13u
+w=0.5u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -220 1000 2 0 {name=p82 sig_type=std_logic lab=Vcm}
+C {gnd.sym} -180 1010 0 0 {name=l23 lab=GND}
+C {sg13g2_pr/cap_cmim.sym} 140 1170 1 1 {name=C3
 model=cap_cmim
-w=16.15e-6
-l=16.15e-6
+w=18e-6
+l=18e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 140 1380 1 1 {name=C5
+C {sg13g2_pr/cap_cmim.sym} 140 1130 1 1 {name=C8
 model=cap_cmim
-w=16.15e-6
-l=16.15e-6
+w=18e-6
+l=18e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 140 1130 1 1 {name=C3
+C {sg13g2_pr/cap_cmim.sym} 140 920 1 1 {name=C9
 model=cap_cmim
-w=16.2e-6
-l=16.2e-6
+w=17.92e-6
+l=17.92e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 140 1170 1 1 {name=C4
+C {sg13g2_pr/cap_cmim.sym} 140 1380 1 1 {name=C4
 model=cap_cmim
-w=16.2e-6
-l=16.2e-6
+w=17.92e-6
+l=17.92e-6
 m=1
 spiceprefix=X}

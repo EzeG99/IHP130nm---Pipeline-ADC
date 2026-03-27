@@ -65,12 +65,10 @@ C {ipin.sym} -740 -70 0 0 {name=p31 lab=Iref}
 C {opin.sym} -740 -40 0 1 {name=p32 lab=Vcmfb}
 C {ipin.sym} -740 0 0 0 {name=p49 lab=Vo1}
 C {ipin.sym} -740 20 0 0 {name=p50 lab=Vo2}
-C {sw_custom.sym} 65 -30 0 1 {name=x15}
 C {lab_wire.sym} 65 -30 0 0 {name=p62 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 65 10 2 1 {name=p63 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -95 70 2 0 {name=p65 sig_type=std_logic lab=Vcmfb}
 C {lab_wire.sym} 355 -150 2 0 {name=p66 sig_type=std_logic lab=Vcm}
-C {sw_custom.sym} 65 -170 0 1 {name=x16}
 C {lab_wire.sym} 65 -170 0 0 {name=p68 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 65 -130 2 1 {name=p69 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 85 -170 0 1 {name=p70 sig_type=std_logic lab=phi1}
@@ -78,7 +76,6 @@ C {lab_wire.sym} 85 -130 2 0 {name=p72 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} 85 10 2 0 {name=p73 sig_type=std_logic lab=_phi1}
 C {lab_wire.sym} 85 -30 0 1 {name=p74 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -585 -150 2 1 {name=p7 sig_type=std_logic lab=Vcm}
-C {sw_custom.sym} -295 -170 0 0 {name=x1}
 C {lab_wire.sym} -295 -170 0 1 {name=p8 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -295 -130 2 0 {name=p9 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -315 -170 0 0 {name=p10 sig_type=std_logic lab=phi1}
@@ -95,27 +92,22 @@ spiceprefix=X
 }
 C {lab_wire.sym} 390 30 3 0 {name=p11 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 390 -70 3 1 {name=p21 sig_type=std_logic lab=Iref}
-C {sw_custom.sym} -510 -130 2 0 {name=x4}
 C {lab_wire.sym} -510 -130 2 1 {name=p22 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -510 -170 0 0 {name=p23 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -490 -130 2 0 {name=p24 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} -490 -170 0 1 {name=p25 sig_type=std_logic lab=_phi2}
-C {sw_custom.sym} -510 10 2 0 {name=x5}
 C {lab_wire.sym} -510 10 2 1 {name=p26 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -510 -30 0 0 {name=p27 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -490 10 2 0 {name=p28 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} -490 -30 0 1 {name=p29 sig_type=std_logic lab=_phi2}
-C {sw_custom.sym} 280 -130 2 1 {name=x6}
 C {lab_wire.sym} 280 -130 2 0 {name=p33 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 280 -170 0 1 {name=p34 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 260 -130 2 1 {name=p35 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 260 -170 0 0 {name=p36 sig_type=std_logic lab=_phi2}
-C {sw_custom.sym} 280 10 2 1 {name=x7}
 C {lab_wire.sym} 280 10 2 0 {name=p37 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 280 -30 0 1 {name=p38 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 260 10 2 1 {name=p39 sig_type=std_logic lab=phi2}
 C {lab_wire.sym} 260 -30 0 0 {name=p40 sig_type=std_logic lab=_phi2}
-C {sw_custom.sym} -290 -30 0 0 {name=x8}
 C {lab_wire.sym} -290 -30 0 1 {name=p41 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -290 10 2 0 {name=p42 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -310 -30 0 0 {name=p43 sig_type=std_logic lab=phi1}
@@ -144,3 +136,11 @@ w=4.5e-6
 l=4.5e-6
 m=1
 spiceprefix=X}
+C {sw_tg_big.sym} -295 -170 0 0 {name=x9}
+C {sw_tg_big.sym} -510 -130 2 0 {name=x1}
+C {sw_tg_big.sym} -290 -30 0 0 {name=x4}
+C {sw_tg_big.sym} -510 10 2 0 {name=x5}
+C {sw_tg_big.sym} 65 -170 0 1 {name=x2}
+C {sw_tg_big.sym} 280 -130 2 1 {name=x3}
+C {sw_tg_big.sym} 65 -30 0 1 {name=x6}
+C {sw_tg_big.sym} 280 10 2 1 {name=x7}
