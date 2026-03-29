@@ -14,6 +14,10 @@
                     "y": -75.591
                 }
             ],
+            "label": {
+                "value": "C_1",
+                "otherSide": true
+            },
             "id": "capacitor",
             "scale": {
                 "x": 1.2,
@@ -32,6 +36,9 @@
                     "y": -75.591
                 }
             ],
+            "label": {
+                "value": "C_2"
+            },
             "id": "capacitor",
             "scale": {
                 "x": 1.2,
@@ -50,6 +57,9 @@
                     "y": -75.591
                 }
             ],
+            "label": {
+                "value": "C_4"
+            },
             "id": "capacitor",
             "scale": {
                 "x": 0.7,
@@ -69,7 +79,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_2"
+                "value": "\\phi_2"
             },
             "id": "closing switch"
         },
@@ -231,6 +241,10 @@
                     "y": -75.591
                 }
             ],
+            "label": {
+                "value": "C_3",
+                "otherSide": true
+            },
             "id": "capacitor",
             "scale": {
                 "x": 0.7,
@@ -286,43 +300,9 @@
                 }
             ],
             "label": {
-                "value": "\\theta_2"
+                "value": "\\phi_2"
             },
             "id": "closing switch"
-        },
-        {
-            "type": "path",
-            "points": [
-                {
-                    "x": 619.717,
-                    "y": -143.124
-                },
-                {
-                    "x": 685.859,
-                    "y": -143.124
-                }
-            ],
-            "label": {
-                "value": "\\theta_2"
-            },
-            "id": "closing switch"
-        },
-        {
-            "type": "path",
-            "points": [
-                {
-                    "x": 543.938,
-                    "y": -143.124
-                },
-                {
-                    "x": 619.717,
-                    "y": -143.124
-                }
-            ],
-            "label": {
-                "value": "\\theta_1"
-            },
-            "id": "opening switch"
         },
         {
             "type": "path",
@@ -337,7 +317,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_1"
+                "value": "\\phi_1"
             },
             "id": "closing switch"
         },
@@ -354,7 +334,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_1"
+                "value": "\\phi_1"
             },
             "id": "closing switch"
         },
@@ -371,7 +351,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_2"
+                "value": "\\phi_2"
             },
             "id": "closing switch"
         },
@@ -388,7 +368,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_2"
+                "value": "\\phi_2"
             },
             "id": "closing switch"
         },
@@ -405,7 +385,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_1"
+                "value": "\\phi_1"
             },
             "id": "closing switch"
         },
@@ -422,7 +402,7 @@
                 }
             ],
             "label": {
-                "value": "\\theta_1"
+                "value": "\\phi_1"
             },
             "id": "closing switch"
         }
