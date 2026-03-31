@@ -6,11 +6,6 @@ S {}
 F {}
 E {}
 P 4 1 -10 1700 {}
-T {tf = tr = 0.5%T = 50pS
-tdead = 2%T = 0.2n
-T = 10n
-f = 1/T = 100MHz
-} -450 1380 0 0 0.25 0.25 {}
 N 660 1130 770 1130 {lab=Vo1_}
 N 710 1170 770 1170 {lab=Vo2_}
 N 660 1130 660 1190 {lab=Vo1_}
@@ -170,12 +165,12 @@ C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
 C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 43.26171875mega 0)" savecurrent=false}
 C {capa-2.sym} 660 1220 0 0 {name=C1
 m=1
-value=1p
+value=1.1p
 footprint=1206
 device=polarized_capacitor}
 C {capa-2.sym} 710 1220 0 0 {name=C2
 m=1
-value=1p
+value=1.1p
 footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 660 1250 0 0 {name=l3 lab=GND}

@@ -38,20 +38,22 @@ def generate_combined_corners():
     """
 
     PROCESS_SWEEPS = {
-      # "tt": {
-      #     "vdd":  [1.5],
-      #     "temp": [65],
-      # },
+       "tt": {
+           "vdd":  [1.5],
+           "iref": [50e-6],
+           "vcm":  [0.7],
+           "temp": [65],
+       },
       #"ff": {
       #    "vdd":  [1.65],
       #    "temp": [0],
       #},
-       "ss": {
-           "vdd":  [1.425],
-           "iref": [47.5e-6],
-           "vcm":  [0.665],
-           "temp": [125],
-       },
+      #"ss": {
+      #    "vdd":  [1.425],
+      #    "iref": [47.5e-6],
+      #    "vcm":  [0.665],
+      #    "temp": [125],
+      #},
     }
 
     corners = {}

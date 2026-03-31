@@ -176,8 +176,8 @@ for sim_type in SIM_TYPES:
         )
 
         plt.tight_layout()
-        plt.savefig(PLOT_DIR / f"FFT_{corner_dir.name}_{sim_type}.jpg")
-        plt.savefig(PLOT_DIR / f"FFT_{corner_dir.name}_{sim_type}.pdf", bbox_inches="tight")
+        plt.savefig(PLOT_DIR / f"HF_FFT_{corner_dir.name}_{sim_type}.jpg")
+        plt.savefig(PLOT_DIR / f"HF_FFT_{corner_dir.name}_{sim_type}.pdf", bbox_inches="tight")
 
         if os.getenv("NO_SHOW", "0") != "1":
             plt.show()

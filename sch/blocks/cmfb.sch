@@ -114,8 +114,8 @@ C {lab_wire.sym} -310 -30 0 0 {name=p43 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} -310 10 2 1 {name=p44 sig_type=std_logic lab=_phi1}
 C {sg13g2_pr/cap_cmim.sym} -185 -80 0 0 {name=C3
 model=cap_cmim
-w=15.5e-6
-l=15.5e-6
+w=10e-6
+l=10e-6
 m=1
 spiceprefix=X}
 C {sg13g2_pr/cap_cmim.sym} -395 -70 0 0 {name=C4
@@ -126,8 +126,8 @@ m=1
 spiceprefix=X}
 C {sg13g2_pr/cap_cmim.sym} -5 -80 0 0 {name=C5
 model=cap_cmim
-w=15.5e-6
-l=15.5e-6
+w=10e-6
+l=10e-6
 m=1
 spiceprefix=X}
 C {sg13g2_pr/cap_cmim.sym} 165 -70 0 0 {name=C1

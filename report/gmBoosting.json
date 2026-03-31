@@ -1,13 +1,13 @@
 {
     "version": "0.1",
+    "tikzSettings": {},
     "components": [
         {
             "type": "node",
             "label": {
-                "value": "M1",
+                "value": "M_1",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 112.63,
@@ -22,10 +22,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M2",
+                "value": "M_2",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 189.733,
@@ -45,10 +44,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M0",
+                "value": "M_0",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 151.181,
@@ -63,10 +61,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M9",
+                "value": "M_9",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 339.78,
@@ -81,10 +78,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M7",
+                "value": "M_7",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 339.78,
@@ -99,10 +95,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M3",
+                "value": "M_3",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 339.78,
@@ -116,10 +111,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M5",
+                "value": "M_5",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 340.158,
@@ -181,10 +175,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M10",
+                "value": "M_{10}",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 434.268,
@@ -199,10 +192,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M8",
+                "value": "M_8",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 434.268,
@@ -217,10 +209,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M4",
+                "value": "M_4",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 434.268,
@@ -234,10 +225,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M6",
+                "value": "M_6",
                 "anchor": "northwest",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 434.646,
@@ -638,10 +628,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M0",
+                "value": "M_{11}",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 113.386,
@@ -656,10 +645,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M0",
+                "value": "M_{12}",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": 188.976,
@@ -938,10 +926,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M0",
+                "value": "M_{15}",
                 "anchor": "default",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": -18.519,
@@ -1027,10 +1014,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M0",
+                "value": "M_{14}",
                 "anchor": "northeast",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": -18.519,
@@ -1080,10 +1066,9 @@
         {
             "type": "node",
             "label": {
-                "value": "M5",
+                "value": "M_{13}",
                 "anchor": "northeast",
-                "position": "default",
-                "distance": "0.12cm"
+                "position": "default"
             },
             "position": {
                 "x": -18.519,

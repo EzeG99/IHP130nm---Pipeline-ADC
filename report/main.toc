@@ -1,24 +1,23 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {section}{\numberline {2}System-Level Specifications and Derived MDAC Targets}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}ADC specifications}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Derived amplifier requirements}{2}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Gain}{2}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Unity-Gain Bandwidth and Phase Margin}{3}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Thermal Noise and Sampling Capcitor}{3}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Requirements summary}{4}{subsubsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.3}Corners definition}{4}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Amplifier design}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Topology Selection}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Gain}{5}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Gain enchancement}{5}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Frequency response}{6}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Bias Network}{7}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Switched capacitor common mode feedback}{7}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Boostraped Switch and Transmition Gates}{8}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Complete Schematics}{9}{subsection.3.8}%
-\contentsline {section}{\numberline {4}Simulations results}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Open Loop}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Input common mode range}{9}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Close Loop and FFT}{10}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Future work}{10}{subsection.5.1}%
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {section}{\numberline {2}System-Level Specifications and Derived MDAC Targets}{3}{}%
+\contentsline {subsection}{\numberline {2.1}ADC specifications}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Derived amplifier requirements}{3}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Gain}{3}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Unity-Gain Bandwidth and Phase Margin}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Thermal Noise and Sampling Capacitor}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Requirements summary}{5}{}%
+\contentsline {subsection}{\numberline {2.3}Corners definition}{5}{}%
+\contentsline {section}{\numberline {3}Amplifier design}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Topology Selection}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Gain}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Gain enhancement}{6}{}%
+\contentsline {subsection}{\numberline {3.4}Frequency response}{7}{}%
+\contentsline {subsection}{\numberline {3.5}Sizing}{8}{}%
+\contentsline {subsection}{\numberline {3.6}Bias Network}{8}{}%
+\contentsline {subsection}{\numberline {3.7}Switched capacitor common mode feedback}{9}{}%
+\contentsline {subsection}{\numberline {3.8}Boostrapped Switch and Transmission Gates}{10}{}%
+\contentsline {section}{\numberline {4}Simulations results}{11}{}%
+\contentsline {subsection}{\numberline {4.1}Open Loop}{11}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Input common mode range}{11}{}%
+\contentsline {subsection}{\numberline {4.2}Close Loop and FFT}{12}{}%
+\contentsline {section}{\numberline {5}Conclusion}{13}{}%

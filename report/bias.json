@@ -1,0 +1,390 @@
+{
+    "version": "0.1",
+    "tikzSettings": {},
+    "components": [
+        {
+            "type": "node",
+            "label": {
+                "value": "M_3",
+                "anchor": "northwest",
+                "position": "default"
+            },
+            "position": {
+                "x": 235.464,
+                "y": -151.181
+            },
+            "id": "nmos",
+            "options": [
+                "arrowmos"
+            ]
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "M_2",
+                "anchor": "northwest",
+                "position": "default"
+            },
+            "position": {
+                "x": 235.464,
+                "y": -92.976
+            },
+            "id": "nmos",
+            "options": [
+                "arrowmos"
+            ]
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "M_1",
+                "anchor": "northwest",
+                "position": "default"
+            },
+            "position": {
+                "x": 160.63,
+                "y": -92.976
+            },
+            "id": "nmos",
+            "options": [
+                "arrowmos"
+            ]
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "M_0",
+                "anchor": "northwest",
+                "position": "default"
+            },
+            "position": {
+                "x": 160.63,
+                "y": -151.181
+            },
+            "id": "nmos",
+            "options": [
+                "arrowmos"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 198.425,
+                    "y": -92.976
+                },
+                {
+                    "x": 103.937,
+                    "y": -179.528
+                },
+                {
+                    "x": 160.63,
+                    "y": -180.283
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|",
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 123.591,
+                    "y": -151.181
+                },
+                {
+                    "x": 198.425,
+                    "y": -151.181
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 160.63,
+                    "y": -255.118
+                },
+                {
+                    "x": 160.63,
+                    "y": -207.874
+                }
+            ],
+            "id": "american current source",
+            "scale": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 160.63,
+                "y": -255.118
+            },
+            "id": "tground"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 160.63,
+                "y": -63.874
+            },
+            "id": "tlground"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 235.464,
+                "y": -63.874
+            },
+            "id": "tlground"
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "M_5",
+                "anchor": "default",
+                "position": "default"
+            },
+            "position": {
+                "x": 47.244,
+                "y": -180.283
+            },
+            "id": "nmos",
+            "options": [
+                "arrowmos"
+            ]
+        },
+        {
+            "type": "node",
+            "label": {
+                "value": "M_4",
+                "anchor": "default",
+                "position": "default"
+            },
+            "position": {
+                "x": 47.244,
+                "y": -122.079
+            },
+            "id": "nmos",
+            "options": [
+                "arrowmos"
+            ]
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 103.937,
+                "y": -151.181
+            },
+            "id": "jump crossing"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 109.228,
+                    "y": -151.181
+                },
+                {
+                    "x": 123.591,
+                    "y": -151.181
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 47.244,
+                    "y": -151.181
+                },
+                {
+                    "x": 98.646,
+                    "y": -151.181
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                null
+            ]
+        },
+        {
+            "type": "path",
+            "points": [
+                {
+                    "x": 47.244,
+                    "y": -255.118
+                },
+                {
+                    "x": 47.244,
+                    "y": -209.386
+                }
+            ],
+            "id": "american current source",
+            "scale": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 47.244,
+                "y": -255.118
+            },
+            "id": "tground"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 47.244,
+                "y": -66.142
+            },
+            "id": "tlground"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 10.205,
+                    "y": -122.079
+                },
+                {
+                    "x": 47.244,
+                    "y": -209.385
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ]
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 47.244,
+                "y": -151.181
+            },
+            "id": "circ"
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 160.63,
+                    "y": -207.874
+                },
+                {
+                    "x": 160.63,
+                    "y": -180.283
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 47.244,
+                    "y": -92.977
+                },
+                {
+                    "x": 47.244,
+                    "y": -66.142
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "-|"
+            ]
+        },
+        {
+            "type": "wire",
+            "points": [
+                {
+                    "x": 235.464,
+                    "y": -180.283
+                },
+                {
+                    "x": 235.171,
+                    "y": -205.774
+                }
+            ],
+            "stroke": {
+                "width": "0.4pt"
+            },
+            "directions": [
+                "|-"
+            ],
+            "startArrow": "stealth"
+        },
+        {
+            "type": "rect",
+            "position": {
+                "x": 254.215,
+                "y": -188.829
+            },
+            "stroke": {
+                "opacity": 0
+            },
+            "size": {
+                "x": 37.502,
+                "y": 17.092
+            },
+            "text": {
+                "text": "$I_{\\text{out}}$",
+                "fontSize": "small",
+                "showPlaceholderText": true
+            }
+        },
+        {
+            "type": "rect",
+            "position": {
+                "x": 62.992,
+                "y": -163.927
+            },
+            "stroke": {
+                "opacity": 0
+            },
+            "size": {
+                "x": 37.502,
+                "y": 17.092
+            },
+            "text": {
+                "text": "$V_b$",
+                "fontSize": "small",
+                "showPlaceholderText": true
+            }
+        }
+    ]
+}

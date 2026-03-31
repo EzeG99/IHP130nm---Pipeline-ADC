@@ -74,10 +74,6 @@ N -50 920 -50 1080 {lab=Vi1_}
 N -290 1260 -290 1280 {lab=#net4}
 N -290 1130 -290 1200 {lab=Vi1_}
 N -190 1170 -190 1220 {lab=Vi2_}
-N -300 960 -300 1000 {lab=GND}
-N -340 960 -300 960 {lab=GND}
-N -160 960 -160 1000 {lab=GND}
-N -200 960 -160 960 {lab=GND}
 C {foldedCascode.sym} 360 1150 0 0 {name=x1}
 C {vsource.sym} -590 1410 0 0 {name=V1 value=1.5 savecurrent=false}
 C {gnd.sym} -590 1440 0 0 {name=l1 lab=GND}
@@ -161,8 +157,6 @@ C {lab_wire.sym} 560 1070 2 1 {name=p53 sig_type=std_logic lab=_phi2}
 C {lab_wire.sym} 340 1360 0 0 {name=p39 sig_type=std_logic lab=phi1}
 C {lab_wire.sym} 780 1400 0 1 {name=p59 sig_type=std_logic lab=Vo2}
 C {lab_wire.sym} 780 1380 0 1 {name=p29 sig_type=std_logic lab=Vo1}
-C {lab_wire.sym} -380 960 0 0 {name=p63 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} -340 930 0 0 {name=p66 sig_type=std_logic lab=Vi1}
 C {vsource.sym} -290 1230 2 0 {name=V3 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
 C {lab_wire.sym} -115 1170 0 1 {name=p22 sig_type=std_logic lab=Vi2_}
 C {vsource.sym} -190 1250 0 1 {name=V4 value="sin(0 125m 4.98046875mega 0)" savecurrent=false}
@@ -241,28 +235,6 @@ value="PULSE(0 1.2 0n 100p 100p 8n 20n)"}
 C {lab_wire.sym} -360 1600 0 0 {name=p23 sig_type=std_logic lab=_phi2}
 C {sw_tg.sym} 90 1020 1 1 {name=x4}
 C {sw_tg.sym} 50 1280 3 1 {name=x6}
-C {sg13g2_pr/sg13_lv_nmos.sym} -360 960 0 0 {name=M1
-l=0.13u
-w=0.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {lab_wire.sym} -340 990 2 0 {name=p72 sig_type=std_logic lab=Vcm}
-C {gnd.sym} -300 1000 0 0 {name=l20 lab=GND}
-C {lab_wire.sym} -240 960 0 0 {name=p62 sig_type=std_logic lab=phi1}
-C {lab_wire.sym} -200 930 0 0 {name=p64 sig_type=std_logic lab=Vi2}
-C {sg13g2_pr/sg13_lv_nmos.sym} -220 960 0 0 {name=M2
-l=0.13u
-w=0.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {lab_wire.sym} -200 990 2 0 {name=p67 sig_type=std_logic lab=Vcm}
-C {gnd.sym} -160 1000 0 0 {name=l23 lab=GND}
 C {sg13g2_pr/cap_cmim.sym} 140 1170 1 1 {name=C3
 model=cap_cmim
 w=18e-6

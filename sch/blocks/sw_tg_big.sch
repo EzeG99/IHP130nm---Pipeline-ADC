@@ -23,7 +23,7 @@ C {iopin.sym} 330 720 0 0 {name=p6 lab=Vo}
 C {iopin.sym} 130 900 3 0 {name=p2 lab=VDD}
 C {sg13g2_pr/sg13_lv_nmos.sym} 130 700 1 0 {name=M1
 l=0.13u
-w=3.7u
+w=2.8u
 ng=1
 m=1
 model=sg13_lv_nmos

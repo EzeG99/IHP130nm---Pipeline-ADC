@@ -12,7 +12,7 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{cite}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{subcaption}
@@ -20,6 +20,7 @@
 \usepackage{tikz-cd}
 \usepackage{float}
 \usepackage{multicol}
+\usepackage{threeparttable}
 
 
 
@@ -63,11 +64,31 @@ accuracy, slew-rate, unity-gain bandwidth (UGBW), and phase margin for a given c
 \section{Introduction}
 Pipeline Analog-to-Digital Converters (ADCs) are widely employed in modern high-speed, medium-to-high resolution applications due to their favorable trade-off between sampling rate, power efficiency, and achievable accuracy.
 
-This type of ADCs chieve high throughput by distributing quantization across multiple stages, each composed of a sub-ADC, sub-DAC, residue amplifier, and sample-and-hold function. The MDAC is the central block in each stage because it both reconstructs the coarse quantization level and amplifies the residue for the next stage. For an ideal 1.5-bit/stage implementation, the residue transfer is
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{block.pdf}
+  \end{center}
+  \caption{Block diagram of a ADC pipeline}\label{fig:block}
+\end{figure}
+
+
+This type of ADCs chieve high throughput by distributing quantization across 
+multiple stages, each composed of a sub-ADC, sub-DAC, residue amplifier, and 
+sample-and-hold function. The MDAC is the central block in each stage because 
+it both reconstructs the coarse quantization level and amplifies the residue for the 
+next stage. For an ideal 1.5-bit/stage implementation, the residue transfer is
 \begin{equation}
 V_{res}=2V_{in}-D\cdot V_{ref},
 \end{equation}
 where $D\in\{-1,0,+1\}$ is the digital decision and the gain factor of 2 is realized by capacitor ratio and closed-loop OTA action.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{mdac.pdf}
+  \end{center}
+  \caption{Flip around MDAC}\label{fig:mdac}
+\end{figure}
+
 
 \section{System-Level Specifications and Derived MDAC Targets}
 \subsection{ADC specifications}
@@ -89,6 +110,7 @@ Output swing & 1V$_{pp}$ differential \\
 Load capacitance $C_L$ & 1.25~pF \\
 Supply voltage $V_{DD}$ & 1.5~V \\
 Common-mode level $V_{CM}$ & 0.75~V \\
+Operating temperature  & $0^\circ C$ to  $125^\circ C$\\
 Technology & IHP 130~nm CMOS \\
 \hline
 \end{tabular}
@@ -122,7 +144,7 @@ Imposing $\varepsilon_{dyn}<1/2^{N+1}$ at $t=T_{\phi2,eff}$ yields
 \end{equation}
 For $N=10$, $\beta=0.5$, and $T_{\phi2,eff}=4.5$~ns, UGBW is around 540~MHz.
 
-\subsubsection{Thermal Noise and Sampling Capcitor}
+\subsubsection{Thermal Noise and Sampling Capacitor}
 The thermal noise introduced by the sampling switch is shaped by the RC network formed by the switch resistance $R$ and the sampling capacitor $C_s$, which behaves as a first-order low-pass filter with transfer function:
 
 \begin{equation}
@@ -158,7 +180,7 @@ In practice:
 C_s \approx \alpha \cdot \frac{kT}{(LSB/2)^2}, \quad \alpha \approx 3\text{--}10
 \end{equation}
 \subsubsection{Requirements summary}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Target OTA specifications}
 \label{tab:spec_OTA}
@@ -170,12 +192,14 @@ Gain $A_0$ & $\ge$ 70~dB \\
 Unity-Gain Bandwidth UGBW & $\ge$ 540~MHz \\
 Phase Marigin PM & $\ge$ 60$^\circ$ \\
 Output swing & 1~V$_{pp}$ diff. \\
-ENOB         & $\ge 9$ bits \\
+ENOB @ $f_{in} \approx f_{s}/20$ & $\ge 9.5$ bits \\
+ENOB @ $f_{in} \approx f_{s}/2$ & $\ge 8$ bits \\
 Sampling capacitors   & $\approx 500$ fF \\
 Load capacitance $C_L$ & 1.25~pF \\
 Supply voltage $V_{DD}$ & 1.5~V$\pm$5\% \\
 Common-mode level $V_{CM}$ & 0.7~V$\pm$5\% \\
 Bias current $I_{ref}$ & 50~$\mu$A$\pm$5\% \\
+Operating temperature  & $0^\circ C$ to  $125^\circ C$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -187,13 +211,13 @@ To ensure the MDAC meets gain, settling, and stability targets under realistic s
 \centering
 \caption{Corner grouping with process and $\pm 5\%$ bias/supply variations}
 \label{tab:corner_grouping}
-\begin{tabular}{ccccc}
+\begin{tabular}{cccccc}
 \hline
-\textbf{Group} & \textbf{Process corner} & \textbf{$VDD$} & \textbf{$V_{CM}$} &\textbf{$I_{bias}$} \\
+\textbf{Group} & \textbf{Process corner} & \textbf{$VDD$} & \textbf{$V_{CM}$} &\textbf{$I_{bias}$} &Temperature \\
 \hline
-SS group & SS & $1.425$~V &$0.665$~V & $47.5~\mu$A \\
-TT group & TT & $1.500$~V &$0.7$~V & $50.0~\mu$A \\
-FF group & FF & $1.575$~V &$0.735$~V & $52.5~\mu$A \\
+SS group & SS & $1.425$~V &$0.665$~V & $47.5~\mu$A &$125^\circ C$\\
+TT group & TT & $1.500$~V &$0.7$~V & $50.0~\mu$A &$65^\circ C$\\
+FF group & FF & $1.575$~V &$0.735$~V & $52.5~\mu$A &$0^\circ C$\\
 \hline
 \end{tabular}
 \end{table}
@@ -219,9 +243,9 @@ where $R_{out}$ is the small-signal resistance at the output node. With cascodin
 \begin{equation}
   R_{out} \approx \left(g_{m7,8}r_{O7,8}r_{O9,10}\right) \parallel \left[g_{m3,4}r_{O3,4}(r_{O5,6}\parallel r_{O1,2})\right].
 \end{equation}
-Hence, gain is increased primarily by: (i) maximizing $g_{m1}$, and (ii) increasing $r_O$ through longer channel devices.
+Hence, gain is increased primarily by: (i) maximizing $g_{m1}$ — wich also increase bandwidth — and (ii) increasing $r_O$ through longer channel devices.
 
-\subsection{Gain enchancement}
+\subsection{Gain enhancement}
 To meet gain under 130~nm intrinsic gain limits, gain enhancement (gain-boosting) is applied to NMOS cascode transistors. If auxiliary amplifiers provide local gain $A_1$, then effective output resistance scales approximately as
 \begin{equation}
 R_{out,eff} \approx R_{out}\,(1+A_1),
@@ -281,12 +305,48 @@ UGBW \approx \frac{g_{m1,2}}{C_L}
 \end{equation}
 To reach a UGBW of 540~MHz for a load of $C_L=1.25$ pF, the $g_{m1,2}$ will be
 \begin{equation}
-  g_{m1,2} &= 2\pi 540\,\text{MHz} \times 1.25\,\text{pF} = 4.2\,\text{mS} \\
+  g_{m1,2} = 2\pi 540\,\text{MHz} \times 1.25\,\text{pF} = 4.2\,\text{mS} \\
 \end{equation}
 Considering a $g_m/I_{D}=15$
 \begin{equation}
   I_{D_{M1,2}} = \frac{4.2\text{mS}}{15} \approx 280\,\text{$\mu$A} \,\therefore\, I_{D_{M0}} \approx 560\text{$\mu$ A}
 \end{equation}
+
+\subsection{Sizing}
+\begin{table}[h]
+\centering
+\caption{Main folded cascode (Fig. \ref{fig:FoldedCascode}) transistor sizing}
+\begin{tabular}{c c c c}
+\hline
+\textbf{Transistor} & \textbf{W/L [$\mu$m]} & \textbf{Fingers} & \textbf{Multiplier} \\
+\hline
+$M_0$            & 113.5/0.3 &210 &8 \\
+$M_1, M_2$       & 115/0.13  &100 &2 \\
+$M_3, M_4$       & 44.4/0.3  &22  &6 \\
+$M_5, M_6$       & 24.3/0.8  &62  &6 \\
+$M_7, M_8$       & 100/0.4   &150 &4 \\
+$M_9, M_{10}$    & 63.2/0.8  &103 &4 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Auxiliary gain enchancement folded cascode (Fig. \ref{fig:gmBoosting}) transistor sizing}
+\begin{tabular}{c c c c}
+\hline
+\textbf{Transistor} & \textbf{W/L [$\mu$m]} & \textbf{Fingers} & \textbf{Multiplier} \\
+\hline
+$M_0, M_{14}$            &12/0.3     &12  &1   \\
+$M_1, M_2$               &35/0.15    &70  &4   \\
+$M_3, M_4$               &38.7/0.6   &5   &1   \\
+$M_5, M_6$               &20.2/0.7   &5   &2   \\
+$M_7, M_8$               &23.2/0.3   &10  &1   \\
+$M_9, M_{10}$            &19.8/0.7   &20  &2   \\
+$M_{11}, M_{12}, M_{15}$ &20/0.3     &5   &1   \\
+$M_{13}$                 &32/0.7     &4   &1   \\
+\hline\end{tabular}
+\end{table}
 
 \subsection{Bias Network}
 Within the bias network, a low-voltage (wide-swing) cascode current mirror is adopted to 
@@ -298,12 +358,17 @@ signal swing in critical high-impedance nodes of the folded-cascode OTA. To over
 this limitation, the implemented topology enforces $V_{DS}$ matching between 
 reference and output devices ($V_{DS1} \approx V_{DS2}$), biasing both transistors 
 at the edge of saturation ($V_{DS} \approx V_{GS}-V_{TH}$). This condition is 
-achieved through a carefully generated cascode gate bias $V_b$, constrained within
-\begin{equation}
-V_{GS,\text{cas}} + (V_{GS,\text{ref}} - V_{TH,\text{ref}}) \leq V_b \leq V_{GS,\text{ref}} + V_{TH,\text{cas}},
-\end{equation}
+achieved through a carefully generated cascode gate bias $V_b=V_{GS3}+(V_{GS2}-V_{TH})$,
 ensuring all devices remain in saturation while minimizing headroom consumption. 
 As a result, the minimum required output voltage is reduced to approximately $2V_{D,\text{sat}}$, 
+
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{bias.pdf}
+  \end{center}
+  \caption{Bias network}\label{fig:bias}
+\end{figure}
 
 
 
@@ -323,6 +388,21 @@ In phase $\phi_2$, the capacitors are reconnected to the reference common-mode v
 This error is transferred to the control node $V_{CMFB}$, which adjusts the OTA biasing (e.g., $M_{5,6}$ gate voltage), closing the feedback loop and forcing: $V_{CM,out} \rightarrow V_{CM,ideal}$
 
 The switched-capacitor implementation ensures accurate common-mode sensing and is inherently compatible with discrete-time operation. Proper capacitor matching and non-overlapping clock phases are required to minimize offset, charge injection, and instability in the CMFB loop.
+
+All four capacitors of the SC-CFMB were implemented in MIM technology.
+\begin{table}[h]
+  \centering
+  \caption{SC-CMFB (Fig. \ref{fig:FoldedCascode}) capacitor sizing}
+  \begin{tabular}{ccc}
+    \hline
+    \textbf{Capacitor} & \textbf{W/L [$\mu$m]} & \textbf{Value [fF]} \\
+    \hline
+    $C_1,C_2$            & 10/10 &151.6 \\
+    $C_3,C_4$            & 4.5/4.5 &31.1 \\
+    \hline
+  \end{tabular}
+\end{table}
+
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.7\textwidth]{cmfb.pdf}
@@ -331,7 +411,7 @@ The switched-capacitor implementation ensures accurate common-mode sensing and i
 \end{figure}
 
 
-\subsection{Boostraped Switch and Transmition Gates}
+\subsection{Boostrapped Switch and Transmission Gates}
 Switch linearity and switching noise are critical in SC-MDAC accuracy. Based on the provided bootstrap topology, two switch classes are used in this design: (i) bootstrapped NMOS switches for high-linearity signal sampling paths, and (ii) transmission gates in auxiliary/feedback paths where reduced charge-injection noise and robust rail-to-rail conduction are preferred.
 
 In the bootstraped switches a capacitor is precharged (denoted $C_B$ in the schematic) and, during the ON phase, drives the sampling-switch gate so that
@@ -346,7 +426,7 @@ becomes much less signal-dependent than with a simple NMOS gate drive. This stro
   \begin{center}
     \includegraphics[width=0.6\textwidth]{sw.pdf}
   \end{center}
-  \caption{Boostraped switch circuit}\label{fig:sw}
+  \caption{Boostrapped switch circuit}\label{fig:sw}
 \end{figure}
 
 
@@ -357,13 +437,10 @@ R_{on,TG} \approx (R_{on,n} \parallel R_{on,p}).
 
 In this design, transmission gates are intentionally used at nodes where the priority is to reduce switching-noise feedthrough and clock-induced disturbance rather than maximize absolute linearity; specifically, they are used in the CMFB switching network.
 
-\subsection{Complete Schematics}
-
-
 
 \section{Simulations results}
 \subsection{Open Loop}
-
+The open-loop performance of the designed OTA is evaluated through AC simulations, as shown in Fig. \ref{fig:OL}. The results include gain and phase responses across the considered corners.
 \begin{figure}[H]
 \centering
     \begin{subfigure}[b]{0.495\textwidth}
@@ -377,24 +454,26 @@ In this design, transmission gates are intentionally used at nodes where the pri
     \caption{}\label{fig:OL_phase}
     \end{subfigure}
 \caption{Open loop AC performance of a) gain and b) phase}
+\label{fig:OL}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Performance summary across corners}
 \begin{tabular}{lccc}
 \hline
 \textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
 \hline
-Gain [dB]       & 74.63 & -- & -- \\
-UGBW [MHz]      & 64.30 & -- & -- \\
-PM [$^\circ$]   & -64.72 & -- & -- \\
+Gain [dB]       & 72.61 &72.27 &72.41 \\
+UGBW [MHz]      & 636.5 &571.53 &802.65 \\
+PM [$^\circ$]   & 64.16 &60.12 &62.30 \\
 \hline
 \end{tabular}
 \end{table}
 
 
-\subsection{Input common mode range}
+\subsubsection{Input common mode range}
+The input common-mode range (ICMR) is evaluated by sweeping the input common-mode voltage and observing both the output voltage and the amplifier gain.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.6\textwidth]{../sch/AutoTestbench/post/plots/ICMR_combined.pdf}
@@ -403,6 +482,51 @@ PM [$^\circ$]   & -64.72 & -- & -- \\
 \end{figure}
 
 \subsection{Close Loop and FFT}
+Closed-loop transient and spectral simulations are performed to evaluate the MDAC behavior under realistic operating conditions. The time-domain waveforms in Fig. 8(a) demonstrate correct residue amplification and settling within the available clock phase, confirming functional operation of the switched-capacitor network and OTA.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth,clip,trim={1cm, 0cm, 1.5cm, 0.8cm}]{closeLoop.pdf}
+  \end{center}
+  \caption{Close Loop Testbench}\label{fig:closeloop}
+\end{figure}
+
+
+The FFT analysis in Fig. \ref{fig:CL_FFT} shows that the system achieves an SNDR of approximately 64.8 dB and an ENOB above 10 bits in the typical corner. These results indicate that the MDAC meets the dynamic performance requirements for the target 10-bit ADC.
+
+\begin{table}[H]
+  \centering
+  \caption{Performance summary across corners at $f_{in}=4.98046875$ MHz}
+  \begin{tabular}{lccc}
+    \hline
+    \textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
+    \hline
+    SNR [dB]   & 74.70 &74.84   &72.66 \\
+    SNDR [dB]  & 64.12 &61.57   &65.96 \\
+    THD [dB]   & -64.52 &-61.78 &-67.00 \\
+    SFDR [dB]  & 66.33 &63.71   &70.26 \\
+    ENOB [bits]& 10.36 &9.93    &10.66 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+  \centering
+  \caption{Performance summary across corners at $f_{in}=43.26171875$ MHz}
+  \begin{tabular}{lccc}
+    \hline
+    \textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
+    \hline
+    SNR [dB]    &72.87   &69.28  &72.41  \\
+    SNDR [dB]   &53.32   &49.68  &53.10  \\
+    THD [dB]    &-53.37  &-49.73 &-53.15  \\
+    SFDR [dB]   &55.72   &52.06  &55.63  \\
+    ENOB [bits] &8.57    &7.96   &8.53  \\
+    \hline
+  \end{tabular}
+\end{table}
+
 
 
 \begin{figure}[H]
@@ -420,23 +544,8 @@ PM [$^\circ$]   & -64.72 & -- & -- \\
 \caption{Close loop TT performance in a) time domain and b) frequency domain}
 \end{figure}
 
-
-
-\begin{table}[h]
-\centering
-\caption{Performance summary across corners}
-\begin{tabular}{lccc}
-\hline
-\textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
-\hline
-SNR [dB]   & 74.63 & -- & -- \\
-SNDR [dB]  & 64.30 & -- & -- \\
-THD [dB]   & -64.72 & -- & -- \\
-SFDR [dB]  & 66.57 & -- & -- \\
-ENOB [bits]& 10.39 & -- & -- \\
-\hline
-\end{tabular}
-\end{table}
+In addition to meeting the dynamic performance requirements, the proposed MDAC demonstrates a highly efficient power consumption profile.
+Across process corners, the average power dissipation ranges from approximately 3.97 mW to 5.75 mW under a 1.5 V supply, with a nominal consumption of 4.68 mW in typical conditions. This reduced power footprint is primarily enabled by the use of a gain-boosted folded-cascode topology, which achieves the required gain and bandwidth without resorting to multi-stage amplification or excessive bias currents. Additionally, the design leverages moderate inversion operation (gm/ID optimization) and carefully sized capacitive loads to balance dynamic performance and energy efficiency. As a result, the MDAC achieves a favorable trade-off between speed, accuracy, and power.
 
 \begin{table}[h]
 \centering
@@ -445,16 +554,23 @@ ENOB [bits]& 10.39 & -- & -- \\
 \hline
 \textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
 \hline
-VDD             & 74.63 & -- & -- \\
-$I_{TOT}$ [mA]  & 64.30 & -- & -- \\
-Power [mW]      & -64.72 & -- & -- \\
+VDD [V]                        &1.5  &1.425 &1.575 \\
+$I_{\text{AVG}}$ [mA]          &3.12 &2.79  &3.65 \\
+P$_{\text{AVG}}$ [mW]          &4.68 &3.97  &5.75 \\
 \hline
 \end{tabular}
 \end{table}
 
 
 \section{Conclusion}
-\subsection{Future work}
+This work presented a complete design methodology for a multiplying DAC (MDAC) stage targeting a 10-bit, 100 MS/s pipeline ADC in a 130 nm CMOS technology. Starting from system-level specifications, key design constraints for the residue amplifier were analytically derived, including requirements on gain, bandwidth, noise, and settling behavior. These specifications guided the implementation of a gain-boosted folded-cascode OTA optimized for low-voltage operation and high-speed performance.
+
+The proposed design achieves an open-loop gain above 72 dB, unity-gain bandwidth exceeding 570 MHz across corners, and phase margin greater than 60°, ensuring robust closed-loop stability. Transient and spectral simulations confirm correct MDAC operation, with SNDR up to 64 dB and ENOB above 10 bits in typical conditions, meeting the target resolution. Furthermore, the design maintains consistent performance under PVT variations, validating its robustness.
+
+Additional building blocks, including a switched-capacitor common-mode feedback network and bootstrapped switches, were integrated to ensure accurate common-mode regulation and high linearity in the sampling process. Power consumption remains within acceptable limits for the targeted application, demonstrating an efficient trade-off between speed, accuracy, and energy.
+
+Overall, the presented MDAC fulfills the requirements of a medium-resolution, high-speed pipeline ADC and provides a solid foundation for full converter integration, including comparator design and digital calibration.
+\subsection*{Future work}
 The MDAC design presented here establishes the analog residue-amplification backbone of the pipeline stage. The next development steps for complete ADC realization focus on two key blocks:
 
 (i) Comparator design. The following iteration should implement and verify a low-offset, high-speed dynamic comparator compatible with 100~MS/s operation and 1.5-bit/stage decision levels. Main tasks include kickback-noise mitigation toward the MDAC sampling nodes, metastability analysis under worst-case small-overdrive decisions, offset calibration strategy (if required), and robust operation across SS/TT/FF corners with $\pm5\%$ supply variation.

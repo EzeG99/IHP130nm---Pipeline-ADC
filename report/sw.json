@@ -300,7 +300,8 @@
                 }
             ],
             "stroke": {
-                "width": "0.4pt"
+                "width": "0.4pt",
+                "style": "dashed"
             },
             "directions": [
                 "|-",
@@ -329,7 +330,8 @@
                 }
             ],
             "stroke": {
-                "width": "0.4pt"
+                "width": "0.4pt",
+                "style": "dashed"
             },
             "directions": [
                 "-|",
