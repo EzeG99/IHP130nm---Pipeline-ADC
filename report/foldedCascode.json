@@ -963,6 +963,38 @@
                 "innerSep": "2.3pt",
                 "showPlaceholderText": true
             }
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 302.362,
+                "y": -255.874
+            },
+            "id": "circ"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 302.362,
+                "y": -401.386
+            },
+            "id": "circ"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 491.339,
+                "y": -283.465
+            },
+            "id": "circ"
+        },
+        {
+            "type": "node",
+            "position": {
+                "x": 585.827,
+                "y": -283.465
+            },
+            "id": "circ"
         }
     ]
 }

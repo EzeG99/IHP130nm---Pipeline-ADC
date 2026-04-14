@@ -1114,4 +1114,40 @@
             </g>
         </g>
     </g>
+    <g class="">
+        <use
+            xlink:href="#node_circ"
+            fill="none"
+            stroke="#000"
+            style="color: #000;"
+            transform="matrix(1,0,0,1,299.98014,-258.25586)"
+        />
+    </g>
+    <g class="">
+        <use
+            xlink:href="#node_circ"
+            fill="none"
+            stroke="#000"
+            style="color: #000;"
+            transform="matrix(1,0,0,1,299.98014,-403.76786000000004)"
+        />
+    </g>
+    <g class="">
+        <use
+            xlink:href="#node_circ"
+            fill="none"
+            stroke="#000"
+            style="color: #000;"
+            transform="matrix(1,0,0,1,488.9567226771653,-285.8464269291338)"
+        />
+    </g>
+    <g class="">
+        <use
+            xlink:href="#node_circ"
+            fill="none"
+            stroke="#000"
+            style="color: #000;"
+            transform="matrix(1,0,0,1,583.4449116535433,-285.8464269291338)"
+        />
+    </g>
 </svg>

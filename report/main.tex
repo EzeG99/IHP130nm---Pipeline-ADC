@@ -1,5 +1,4 @@
 \documentclass[11pt,a4paper]{article}
-
 % ===============================
 % Packages
 % ===============================
@@ -12,7 +11,7 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{cite}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{subcaption}
@@ -21,8 +20,8 @@
 \usepackage{float}
 \usepackage{multicol}
 \usepackage{threeparttable}
-
-
+\usepackage{threeparttable}
+\usepackage{cite}
 
 % ===============================
 % Title
@@ -52,7 +51,7 @@
 
 % =========================================================
 \begin{abstract}
-This paper presents the complete design flow of a MDAC stage for a medium-resolution, high-speed pipeline 
+This work presents the complete design flow of a MDAC stage for a 10 bits, 100 M/s
 ADC implemented in IHP 130~nm CMOS usign open source tools. 
 The target converter operates at 1.5V, 100~MS/s with 10-bit resolution and 1V$_{pp}$ 
 differential output swing, with robust operation across process, voltage, and temperature (PVT) corners.
@@ -62,7 +61,8 @@ accuracy, slew-rate, unity-gain bandwidth (UGBW), and phase margin for a given c
 \end{abstract}
 
 \section{Introduction}
-Pipeline Analog-to-Digital Converters (ADCs) are widely employed in modern high-speed, medium-to-high resolution applications due to their favorable trade-off between sampling rate, power efficiency, and achievable accuracy.
+Pipeline Analog-to-Digital Converters (ADCs) are in modern high-speed, medium-to-high resolution 
+applications due to their favorable trade-off between sampling rate, power efficiency, and achievable accuracy.
 
 \begin{figure}[H]
   \begin{center}
@@ -72,9 +72,9 @@ Pipeline Analog-to-Digital Converters (ADCs) are widely employed in modern high-
 \end{figure}
 
 
-This type of ADCs chieve high throughput by distributing quantization across 
-multiple stages, each composed of a sub-ADC, sub-DAC, residue amplifier, and 
-sample-and-hold function. The MDAC is the central block in each stage because 
+As described in \cite{razavi_data_converters}, this type of ADCs achieve high throughput by distributing quantization across 
+multiple stages as shown in Fig. \ref{fig:block}, each composed of a sub-ADC, sub-DAC, residue amplifier, and 
+sample-and-hold function. The MDAC (Fig. \ref{fig:mdac}) is the central block in each stage because 
 it both reconstructs the coarse quantization level and amplifies the residue for the 
 next stage. For an ideal 1.5-bit/stage implementation, the residue transfer is
 \begin{equation}
@@ -92,11 +92,11 @@ where $D\in\{-1,0,+1\}$ is the digital decision and the gain factor of 2 is real
 
 \section{System-Level Specifications and Derived MDAC Targets}
 \subsection{ADC specifications}
-The intended converter targets are summarized in Table~\ref{tab:spec}.
+The intended converter parameters are summarized in Table~\ref{tab:spec}, while operating conditions are outlined in Table \ref{tab:conditions}.
 
 \begin{table}[h]
 \centering
-\caption{Target system specifications}
+\caption{System specifications}
 \label{tab:spec}
 \begin{tabular}{lc}
 \hline
@@ -107,11 +107,24 @@ Structure & Fully differential \\
 Resolution & 10 bits \\
 Sampling rate $f_s$ & 100~MS/s \\
 Output swing & 1V$_{pp}$ differential \\
+Technology & IHP 130~nm CMOS \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\caption{System operating conditions}
+\label{tab:conditions}
+\begin{tabular}{lc}
+\hline
+\textbf{Condition} & \textbf{Value} \\
+\hline
 Load capacitance $C_L$ & 1.25~pF \\
 Supply voltage $V_{DD}$ & 1.5~V \\
-Common-mode level $V_{CM}$ & 0.75~V \\
+Common-mode level $V_{CM}$ & 0.7~V \\
 Operating temperature  & $0^\circ C$ to  $125^\circ C$\\
-Technology & IHP 130~nm CMOS \\
 \hline
 \end{tabular}
 \end{table}
@@ -145,7 +158,7 @@ Imposing $\varepsilon_{dyn}<1/2^{N+1}$ at $t=T_{\phi2,eff}$ yields
 For $N=10$, $\beta=0.5$, and $T_{\phi2,eff}=4.5$~ns, UGBW is around 540~MHz.
 
 \subsubsection{Thermal Noise and Sampling Capacitor}
-The thermal noise introduced by the sampling switch is shaped by the RC network formed by the switch resistance $R$ and the sampling capacitor $C_s$, which behaves as a first-order low-pass filter with transfer function:
+According to \cite{kledrowetz_mdac_2011}, the thermal noise introduced by the sampling switch is shaped by the RC network formed by the switch resistance $R$ and the sampling capacitor $C_s$, which behaves as a first-order low-pass filter with transfer function:
 
 \begin{equation}
 A(j\omega) = \frac{1}{1 + j\omega R C_s}
@@ -222,9 +235,11 @@ FF group & FF & $1.575$~V &$0.735$~V & $52.5~\mu$A &$0^\circ C$\\
 \end{tabular}
 \end{table}
 
+Future work will extend this approach to a full cartesian combination of these variables to ensure comprehensive coverage of all possible operating conditions.
+
 \section{Amplifier design}
 \subsection{Topology Selection}
-A folded cascode OTA with PMOS input pair is selected to maximize input common-mode range and reduce flicker noise. The PMOS input devices allow operation with input voltages close to ground, which is suitable for switched-capacitor MDAC environments. The folded structure provides high gain while maintaining moderate voltage headroom under low supply conditions.
+A folded cascode OTA with PMOS input pair (Fig. \ref{fig:FoldedCascode}) is selected to maximize input common-mode range and reduce flicker noise. The PMOS input devices allow operation with input voltages close to ground, which is suitable for switched-capacitor MDAC environments. The folded structure provides high gain while maintaining moderate voltage headroom under low supply conditions.
 
 The signal path consists of a PMOS differential pair with transconductance $g_{m1}$, whose currents are folded into NMOS cascode devices, producing a high output resistance node.
 \begin{figure}[H]
@@ -241,7 +256,7 @@ A_0 \approx g_{m1}R_{out},
 \end{equation}
 where $R_{out}$ is the small-signal resistance at the output node. With cascoding,
 \begin{equation}
-  R_{out} \approx \left(g_{m7,8}r_{O7,8}r_{O9,10}\right) \parallel \left[g_{m3,4}r_{O3,4}(r_{O5,6}\parallel r_{O1,2})\right].
+  R_{out} \approx \left(g_{m7,8}r_{O7,8}r_{O9,10}\right) \parallel \left[g_{m3,4}r_{O3,4}(r_{O5,6}\parallel r_{O1,2})\right]
 \end{equation}
 Hence, gain is increased primarily by: (i) maximizing $g_{m1}$ — wich also increase bandwidth — and (ii) increasing $r_O$ through longer channel devices.
 
@@ -260,9 +275,9 @@ Practical implementation must preserve stability; therefore gain-boosting amplif
 \end{figure}
 
 
-The auxiliary amplifier itself is implemented using a folded cascode topology, which provides high gain. Because the ouput swing is relative small, to stabilize its output common-mode voltage, a continuous-time common-mode feedback (CMFB) network based on MOS transistors operating in the triode region is employed. These devices act as voltage-controlled resistors, setting the output common-mode level without introducing significant additional poles.
+The auxiliary amplifier itself (Fig. \ref{fig:gmBoosting}) is implemented using a folded cascode topology, which provides high gain. Because the ouput swing is relative small, to stabilize its output common-mode voltage, a continuous-time common-mode feedback (CMFB) network based on MOS transistors operating in the triode region is employed. These devices act as voltage-controlled resistors, setting the output common-mode level without introducing significant additional poles.
 \subsection{Frequency response}
-The frequency response of the folded cascode OTA is analyzed using the node-pole association method, which allows identifying the dominant poles by associating each high-impedance node with its corresponding resistance and capacitance. Neglecting gain boosting effects, the response is dominated by three main nodes: the output node, the internal folding node $X$, and the input node.
+The frequency response of the folded cascode OTA is analyzed using the node-pole association method, which allows identifying the dominant poles by associating each high-impedance node with its corresponding resistance and capacitance. Neglecting gain boosting effects, the response is dominated by three main nodes: the output node, the internal folding node $X$ (noted in Fig. \ref{fig:FoldedCascode}), and the input node.
 
 The dominant pole is typically located at the output due to the large load capacitance $C_L$ and high output resistance $R_{out}$:
 
@@ -349,7 +364,7 @@ $M_{13}$                 &32/0.7     &4   &1   \\
 \end{table}
 
 \subsection{Bias Network}
-Within the bias network, a low-voltage (wide-swing) cascode current mirror is adopted to 
+Within the bias network, a low-voltage (wide-swing) cascode current mirror (Fig. \ref{fig:bias}) is adopted to 
 generate stable bias currents while preserving voltage headroom under the 1.5 V supply 
 constraint. Conventional cascode mirrors are unsuitable in this context because 
 they impose an excessive minimum output voltage, on the order 
@@ -373,7 +388,7 @@ As a result, the minimum required output voltage is reduced to approximately $2V
 
 
 \subsection{Switched capacitor common mode feedback}
-The switched-capacitor common-mode feedback (SC-CMFB) circuit regulates the output common-mode voltage by periodically sensing and correcting it through charge redistribution. During phase $\phi_1$, the sampling capacitors acquire the output common-mode level:
+The switched-capacitor common-mode feedback (SC-CMFB) circuit regulates the output common-mode voltage by periodically sensing and correcting it through charge redistribution (Fig. \ref{fig:cmfb}). During phase $\phi_1$, the sampling capacitors acquire the output common-mode level:
 
 \begin{equation}
 V_{CM,out} = \frac{V_{O1} + V_{O2}}{2}
@@ -412,7 +427,7 @@ All four capacitors of the SC-CFMB were implemented in MIM technology.
 
 
 \subsection{Boostrapped Switch and Transmission Gates}
-Switch linearity and switching noise are critical in SC-MDAC accuracy. Based on the provided bootstrap topology, two switch classes are used in this design: (i) bootstrapped NMOS switches for high-linearity signal sampling paths, and (ii) transmission gates in auxiliary/feedback paths where reduced charge-injection noise and robust rail-to-rail conduction are preferred.
+Switch linearity and switching noise are critical in SC-MDAC accuracy. Based on the provided bootstrap topology, two switch classes are used in this design: (i) bootstrapped NMOS switches for high-linearity signal sampling paths (Fig. \ref{fig:sw}), and (ii) transmission gates in auxiliary/feedback paths where reduced charge-injection noise and robust rail-to-rail conduction are preferred.
 
 In the bootstraped switches a capacitor is precharged (denoted $C_B$ in the schematic) and, during the ON phase, drives the sampling-switch gate so that
 $V_{GS,switch} \approx V_{DD}$ and, therefore,
@@ -420,7 +435,7 @@ approximately independent of input common-mode and instantaneous signal value. C
 \begin{equation}
 R_{on} \approx \frac{1}{\mu_n C_{ox}(W/L)(V_{GS}-V_{TH})}
 \end{equation}
-becomes much less signal-dependent than with a simple NMOS gate drive. This strongly reduces harmonic distortion and gain error due to sampling-time RC variation.
+becomes much less signal-dependent than with a simple NMOS gate drive. This strongly reduces harmonic distortion and gain error due to sampling-time RC variation. The design of this class of switches was carried out following the methodology described in \cite{razavi_bootstrap_2021}
 
 \begin{figure}[H]
   \begin{center}
@@ -440,7 +455,18 @@ In this design, transmission gates are intentionally used at nodes where the pri
 
 \section{Simulations results}
 \subsection{Open Loop}
-The open-loop performance of the designed OTA is evaluated through AC simulations, as shown in Fig. \ref{fig:OL}. The results include gain and phase responses across the considered corners.
+The open-loop performance of the designed OTA is evaluated through a dedicated testbench (Fig. \ref{fig:OL_TB}) 
+consisting of an AC simulation. Because the SC-CMFB is not included here, the $V_{CMFB}$ is manually 
+set to a voltage that produce the desire $V_{\text{CM, out}}$. Others approaches may be considered in future work.
+
+The results include gain and phase responses across the considered corners (Fig. \ref{fig:OL}) as well as measured values of interest in Table \ref{tab:OL_values}.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth, clip,trim={1cm 0cm 1cm 0.8cm}]{openLoop.pdf}
+  \end{center}
+  \caption{Open Loop Testbench}\label{fig:OL_TB}
+\end{figure}
+
 \begin{figure}[H]
 \centering
     \begin{subfigure}[b]{0.495\textwidth}
@@ -459,30 +485,32 @@ The open-loop performance of the designed OTA is evaluated through AC simulation
 
 \begin{table}[H]
 \centering
-\caption{Performance summary across corners}
-\begin{tabular}{lccc}
+\caption{Performance summary across corners}\label{tab:OL_values}
+\begin{tabular}{llccc}
 \hline
-\textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
+\textbf{Metric} &\textbf{Target} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
 \hline
-Gain [dB]       & 72.61 &72.27 &72.41 \\
-UGBW [MHz]      & 636.5 &571.53 &802.65 \\
-PM [$^\circ$]   & 64.16 &60.12 &62.30 \\
+Gain [dB]     &$\ge$ 70 dB  & 72.61 &72.27 &72.41 \\
+UGBW [MHz]    &$\ge$ 540 MHz & 636.5 &571.53 &802.65 \\
+PM [$^\circ$] &$\ge$ 60$^\circ$ & 64.16 &60.12 &62.30 \\
 \hline
 \end{tabular}
 \end{table}
 
 
-\subsubsection{Input common mode range}
-The input common-mode range (ICMR) is evaluated by sweeping the input common-mode voltage and observing both the output voltage and the amplifier gain.
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{../sch/AutoTestbench/post/plots/ICMR_combined.pdf}
-  \end{center}
-  \caption{}\label{fig:ICMR_combined}
-\end{figure}
+%\subsubsection{Input common mode range}
+%The input common-mode range (ICMR) is evaluated by sweeping the input common-mode voltage and observing both the output voltage and the amplifier gain.
+%\begin{figure}[H]
+%  \begin{center}
+%    \includegraphics[width=0.6\textwidth]{../sch/AutoTestbench/post/plots/ICMR_combined.pdf}
+%  \end{center}
+%  \caption{}\label{fig:ICMR_combined}
+%\end{figure}
 
 \subsection{Close Loop and FFT}
-Closed-loop transient and spectral simulations are performed to evaluate the MDAC behavior under realistic operating conditions. The time-domain waveforms in Fig. 8(a) demonstrate correct residue amplification and settling within the available clock phase, confirming functional operation of the switched-capacitor network and OTA.
+Closed-loop transient and spectral simulations are performed to evaluate the MDAC behavior under 
+realistic operating conditions. This was archived through the testbench show in Fig. \ref{fig:closeloop}. 
+The time-domain waveforms in Fig. \ref{fig:CL_wave} demonstrate correct residue amplification and settling within the available clock phase, confirming functional operation of the switched-capacitor network and OTA.
 
 \begin{figure}[H]
   \begin{center}
@@ -544,12 +572,13 @@ The FFT analysis in Fig. \ref{fig:CL_FFT} shows that the system achieves an SNDR
 \caption{Close loop TT performance in a) time domain and b) frequency domain}
 \end{figure}
 
-In addition to meeting the dynamic performance requirements, the proposed MDAC demonstrates a highly efficient power consumption profile.
+In addition to meeting the dynamic performance requirements, the proposed MDAC demonstrates a highly efficient power consumption profile (Table \ref{tab:consumption}).
 Across process corners, the average power dissipation ranges from approximately 3.97 mW to 5.75 mW under a 1.5 V supply, with a nominal consumption of 4.68 mW in typical conditions. This reduced power footprint is primarily enabled by the use of a gain-boosted folded-cascode topology, which achieves the required gain and bandwidth without resorting to multi-stage amplification or excessive bias currents. Additionally, the design leverages moderate inversion operation (gm/ID optimization) and carefully sized capacitive loads to balance dynamic performance and energy efficiency. As a result, the MDAC achieves a favorable trade-off between speed, accuracy, and power.
 
 \begin{table}[h]
 \centering
 \caption{Power consumption summary across corners}
+\label{tab:consumption}
 \begin{tabular}{lccc}
 \hline
 \textbf{Metric} & \textbf{TT} & \textbf{SS} & \textbf{FF} \\
@@ -580,7 +609,7 @@ The MDAC design presented here establishes the analog residue-amplification back
 At system level, future work should close the loop between these blocks and the current MDAC by means of full-stage and multi-stage behavioral/transistor co-simulation, so that static linearity, SNDR/ENOB, and calibration convergence can be validated simultaneously under PVT and Monte Carlo conditions.
 
 
-
-
+\bibliographystyle{IEEEtran}
+\bibliography{references.bib}{}
 
 \end{document}

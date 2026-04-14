@@ -195,13 +195,13 @@ C {code.sym} -360 920 0 0 {name=TRAN only_toplevel=false value="
 op
 tran 100p 12u 
 let vcm = (v(Vo1) + v(Vo2)) / 2
-meas tran vcm_avg AVG vcm FROM=2.5u TO=3u
+meas tran vcm_avg AVG vcm FROM=3u TO=4u
 let Vinn = v(Vi1_)-v(Vi2_)
 let Voutt = v(Vo1_)-v(Vo2_)
-meas tran vin_pp  PP Vinn from=2u to=3u
-meas tran vout_pp PP Voutt from=2u to=3u
+meas tran vin_pp  PP Vinn from=3u to=4u
+meas tran vout_pp PP Voutt from=3u to=4u
 
-meas tran Iavg AVG I(V1) from=2u to=3u
+meas tran Iavg AVG I(V1) from=3u to=4u
 let Pavg=$VDD*Iavg
 let Iavg_ = Iavg
 
